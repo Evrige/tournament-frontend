@@ -16,7 +16,6 @@ const LocaleSwitcher = () => {
 	}
 	return (
 		<label className="border-2 rounded">
-			<p>Change language</p>
 			<select className="bg-transparent py-2"
 							defaultValue={localActive}
 							onChange={onSelectChange}>

@@ -1,17 +1,21 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
+import { Noto_Sans} from "next/font/google";
 import "../../globals.css";
 import {ThemeProvider} from "next-themes";
 import {getMessages} from "next-intl/server";
 import {NextIntlClientProvider} from "next-intl";
 import React from 'react'
-import LocaleSwitcher from '@/app/components/locale-switcher'
+import LocaleSwitcher from '@/app/components/LocaleSwitcher'
 
-const inter = Inter({subsets: ["latin"]});
+const noto = Noto_Sans({subsets: ["latin"]})
 
 export const metadata: Metadata = {
 	title: "MTG",
 	description: "by Evrige",
+	icons: {
+		icon: "/favicon.ico",
+		apple: "/favicon.ico"
+	}
 };
 
 export default async function LocaleLayout({
@@ -24,15 +28,18 @@ export default async function LocaleLayout({
 	const messages = await getMessages();
 	return (
 		<html lang={locale} suppressHydrationWarning>
-		<body className={inter.className}>
-			<NextIntlClientProvider messages={messages}>
-				<ThemeProvider attribute="class" defaultTheme="system">
-					<header>
-						<LocaleSwitcher/>
-					</header>
-					{children}
-				</ThemeProvider>
-			</NextIntlClientProvider>
+		<head>
+			<link rel="icon" href="/favicon.ico" sizes="any"/>
+		</head>
+		<body className={noto.className}>
+		<NextIntlClientProvider messages={messages}>
+			<ThemeProvider attribute="class" defaultTheme="system">
+				{/*<header>*/}
+				{/*	<LocaleSwitcher/>*/}
+				{/*</header>*/}
+				{children}
+			</ThemeProvider>
+		</NextIntlClientProvider>
 		</body>
 
 		</html>
