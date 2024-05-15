@@ -1,5 +1,23 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "Logo": {
+    "alt": "Site logo"
+  },
+  "Menu": {
+    "home": "Home",
+    "more": "More",
+    "about": "About us",
+    "contacts": "Contacts",
+    "signIn": "Sign In",
+    "logout": "Logout",
+    "signUp": "Sign Up",
+    "profile": "Profile",
+    "games": "Games",
+    "tournaments": "Tournaments",
+    "Locale": {
+      "en": "English",
+      "ru": "Russian",
+      "ua": "Ukrainian"
+    }
   }
+
 }

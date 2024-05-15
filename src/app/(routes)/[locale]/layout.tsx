@@ -6,6 +6,7 @@ import {getMessages} from "next-intl/server";
 import {NextIntlClientProvider} from "next-intl";
 import React from 'react'
 import LocaleSwitcher from '@/app/components/LocaleSwitcher'
+import Header from '@/app/components/Header'
 
 const noto = Noto_Sans({subsets: ["latin"]})
 
@@ -34,9 +35,7 @@ export default async function LocaleLayout({
 		<body className={noto.className}>
 		<NextIntlClientProvider messages={messages}>
 			<ThemeProvider attribute="class" defaultTheme="system">
-				{/*<header>*/}
-				{/*	<LocaleSwitcher/>*/}
-				{/*</header>*/}
+				<Header/>
 				{children}
 			</ThemeProvider>
 		</NextIntlClientProvider>

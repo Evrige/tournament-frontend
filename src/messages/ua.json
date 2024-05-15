@@ -1,5 +1,23 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "Logo": {
+    "alt": "Логотип сайту"
+  },
+  "Menu": {
+    "home": "Головна",
+    "more": "Більше",
+    "about": "Про нас",
+    "contacts": "Контакти",
+    "signIn": "Увійти",
+    "logout": "Вийти",
+    "signUp": "Реєстрація",
+    "profile": "Профіль",
+    "games": "Ігри",
+    "tournaments": "Турніри",
+    "Locale": {
+      "en": "English",
+      "ru": "Русский",
+      "ua": "Українська"
+    }
   }
+
 }

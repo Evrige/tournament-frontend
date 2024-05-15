@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: #101F3C;
-    color: #8899b5;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+body {
+    background: #081325;
+    background: linear-gradient(35deg, #081325 0%, rgba(9,9,121,1) 65%, rgba(0,159,191,1) 100%);
+    background-size: 150% 150%;
+    animation: gradient 10s ease infinite;
+    color: #8899b5;
+    height: 100vh;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
 
