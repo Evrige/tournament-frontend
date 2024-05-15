@@ -1,11 +1,11 @@
 'use client'
-import React, { ChangeEvent, startTransition } from 'react'
-import { useLocale } from 'next-intl'
-import { usePathname, useRouter } from 'next/navigation'
+import React, {ChangeEvent, startTransition} from 'react'
+import {useLocale} from 'next-intl'
+import {usePathname, useRouter} from 'next/navigation'
 
 const LocaleSwitcher = () => {
 	const router = useRouter()
-	const localActive = useLocale()
+	const localeActive = useLocale()
 	const pathname = usePathname()
 	const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		const nextLocale = e.target.value
@@ -14,16 +14,15 @@ const LocaleSwitcher = () => {
 		})
 
 	}
+	console.log(localeActive) // ru or en or ua
 	return (
-		<label className="border-2 rounded">
-			<select className="bg-transparent py-2"
-							defaultValue={localActive}
-							onChange={onSelectChange}>
-				<option value="en">English</option>
-				<option value="ru">Russian</option>
-				<option value="ua">Ukraine</option>
-			</select>
-		</label>
+		<select className="bg-transparent py-2"
+						value={localeActive}
+						onChange={onSelectChange}>
+			<option value="en">English</option>
+			<option value="ru">Russian</option>
+			<option value="ua">Ukraine</option>
+		</select>
 	)
 }
 

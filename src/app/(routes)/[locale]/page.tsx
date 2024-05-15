@@ -29,7 +29,7 @@ export default function Home() {
 					<button className="hover:bg-bgPrimary hover:text-accentText py-2 px-3 text-xl text-primary rounded-[8px] mr-5">{dic("Menu.signIn")}</button>
 					<button className="hover:bg-accentText bg-primary py-2 px-3 text-xl text-bgSecondary rounded-[8px]">{dic("Menu.signUp")}</button>
 				</div>
-				<div>
+				<div className="flex items-center">
 					<FontAwesomeIcon icon={faGlobe} />
 					<LocaleSwitcher/>
 				</div>
