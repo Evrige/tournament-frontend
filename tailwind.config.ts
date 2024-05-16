@@ -7,7 +7,9 @@ const colors = {
   accentText: "#e6e7ea",
   bgPrimary: "#101F3C",
   bgSecondary: "#081325",
-  shadowColor: "#81e2fc"
+  shadowColor: "#81e2fc",
+  red: twColors.red,
+  transparent: twColors.transparent
 }
 
 const config: Config = {

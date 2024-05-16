@@ -47,7 +47,7 @@ const LocaleSwitcher = () => {
 			<ul
 					className={`${dropDownIsActive ? 'absolute' : 'hidden'} top-16 right-4 bg-bgPrimary rounded-[8px] p-5`}>
 				{localeLang.map(locale =>
-					<li key={locale.value} className="mb-3 mr-12" onClick={() => onChangeLocale(locale.value)}>
+					<li key={locale.value} className="mb-3 mr-12 cursor-pointer hover:text-accentText" onClick={() => onChangeLocale(locale.value)}>
 						{dic(locale.label)}
 					</li>
 				)}

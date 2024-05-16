@@ -22,6 +22,7 @@
   "Auth": {
     "signIn": "Вход",
     "signUp": "Создать аккаунт",
+    "emailField": "Email",
     "email": "Email не соответствует",
     "required": "Это поле обязательное",
     "emailError": "Email указан не верно",
