@@ -8,14 +8,20 @@ import AuthInput from '@/app/components/UI/AuthInput'
 import PasswordInput from '@/app/components/UI/PasswordInput'
 import AuthButton from '@/app/components/UI/AuthButton'
 import Link from 'next/link'
+import { IRegisterForm } from '@/app/types/form.interface'
+import useRegistration from '@/app/hooks/useRegistration'
+import { useRouter } from 'next/navigation'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
-	const initialValues = {
+	const registration = useRegistration()
+	const router = useRouter()
+	const initialValues: IRegisterForm = {
 		email: '',
 		nickname: '',
-		password: ''
+		password: '',
+		confirmPassword: ''
 	}
 
 	const validationSchema = Yup.object({
@@ -32,13 +38,19 @@ const Page: NextPage = () => {
 		confirmPassword: Yup.string()
 			.oneOf([Yup.ref('password')], dic('Auth.confirmPasswordError'))
 	})
-	// @ts-ignore
-	const handleSubmit = (values, { setSubmitting }) => {
-		setTimeout(() => {
-			alert(JSON.stringify(values, null, 2))
-			setSubmitting(false)
-		}, 400)
-	}
+
+	const handleSubmit =  async (values: IRegisterForm,
+															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
+
+		const { confirmPassword, ...formData } = values;
+		// @ts-ignore
+		const result = await registration.mutateAsync(formData, {
+			onSuccess: () => {
+				router.replace("/")
+				setSubmitting(false);
+			}
+		})
+	};
 	return (
 		<div className="flex justify-center items-center h-screen">
 			<Formik

@@ -4,13 +4,19 @@ import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { NextPage } from 'next'
 import { useTranslations } from 'next-intl'
+
 import AuthInput from '@/app/components/UI/AuthInput'
 import PasswordInput from '@/app/components/UI/PasswordInput'
 import AuthButton from '@/app/components/UI/AuthButton'
+import useLogin from '@/app/hooks/useLogin'
+import { ILoginForm } from '@/app/types/form.interface'
+import { useRouter } from 'next/navigation'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
-	const initialValues = {
+	const router = useRouter()
+	const login = useLogin()
+	const initialValues: ILoginForm = {
 		email: '',
 		password: ''
 	}
@@ -22,13 +28,18 @@ const Page: NextPage = () => {
 			.max(16, dic('Auth.passwordErrorMax'))
 			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/, dic('Auth.passwordError'))
 	})
-	// @ts-ignore
-	const handleSubmit = (values, { setSubmitting }) => {
-		setTimeout(() => {
-			alert(JSON.stringify(values, null, 2))
-			setSubmitting(false)
-		}, 400)
-	}
+
+	const handleSubmit =  async (values: ILoginForm,
+															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
+		// @ts-ignore
+		const result = await login.mutateAsync(values, {
+			onSuccess: () => {
+				router.replace("/")
+        setSubmitting(false);
+      }
+		})
+	};
+
 	return (
 		<div className="flex justify-center items-center h-screen">
 			<Formik
@@ -41,8 +52,8 @@ const Page: NextPage = () => {
 					<AuthInput labelText={dic('Auth.emailField')} type="email" placeholder={dic('Auth.emailField')}
 										 name="email" />
 					<PasswordInput labelText={dic('Auth.password')} placeholder={dic('Auth.password')} name="password" />
-					<AuthButton title={dic('Auth.signIn')}/>
-					<p className="text-center mt-3 underline">{dic("Auth.forgotPassword")}</p>
+					<AuthButton title={dic('Auth.signIn')} />
+					<p className="text-center mt-3 underline">{dic('Auth.forgotPassword')}</p>
 				</Form>
 			</Formik>
 		</div>
