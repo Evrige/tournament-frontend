@@ -18,6 +18,25 @@
       "ru": "Russian",
       "ua": "Ukrainian"
     }
+  },
+  "Auth": {
+    "signIn": "Вход",
+    "signUp": "Создать аккаунт",
+    "emailField": "Email",
+    "email": "Email не соответствует",
+    "required": "Это поле обязательное",
+    "emailError": "Email указан не верно",
+    "password": "Пароль",
+    "passwordErrorMin": "Минимальная длина 6 символов",
+    "passwordErrorMax": "Максимальная длина 16 символов",
+    "passwordError": "Пароль должен иметь цифры и буквы",
+    "confirmPassword": "Подтвердите пароль",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "createAccount": "Создать аккаунт?",
+    "forgotPassword": "Забыли пароль?",
+    "resetPassword": "Сбросить пароль",
+    "resetPasswordSuccess": "Пароль успешно сброшен",
+    "resetPasswordError": "Ошибка при сбросе пароля"
   }
 
 }

@@ -9,6 +9,7 @@ const colors = {
   bgSecondary: "#081325",
   shadowColor: "#81e2fc",
   red: twColors.red,
+  gray: twColors.gray,
   transparent: twColors.transparent
 }
 
@@ -30,6 +31,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      skew: {
+        '17': '17deg',
+      }
     },
   },
   plugins: [],

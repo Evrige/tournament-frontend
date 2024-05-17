@@ -12,7 +12,7 @@ const Header = () => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
 	return (
-		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7">
+		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full">
 			<Logo />
 			<div className="flex items-center gap-10 max-md:hidden max-lg:text-sm">
 				<nav>
@@ -27,10 +27,12 @@ const Header = () => {
 				<div>
 					<button
 						className="hover:bg-bgPrimary hover:text-accentText py-2 px-3 text-xl text-primary rounded-[8px] mr-5 max-lg:text-sm">
-						<Link href={`${localeActive}/login`} locale={localeActive}>{dic('Menu.signIn')}</Link>
+						<Link href={`/${localeActive}/login`} locale={localeActive}>{dic('Menu.signIn')}</Link>
 					</button>
 					<button
-						className="hover:bg-accentText bg-primary py-2 px-3 text-xl text-bgSecondary rounded-[8px] max-lg:text-sm">{dic('Menu.signUp')}</button>
+						className="hover:bg-accentText bg-primary py-2 px-3 text-xl text-bgSecondary rounded-[8px] max-lg:text-sm">
+						<Link href={`/${localeActive}/registration`} locale={localeActive}>{dic('Menu.signUp')}</Link>
+					</button>
 				</div>
 				<LocaleSwitcher />
 			</div>

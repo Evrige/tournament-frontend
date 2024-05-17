@@ -9,7 +9,7 @@
 }
 body {
     background: #081325;
-    background: linear-gradient(35deg, #081325 0%, rgba(9,9,121,1) 65%, rgba(0,159,191,1) 100%);
+    background: linear-gradient(35deg, #081325 0%, rgba(9,9,121,1) 65%, #009fbf 100%);
     background-size: 150% 150%;
     animation: gradient 10s ease infinite;
     color: #8899b5;

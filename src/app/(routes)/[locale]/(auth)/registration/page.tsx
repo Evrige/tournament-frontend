@@ -3,24 +3,34 @@ import React from 'react'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { NextPage } from 'next'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import AuthInput from '@/app/components/UI/AuthInput'
 import PasswordInput from '@/app/components/UI/PasswordInput'
 import AuthButton from '@/app/components/UI/AuthButton'
+import Link from 'next/link'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
+	const localeActive = useLocale()
 	const initialValues = {
 		email: '',
+		nickname: '',
 		password: ''
 	}
 
 	const validationSchema = Yup.object({
 		email: Yup.string().email(dic('Auth.email')).required(dic('Auth.required')),
+		nickname: Yup.string()
+			.required(dic('Auth.required'))
+			.min(3, dic('Auth.nicknameMin'))
+			.max(16, dic('Auth.nicknameMax'))
+			.matches(/^[a-zA-Z0-9]+$/, dic('Auth.nicknameError')),
 		password: Yup.string().required(dic('Auth.required'))
 			.min(6, dic('Auth.passwordErrorMin'))
 			.max(16, dic('Auth.passwordErrorMax'))
-			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/, dic('Auth.passwordError'))
+			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/, dic('Auth.passwordError')),
+		confirmPassword: Yup.string()
+			.oneOf([Yup.ref('password')], dic('Auth.confirmPasswordError'))
 	})
 	// @ts-ignore
 	const handleSubmit = (values, { setSubmitting }) => {
@@ -37,12 +47,20 @@ const Page: NextPage = () => {
 				onSubmit={handleSubmit}
 			>
 				<Form className="flex flex-col w-1/3">
-					<h1 className="text-accentText text-4xl text-center mb-10">{dic('Auth.signIn')}</h1>
+					<h1 className="text-accentText text-4xl text-center mb-10">{dic('Auth.signUp')}</h1>
+					<p className="text-center text-accentText">{dic('Auth.alreadyHaveAccount')}
+						<Link
+							href={`/${localeActive}/login`} locale={localeActive} className="text-primary"> {dic('Menu.signIn')}
+						</Link>
+					</p>
+					<AuthInput labelText={dic('Auth.nickname')} type="text" placeholder={dic('Auth.nickname')}
+										 name="nickname" />
 					<AuthInput labelText={dic('Auth.emailField')} type="email" placeholder={dic('Auth.emailField')}
 										 name="email" />
 					<PasswordInput labelText={dic('Auth.password')} placeholder={dic('Auth.password')} name="password" />
-					<AuthButton title={dic('Auth.signIn')}/>
-					<p className="text-center mt-3 underline">{dic("Auth.forgotPassword")}</p>
+					<PasswordInput labelText={dic('Auth.rePassword')} placeholder={dic('Auth.rePassword')}
+												 name="confirmPassword" />
+					<AuthButton title={dic('Auth.signUp')} />
 				</Form>
 			</Formik>
 		</div>
