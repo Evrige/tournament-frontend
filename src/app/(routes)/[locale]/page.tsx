@@ -6,7 +6,7 @@ import { useConnectSocket } from '@/app/hooks/useConnectSocket'
 export default function Home() {
 	const dic = useTranslations()
 	const {theme, setTheme} = useTheme()
-	useConnectSocket()
+	// useConnectSocket()
 	return (
 		<main className="">
 
