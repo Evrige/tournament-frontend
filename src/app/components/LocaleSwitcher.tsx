@@ -34,18 +34,17 @@ const LocaleSwitcher = () => {
 
 	return (
 		<div className="relative" ref={dropDownRef}>
-			<div className="flex items-center" onClick={(event) => {
+			<div className="flex items-center hover:text-accentText cursor-pointer" onClick={(event) => {
 				event.stopPropagation()
 				setDropDownIsActive(!dropDownIsActive)
 			}}>
 				<FaGlobe size="20px" className="mr-1.5" />
 				<span className="align-middle capitalize">{localeActive}</span>
 				<IoIosArrowDown size="20px"
-												className={`ml-0.5 transform transition-transform duration-300 
+												className={`ml-0.5 mt-0.5 transform transition-transform duration-300 
 											 ${dropDownIsActive ? 'max-md:rotate-90 rotate-180' : 'max-md:-rotate-90 rotate-0'}`} />
 			</div>
-			<ul
-					className={`${dropDownIsActive ? 'absolute' : 'hidden'} top-16 right-4 bg-bgPrimary rounded-[8px] p-5`}>
+			<ul className={`${dropDownIsActive ? 'absolute' : 'hidden'} top-16 right-4 bg-bgPrimary rounded-[8px] p-5`}>
 				{localeLang.map(locale =>
 					<li key={locale.value} className="mb-3 mr-12 cursor-pointer hover:text-accentText" onClick={() => onChangeLocale(locale.value)}>
 						{dic(locale.label)}

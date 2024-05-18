@@ -7,9 +7,9 @@ interface IProps{
 }
 const MenuItemLink = ({title, link}:IProps) => {
 	return (
-		<li key={title} className="hover:text-accentText">
+		<p key={title} className="hover:text-accentText">
 			<Link href={link}>{title}</Link>
-		</li>
+		</p>
 	);
 };
 

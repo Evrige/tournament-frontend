@@ -20,3 +20,10 @@ export interface IRole {
 	id: number
 	name: string
 }
+
+export interface IGame{
+	id: number,
+	name: string,
+	image: string,
+	logo: string
+}

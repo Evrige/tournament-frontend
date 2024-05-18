@@ -1,0 +1,1 @@
+export const getImageUrl = (url: string): string =>  `${process.env.NEXT_PUBLIC_SERVER_URL_CLEAR}${url}`

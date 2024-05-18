@@ -13,13 +13,13 @@ const Menu = () => {
 	return (
 		<div className="flex items-center gap-10 max-md:hidden max-lg:text-sm">
 			<nav>
-				<ul className="flex gap-5">
+				<div className="flex gap-5">
 					{menuItems.map(item => (
 						item.link === 'dropDown' ?
-							<MenuItemDropDown key={item.title} title={dic(item.title)} /> :
+							<MenuItemDropDown key={item.title} title={dic(item.title)} list={item.list}/> :
 							<MenuItemLink key={item.title} link={item.link} title={dic(item.title)} />
 					))}
-				</ul>
+				</div>
 			</nav>
 			<div>
 				<button

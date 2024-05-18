@@ -20,6 +20,19 @@
     },
     "User": {
       "avatar": "Аватар пользователя"
+    },
+    "Games": {
+      "CS": "Counter Strike",
+      "Valorant": "Valorant",
+      "Dota": "Dota 2"
+    },
+    "More": {
+      "Magazine": "Магазин",
+      "About": "О нас",
+      "Contacts": "Контакты",
+      "FAQ": "Часто задаваемые вопросы",
+      "Terms": "Условия использования",
+      "Privacy": "Политика конфиденциальности"
     }
   },
   "Auth": {
@@ -46,6 +59,10 @@
     "resetPassword": "Сбросить пароль",
     "resetPasswordSuccess": "Пароль успешно сброшен",
     "resetPasswordError": "Ошибка при сбросе пароля"
+  },
+  "Game": {
+    "name": "Назвае игры",
+    "image": "Обложка игры",
+    "logo": "Логотип игры"
   }
-
 }

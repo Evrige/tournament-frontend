@@ -3,21 +3,22 @@ import { successNotify } from '@/app/utils/notification/successNotify'
 import { errorNotify } from '@/app/utils/notification/errorNotify'
 import instance from '@/app/api/api.interseptor'
 
-const useLogin = () => {
-	const queryClient = useQueryClient();
+const useCreateGame = () => {
 
 	return useMutation({
 		mutationFn: async (data) => {
 			const res = await instance({
-				url: process.env.NEXT_PUBLIC_AUTH_LOGIN_URL,
+				url: process.env.NEXT_PUBLIC_CREATE_GAME_URL,
 				method: 'POST',
-        data
+				data,
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
 			})
 			return res.data
 		},
 		onSuccess: (data) => {
 			successNotify(data.message)
-			queryClient.setQueryData(['user'], data);
 		},
 		onError: (error: {response: {data: {message: string}}}, variables, context) => {
 			errorNotify(error.response.data.message)
@@ -25,4 +26,4 @@ const useLogin = () => {
 	})
 }
 
-export default useLogin
+export default useCreateGame
