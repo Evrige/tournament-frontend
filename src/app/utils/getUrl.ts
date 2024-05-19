@@ -1,0 +1,1 @@
+export const getUrl = (url: string, locale: string): string =>  `/${locale}${url}`

@@ -3,9 +3,11 @@ import useCreateGame from '@/app/hooks/useCreateGame'
 import * as Yup from 'yup'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { useTranslations } from 'next-intl'
+import { useQueryClient } from '@tanstack/react-query'
 
 const FormCreateGame = () => {
 	const dic = useTranslations()
+	const queryClient  = useQueryClient()
 	const initialValue = {
 		name: '',
 		image: '',
@@ -25,7 +27,7 @@ const FormCreateGame = () => {
 			// @ts-ignore
 			await createGame.mutateAsync(formData);
 			// Обновление кэша после успешного запроса
-			// queryClient.invalidateQueries('games');
+			queryClient.invalidateQueries({queryKey: ['games']});
 			// Сброс формы после успешного создания игры
 			resetForm();
 		} catch (error) {
@@ -45,7 +47,7 @@ const FormCreateGame = () => {
 			onSubmit={handleSubmit}
 		>
 			{({ setFieldValue }) => (
-				<Form className="pt-[250px]">
+				<Form className="">
 					<div>
 						<label>{dic('Game.name')}</label>
 						<Field type="text" name="name" />

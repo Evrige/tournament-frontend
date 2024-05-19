@@ -12,21 +12,14 @@ import useLogout from '@/app/hooks/useLogout'
 
 
 const Header = () => {
-	const dic = useTranslations()
-	const localeActive = useLocale()
-
 	const { data: user, isLoading: userLoading } = useQuery({queryKey: ['user'], queryFn: refreshToken});
 
 	const sseData = useSSE()
 
 	const currentUser = sseData || user?.user;
 
-	// if (userLoading) return <div>Загрузка...</div>;
-
-
-	// const logout = useLogout()
 	return (
-		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full">
+		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full border-b-[1px] border-b-textColor z-20">
 			<Logo />
 			{currentUser ? <UserMenu user={currentUser}/> : <Menu/>}
 		</header>

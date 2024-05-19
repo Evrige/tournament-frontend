@@ -27,3 +27,28 @@ export interface IGame{
 	image: string,
 	logo: string
 }
+
+export interface IArena{
+	id: number,
+	name: string,
+	location: string,
+	capacity: number
+}
+
+export interface ITournament {
+	id: number,
+  name: string,
+  prizePool?: number,
+	type: string,
+	teamCount: number,
+	date: Date,
+	minRating?: number,
+	maxRating?: number,
+	arenaId?: number,
+	arena?: IArena,
+	gameId?: number,
+	game?: IGame,
+	status: string,
+	format: number,
+	registrationClosedAt?: Date
+}
