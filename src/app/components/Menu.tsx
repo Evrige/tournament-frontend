@@ -25,11 +25,11 @@ const Menu = () => {
 			<div>
 				<button
 					className="hover:bg-bgPrimary hover:text-accentText py-2 px-3 text-xl text-primary rounded-[8px] mr-5 max-lg:text-sm">
-					<Link href={getUrl("login", localeActive)}>{dic('Menu.signIn')}</Link>
+					<Link href={getUrl("/login", localeActive)}>{dic('Menu.signIn')}</Link>
 				</button>
 				<button
 					className="hover:bg-accentText bg-primary py-2 px-3 text-xl text-bgSecondary rounded-[8px] max-lg:text-sm">
-					<Link href={getUrl("registration", localeActive)}>{dic('Menu.signUp')}</Link>
+					<Link href={getUrl("/registration", localeActive)}>{dic('Menu.signUp')}</Link>
 				</button>
 			</div>
 			<LocaleSwitcher />

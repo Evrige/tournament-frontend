@@ -13,6 +13,38 @@ const nextConfig = {
 			},
 		],
 	},
+	experimental: {
+		optimizePackageImports: [
+			'next/head',
+      'next/link',
+      'next/image',
+      'next/script',
+      'next/style',
+      'next/head',
+      'next/script',
+      'next/image',
+      'next/link',
+      'next/script',
+      'next/style',
+      'next/head',
+      'next/script',
+      'next/image',
+      'next/link',
+      'next/script',
+      'next/style',
+      'next/head',
+      'next/script',
+      'next/image',
+      'next/link',
+      'next/script',
+      'next/style',
+      'next/head',
+      'next/script',
+      'next/image',
+      'next/link',
+      'next/script',
+		]
+	}
 };
 
 export default withNextIntl(nextConfig);

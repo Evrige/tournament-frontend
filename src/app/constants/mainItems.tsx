@@ -19,7 +19,7 @@ export const asideItems = [
 	{
 		name: "Aside.teams",
 		icon: <RiTeamFill />,
-		link: "/teams"
+		link: "/user/profile"
 	},
 	{
 		name: "Aside.rating",

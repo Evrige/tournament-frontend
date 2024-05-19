@@ -1,4 +1,5 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
+
 const twColors = require('tailwindcss/colors')
 
 const colors = {

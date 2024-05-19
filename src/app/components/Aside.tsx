@@ -13,22 +13,22 @@ const Aside = () => {
 	const path = usePathname()
 
 	return (
-		<aside className="bg-bgSecondary w-[200px] h-screen fixed">
+		<aside className="bg-bgSecondary w-[200px] h-screen fixed border-r-[1px] border-r-gray-700">
 			<ul className="flex flex-col text-[18px] p-2">
 				{asideItems.map(item => {
-					const isActive = `${path}` === getUrl(item.link, localeActive)
+					const isActive = path === getUrl(item.link, localeActive)
 
 					return (
 						<li key={item.name}
 								className={`flex gap-2 items-center mx-1 my-3 p-2 rounded-[8px] 
-									${isActive && !item.link ? 'bg-primary text-bgSecondary' : 'hover:bg-bgPrimary hover:text-accentText'}`}>
+									${isActive && item.icon ? 'bg-primary text-bgSecondary' : 'hover:bg-bgPrimary hover:text-accentText'}`}>
 							{item.icon ?
 								<>
 									<span className="text-2xl">
 												{item.icon}
 										</span>
 									<Link href={getUrl(item.link, localeActive)}>{dic(item.name)}</Link>
-								</> : <Games />}
+								</> : <li key={item.name}><Games /></li>}
 						</li>
 					)
 				})}

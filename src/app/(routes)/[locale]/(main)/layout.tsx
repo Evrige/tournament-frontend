@@ -14,7 +14,9 @@ export default function MainLayout({
 	return (
 		<main className="pt-[85px]">
 			<Aside/>
-			{children}
+			<div className="pl-[200px]">
+				{children}
+			</div>
 		</main>
 	)
 }

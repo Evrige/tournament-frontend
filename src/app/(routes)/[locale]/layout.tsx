@@ -9,7 +9,6 @@ import Header from '@/app/components/Header'
 import Provider from '@/app/utils/Provider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Aside from '@/app/components/Aside'
 
 const noto = Noto_Sans({ subsets: ['latin'] })
 

@@ -76,5 +76,11 @@
   },
   "Tournament": {
     "enter": "Свободный вход"
+  },
+  "User": {
+    "Profile": {
+      "BackgroundAlt": "Фон профиля",
+      "avatar": "Аватар пользователя"
+    }
   }
 }
