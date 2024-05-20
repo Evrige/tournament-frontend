@@ -12,6 +12,7 @@ import { MdDateRange, MdLocationOn } from 'react-icons/md'
 import Link from 'next/link'
 import { getUrl } from '@/app/utils/getUrl'
 import Tournaments from '@/app/components/Tournaments'
+import FormCreateGame from '@/app/components/FormCreateGame'
 
 export default function Home() {
 	const dic = useTranslations()

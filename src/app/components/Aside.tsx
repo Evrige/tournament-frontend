@@ -28,7 +28,7 @@ const Aside = () => {
 												{item.icon}
 										</span>
 									<Link href={getUrl(item.link, localeActive)}>{dic(item.name)}</Link>
-								</> : <li key={item.name}><Games /></li>}
+								</> : <div key={item.name}><Games /></div>}
 						</li>
 					)
 				})}

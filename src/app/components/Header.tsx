@@ -9,14 +9,16 @@ import UserMenu from '@/app/components/UserMenu'
 import Menu from '@/app/components/Menu'
 import { IoLogOutOutline } from 'react-icons/io5'
 import useLogout from '@/app/hooks/useLogout'
+import useRefresh from '@/app/hooks/useRefresh'
+import useUser from '@/app/hooks/useUser'
 
 
 const Header = () => {
-	const { data: user, isLoading: userLoading } = useQuery({queryKey: ['user'], queryFn: refreshToken});
-
+	useRefresh()
 	const sseData = useSSE()
+	const { data: user, isLoading: userLoading } = useUser()
 
-	const currentUser = sseData || user?.user;
+	const currentUser = sseData || user;
 
 	return (
 		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full border-b-[1px] border-b-gray-700 z-20">
