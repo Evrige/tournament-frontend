@@ -81,6 +81,29 @@
     "Profile": {
       "BackgroundAlt": "Фон профиля",
       "avatar": "Аватар пользователя"
+    },
+    "Menu": {
+      "profile": "Обзор",
+      "security": "Безопасность",
+      "settings": "Настройки профиля",
+      "games": "Игры",
+      "achievements": "Достижения"
+    },
+    "Main": {
+      "main": "Основное",
+      "matches": "Всего матчей",
+      "tournamentsCount": "Турниров сыграно",
+      "winRate": "Винрейт",
+      "winRateNo": "Нет сыграных матчей",
+      "achievements": "Достижения",
+      "achievementsNo": "В данный момент у тебя нет достижений."
+    },
+    "Team": {
+      "team": "Твоя команда",
+      "teamLogo": "Логотип команды",
+      "teamNo": "Вы пока не состоите в команде",
+      "createTeam": "Создать команду",
+      "leaveTeam": "Покинуть команду"
     }
   }
 }

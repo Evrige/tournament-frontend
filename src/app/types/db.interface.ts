@@ -1,3 +1,9 @@
+export interface ITeam {
+	id: number
+	name: string
+	logo: string
+}
+
 export interface IUser {
 	id?: number;
 	nickname?: string;
@@ -11,6 +17,8 @@ export interface IUser {
 	banReason?: string;
 	createdAt?: Date;
 	roles?: Roles[];
+	teamId?: number
+	team?: ITeam
 }
 
 interface Roles {
