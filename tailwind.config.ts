@@ -12,6 +12,7 @@ const colors = {
   shadowColor: "#81e2fc",
   red: twColors.red,
   gray: twColors.gray,
+  yellow: twColors.yellow,
   transparent: twColors.transparent
 }
 

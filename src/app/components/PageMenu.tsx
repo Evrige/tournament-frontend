@@ -15,17 +15,15 @@ interface IProps {
 }
 
 const PageMenu = ({ menuList }: IProps ) => {
-	const localeActive = useLocale()
 	const dic = useTranslations()
 	const path = usePathname()
 
 	return (
-		<div className="flex gap-2 uppercase ml-3 my-10">
+		<div className="flex gap-2 uppercase my-10">
 			{menuList.map(menuItem => {
-				const isActive = getUrl(menuItem.link, localeActive) === path
-
+				const isActive = updateLastPathSegment(path, menuItem.link) === path
 				return (
-					<Link href={getUrl(menuItem.link, localeActive)}
+					<Link href={updateLastPathSegment(path, menuItem.link)}
 								className={`pb-2 px-2 hover:text-accentText ${isActive ? 'border-b border-primary text-primary' : ''}`}
 								key={menuItem.link}>
 						{dic(menuItem.name)}

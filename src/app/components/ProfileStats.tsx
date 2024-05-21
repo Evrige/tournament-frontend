@@ -4,7 +4,7 @@ import { RiGameLine } from 'react-icons/ri'
 interface IProps {
 	name: string,
 	subName: string,
-	icon: React.Component
+	icon: React.ReactElement
 }
 const ProfileStats = ({name, subName, icon}:IProps) => {
 	return (

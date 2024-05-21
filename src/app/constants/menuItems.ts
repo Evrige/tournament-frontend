@@ -1,23 +1,23 @@
 export const menuUserItems = [
 	{
 		name: "User.Menu.profile",
-		link: "/user/profile"
+		link: "profile"
 	},
 	{
 		name: "User.Menu.security",
-		link: "/user/security"
+		link: "security"
 	},
 	{
 		name: "User.Menu.settings",
-		link: "/user/settings"
+		link: "settings"
 	},
 	{
 		name: "User.Menu.games",
-		link: "/user/games"
+		link: "games"
 	},
 	{
 		name: "User.Menu.achievements",
-		link: "/user/achievements"
+		link: "achievements"
 	},
 ]
 
@@ -28,11 +28,11 @@ export const menuTournamentItems = [
 	},
 	{
 		name: "Tournament.Menu.bracket",
-		link: "/bracket"
+		link: "bracket"
 	},
 	{
 		name: "Tournament.Menu.teams",
-		link: "/teams"
+		link: "teams"
 	},
 ]
 

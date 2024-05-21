@@ -36,6 +36,12 @@ export interface IGame{
 	logo: string
 }
 
+export interface IMap{
+	id: number,
+	name: string,
+	banner: string
+}
+
 export interface IArena{
 	id: number,
 	name: string,
@@ -54,7 +60,7 @@ export interface ITournament {
 	maxRating?: number,
 	arenaId?: number,
 	arena?: IArena,
-	gameId?: number,
+	gameId: number,
 	game: IGame,
 	status: string,
 	format: number,

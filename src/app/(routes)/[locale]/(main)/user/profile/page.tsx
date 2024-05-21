@@ -1,23 +1,22 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import React from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { getImageUrl } from '@/app/utils/getImageUrl'
-import { IUser } from '@/app/types/db.interface'
-import useSSE from '@/app/hooks/useSSE'
 import useUser from '@/app/hooks/useUser'
 import { IoIosArrowDown } from 'react-icons/io'
 import Link from 'next/link'
 import { getUrl } from '@/app/utils/getUrl'
-import { menuItems, menuUserItems } from '@/app/constants/menuItems'
+import { menuUserItems } from '@/app/constants/menuItems'
 import { RiGameLine } from 'react-icons/ri'
 import { SlTrophy } from 'react-icons/sl'
 import { FaChampagneGlasses } from 'react-icons/fa6'
 import ProfileStats from '@/app/components/ProfileStats'
 import BackgroundImage from '@/app/components/BackgroundImage'
 import PageMenu from '@/app/components/PageMenu'
+import Breadcrumbs from '@/app/components/Breadcrumbs'
+import PrimaryButton from '@/app/components/UI/PrimaryButton'
 
 
 const Page = () => {
@@ -34,19 +33,8 @@ const Page = () => {
 		<div className="bg-bgSecondary h-screen">
 			<div className="relative">
 				<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')}/>
-				<div className="absolute flex w-full top-0 z-5 p-3 bg-bgSecondary bg-opacity-40">
-					{currentPath.map((pathName, index) => {
-						const isLast = index === currentPath.length - 1
-						return (
-							<div key={pathName} className="flex items-center">
-								<Link href={getUrl(`/${pathName}`, localeActive)}
-											className={`uppercase text-lg ${isLast ? 'text-accentText' : ''}`}>{pathName}</Link>
-								{!isLast ? <IoIosArrowDown className="text-primary text-xl -rotate-90" /> : ''}
-							</div>
-						)
-					})}
-				</div>
-				<div className="absolute w-full bottom-0 z-20">
+				<Breadcrumbs/>
+				<div className="absolute w-full bottom-0 ml-4 z-20">
 					<div className="flex items-center gap-2">
 						<Image src={getImageUrl(user?.avatar || '')} alt={dic('User.Profile.avatar')} width={100} height={100} />
 						<p className="text-3xl text-accentText">{user?.nickname}</p>
@@ -86,8 +74,7 @@ const Page = () => {
 					</div>
 					<p className="text-xl text-accentText">{user?.team?.name}</p>
 				</div> : <p>{dic("User.Team.teamNo")}</p>}
-				<button
-					className="py-2 px-3 bg-primary text-bgSecondary rounded-[4px] my-3 mx-6">{dic("User.Team.leaveTeam")}</button>
+				<PrimaryButton title={dic("User.Team.leaveTeam")}/>
 			</div>
 		</div>
 	)
