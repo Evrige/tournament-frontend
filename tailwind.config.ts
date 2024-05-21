@@ -8,6 +8,7 @@ const colors = {
   accentText: "#e6e7ea",
   bgPrimary: "#101F3C",
   bgSecondary: "#081325",
+  bgTable: "#20395f",
   shadowColor: "#81e2fc",
   red: twColors.red,
   gray: twColors.gray,

@@ -1,4 +1,4 @@
-export const menuItems = [
+export const menuUserItems = [
 	{
 		name: "User.Menu.profile",
 		link: "/user/profile"
@@ -20,4 +20,21 @@ export const menuItems = [
 		link: "/user/achievements"
 	},
 ]
+
+export const menuTournamentItems = [
+	{
+		name: "Tournament.Menu.overview",
+		link: "/"
+	},
+	{
+		name: "Tournament.Menu.bracket",
+		link: "/bracket"
+	},
+	{
+		name: "Tournament.Menu.teams",
+		link: "/teams"
+	},
+]
+
+
 

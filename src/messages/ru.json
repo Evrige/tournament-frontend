@@ -75,7 +75,13 @@
     "help": "Помощь"
   },
   "Tournament": {
-    "enter": "Свободный вход"
+    "enter": "Свободный вход",
+    "bgImage": "Баннер турнира",
+    "Menu": {
+      "overview": "Обзор",
+      "bracket": "Сетка",
+      "teams": "Команды"
+    }
   },
   "User": {
     "Profile": {

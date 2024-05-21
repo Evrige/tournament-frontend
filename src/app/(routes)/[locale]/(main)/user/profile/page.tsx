@@ -11,15 +11,16 @@ import useUser from '@/app/hooks/useUser'
 import { IoIosArrowDown } from 'react-icons/io'
 import Link from 'next/link'
 import { getUrl } from '@/app/utils/getUrl'
-import { menuItems } from '@/app/constants/userItems'
+import { menuItems, menuUserItems } from '@/app/constants/menuItems'
 import { RiGameLine } from 'react-icons/ri'
 import { SlTrophy } from 'react-icons/sl'
 import { FaChampagneGlasses } from 'react-icons/fa6'
 import ProfileStats from '@/app/components/ProfileStats'
+import BackgroundImage from '@/app/components/BackgroundImage'
+import PageMenu from '@/app/components/PageMenu'
 
 
 const Page = () => {
-	const queryClient = useQueryClient()
 	const dic = useTranslations()
 	const path = usePathname()
 	const localeActive = useLocale()
@@ -32,10 +33,8 @@ const Page = () => {
 	return (
 		<div className="bg-bgSecondary h-screen">
 			<div className="relative">
-				<Image src="/images/profile-back.jpg" width={2000} height={2000}
-							 className="h-[500px] w-full object-cover object-top" alt={dic('User.Profile.BackgroundAlt')} />
-				<div className="absolute inset-0 bg-bgPrimary opacity-80 backdrop-blur z-10"></div>
-				<div className="absolute flex w-full top-0 z-20 mt-3 ml-3">
+				<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')}/>
+				<div className="absolute flex w-full top-0 z-5 p-3 bg-bgSecondary bg-opacity-40">
 					{currentPath.map((pathName, index) => {
 						const isLast = index === currentPath.length - 1
 						return (
@@ -52,51 +51,43 @@ const Page = () => {
 						<Image src={getImageUrl(user?.avatar || '')} alt={dic('User.Profile.avatar')} width={100} height={100} />
 						<p className="text-3xl text-accentText">{user?.nickname}</p>
 					</div>
-					<div className="flex gap-2 uppercase ml-3 my-10">
-						{menuItems.map(menuItem => {
-							const isActive = getUrl(menuItem.link, localeActive) === path
-							return (
-								<Link href={getUrl(menuItem.link, localeActive)}
-											className={`pb-2 px-2 hover:text-accentText ${isActive ? 'border-b border-primary text-primary' : ''}`}
-											key={menuItem.link}>
-									{dic(menuItem.name)}
-								</Link>
-							)
-						})}
-					</div>
+					<PageMenu menuList={menuUserItems}/>
 					<div className="flex justify-between">
 						<div className="flex flex-col gap-2 ml-3">
-							<h1 className="text-accentText text-2xl uppercase">{dic("User.Main.main")}</h1>
+							<h1 className="text-accentText text-2xl uppercase">{dic('User.Main.main')}</h1>
 							<div className="flex gap-10">
-								<ProfileStats name={"0"}
-															subName={dic("User.Main.matches")}
+								<ProfileStats name={'0'}
+															subName={dic('User.Main.matches')}
 															icon={<RiGameLine />} />
-								<ProfileStats name={"0"}
-															subName={dic("User.Main.tournamentsCount")}
+								<ProfileStats name={'0'}
+															subName={dic('User.Main.tournamentsCount')}
 															icon={<SlTrophy />} />
-								<ProfileStats name={"0"}
-															subName={dic("User.Main.winRate")}
+								<ProfileStats name={'0'}
+															subName={dic('User.Main.winRate')}
 															icon={<FaChampagneGlasses />} />
 							</div>
 						</div>
 						<div className="mr-10">
-							<h1 className="text-accentText text-2xl uppercase mb-3">{dic("User.Main.achievements")}</h1>
-							<p>{dic("User.Main.achievementsNo")}</p>
+							<h1 className="text-accentText text-2xl uppercase mb-3">{dic('User.Main.achievements')}</h1>
+							<p>{dic('User.Main.achievementsNo')}</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div>
-				<h1 className="text-accentText text-2xl uppercase ">
-					{dic("User.Team.team")}
-					{user?.teamId ? <div className="flex gap-3 items-center">
+			<div className="flex flex-col bg-bgPrimary rounded-[8px] max-w-[300px] m-2">
+				<h1 className="text-accentText text-2xl uppercase p-3  rounded-t-[8px] bg-bgTable">
+					{dic("User.Team.team")}</h1>
+				{user?.teamId ? <div className="flex gap-3 items-center border-b py-3 pl-2 border-b-bgSecondary">
+					<div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
 						<Image src={getImageUrl(user?.team?.logo || "")}
 									 width={64} height={64}
-									 className="rounded-full object-center object-cover"
-									 alt={dic("User.Team.teamLogo")}/>
-						<p>{user?.team?.name}</p>
-					</div> : <p>{dic("User.Team.teamNo")}</p>}
-				</h1>
+									 className="w-full h-full object-cover"
+									 alt={dic("User.Team.teamLogo")} />
+					</div>
+					<p className="text-xl text-accentText">{user?.team?.name}</p>
+				</div> : <p>{dic("User.Team.teamNo")}</p>}
+				<button
+					className="py-2 px-3 bg-primary text-bgSecondary rounded-[4px] my-3 mx-6">{dic("User.Team.leaveTeam")}</button>
 			</div>
 		</div>
 	)

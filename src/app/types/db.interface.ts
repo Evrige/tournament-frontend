@@ -5,18 +5,18 @@ export interface ITeam {
 }
 
 export interface IUser {
-	id?: number;
-	nickname?: string;
+	id: number;
+	nickname: string;
 	email: string;
 	password: string;
 	name?: string;
 	lastname?: string;
 	dateBirth?: Date;
-	avatar?: string;
+	avatar: string;
 	isBanned?: boolean;
 	banReason?: string;
-	createdAt?: Date;
-	roles?: Roles[];
+	createdAt: Date;
+	roles: Roles[];
 	teamId?: number
 	team?: ITeam
 }
@@ -55,7 +55,7 @@ export interface ITournament {
 	arenaId?: number,
 	arena?: IArena,
 	gameId?: number,
-	game?: IGame,
+	game: IGame,
 	status: string,
 	format: number,
 	registrationClosedAt?: Date

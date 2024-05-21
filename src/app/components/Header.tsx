@@ -21,7 +21,7 @@ const Header = () => {
 	const currentUser = sseData || user;
 
 	return (
-		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full border-b-[1px] border-b-gray-700 z-20">
+		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full border-b-[1px] border-b-gray-700 z-50">
 			<Logo />
 			{currentUser ? <UserMenu user={currentUser}/> : <Menu/>}
 		</header>
