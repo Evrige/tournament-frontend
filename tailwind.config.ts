@@ -10,6 +10,7 @@ const colors = {
   bgSecondary: "#081325",
   bgTable: "#20395f",
   shadowColor: "#81e2fc",
+  buttonColor: "#cb7800",
   red: twColors.red,
   gray: twColors.gray,
   yellow: twColors.yellow,

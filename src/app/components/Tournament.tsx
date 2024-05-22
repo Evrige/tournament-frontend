@@ -19,7 +19,7 @@ interface IProps {
 const Tournament = ({tournament}: IProps) => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
-
+	
 	return (
 		<Link href={getUrl(`/tournaments/${tournament.id}`, localeActive)} key={tournament.id}>
 			<div className="tournament rounded-lg overflow-hidden border border-transparent hover:border-shadowColor">
@@ -45,7 +45,7 @@ const Tournament = ({tournament}: IProps) => {
 							: `${tournament.minRating || 0} - ${tournament.maxRating || 2000}`}
 						</div>
 						<p>{tournament.format}v{tournament.format}</p>
-						<div className="flex gap-1 items-center">0/{tournament.teamCount} <AiOutlineTeam
+						<div className="flex gap-1 items-center">{tournament?.teamList?.length}/{tournament.teamCount} <AiOutlineTeam
 							className="text-lg" /></div>
 					</div>
 					<div className="flex justify-between mt-2">

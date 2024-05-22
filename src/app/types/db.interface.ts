@@ -16,19 +16,21 @@ export interface IUser {
 	isBanned?: boolean;
 	banReason?: string;
 	createdAt: Date;
-	roles: Roles[];
+	roles: { role: IRole }[];
 	teamId?: number
 	team?: ITeam
 }
 
-interface Roles {
-	role: IRole[]
-}
 export interface IRole {
 	id: number
-	name: string
+	name: EnumRole
 }
-
+export enum EnumRole {
+	ADMIN = 'ADMIN',
+  USER = 'USER',
+  MANAGER = 'MANAGER',
+	ANALYST = "ANALYST"
+}
 export interface IGame{
 	id: number,
 	name: string,
@@ -62,7 +64,41 @@ export interface ITournament {
 	arena?: IArena,
 	gameId: number,
 	game: IGame,
-	status: string,
+	status: EnumTournamentStatus,
 	format: number,
-	registrationClosedAt?: Date
+	teamList: IListTeam[]
+}
+
+export enum EnumTournamentStatus {
+	PLANNED = "PLANNED",
+	ONGOING = "ONGOING",
+	FINISHED = "FINISHED",
+	CANCELLED = "CANCELLED"
+}
+
+export interface IMatch {
+	id: number
+	team1Id: number
+	team2Id: number
+	nextMatchId: number
+	teamWinId: number
+	tournamentRoundText: string
+	startTime: Date
+	tournamentId: number
+	mapId: number
+	state: string
+	team1RoundsWon: number
+	team2RoundsWon: number
+	team1: ITeam
+	team2: ITeam
+}
+
+export interface IListTeam {
+	id: number
+	teamId: number
+	tournamentId: number
+	stage: number
+	placement: number
+	createdAt: Date
+	team: ITeam
 }

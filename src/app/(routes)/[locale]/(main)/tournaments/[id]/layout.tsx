@@ -1,5 +1,4 @@
-import {Metadata} from "next";
-import Aside from '@/app/components/Aside'
+import { Metadata } from 'next'
 import { ITournament } from '@/app/types/db.interface'
 import TournamentPageHeader from '@/app/components/TournamentPageHeader'
 import instance from '@/app/api/api.interseptor'
@@ -17,17 +16,18 @@ export const metadata: Metadata = {
 	description: '',
 }
 export default async function TournamentLayout({
-																						 children,
-																						 params: { id }
-																					 }: Readonly<{
+																								 children,
+																								 params: { id }
+																							 }: Readonly<{
 	children: React.ReactNode;
 	params: { id: string }
 }>) {
 	const tournament = await fetchTournament(id);
 	return (
-		<div>
+		<div className="bg-bgSecondary min-h-[calc(100vh-85px)]">
 			<TournamentPageHeader tournament={tournament}/>
 			{children}
 		</div>
 	)
 }
+

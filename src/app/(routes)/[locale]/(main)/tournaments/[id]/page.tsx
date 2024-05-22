@@ -27,7 +27,7 @@ const Page = async ({ params }: {params: {id: string}}) => {
 	 const tournament = await fetchTournament(params.id);
 
 	return (
-		<div className="bg-bgSecondary">
+		<div>
 				<TournamentPage tournament={tournament}/>
 		</div>
 	);

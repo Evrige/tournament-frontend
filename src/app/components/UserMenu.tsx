@@ -8,6 +8,7 @@ import Image from 'next/image'
 import useLogout from '@/app/hooks/useLogout'
 import { IoLogOutOutline } from 'react-icons/io5'
 import { getImageUrl } from '@/app/utils/getImageUrl'
+import { useRouter } from 'next/navigation'
 
 interface IProps {
 	user: IUser
@@ -17,7 +18,7 @@ const UserMenu = ({ user }: IProps) => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
 	const logout = useLogout()
-
+	const router = useRouter()
 	return (
 		<div className="flex items-center gap-10 max-md:hidden max-lg:text-sm">
 			<LocaleSwitcher />
@@ -27,7 +28,7 @@ const UserMenu = ({ user }: IProps) => {
 				<Image src={getImageUrl(user.avatar || "")} alt={dic('Menu.User.avatar')} width={40} height={40}
 							 className="rounded-full h-10 w-10 bg-primary" />
 				<p className="text-[18px] hover:text-accentText cursor-pointer">{user.nickname}</p>
-				<IoLogOutOutline size="24px" onClick={()=> logout.mutate()}/>
+				<IoLogOutOutline size="24px" onClick={()=> {logout.mutate(); router.replace("/")}}/>
 			</div>
 		</div>
 	)

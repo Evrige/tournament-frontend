@@ -17,6 +17,7 @@ import BackgroundImage from '@/app/components/BackgroundImage'
 import PageMenu from '@/app/components/PageMenu'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
 import PrimaryButton from '@/app/components/UI/PrimaryButton'
+import TeamLogo from '@/app/components/UI/TeamLogo'
 
 
 const Page = () => {
@@ -66,15 +67,10 @@ const Page = () => {
 				<h1 className="text-accentText text-2xl uppercase p-3  rounded-t-[8px] bg-bgTable">
 					{dic("User.Team.team")}</h1>
 				{user?.teamId ? <div className="flex gap-3 items-center border-b py-3 pl-2 border-b-bgSecondary">
-					<div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
-						<Image src={getImageUrl(user?.team?.logo || "")}
-									 width={64} height={64}
-									 className="w-full h-full object-cover"
-									 alt={dic("User.Team.teamLogo")} />
-					</div>
+					<TeamLogo url={user.team?.logo || ""} alt={dic("User.Team.teamLogo")}/>
 					<p className="text-xl text-accentText">{user?.team?.name}</p>
 				</div> : <p>{dic("User.Team.teamNo")}</p>}
-				<PrimaryButton title={dic("User.Team.leaveTeam")}/>
+				<PrimaryButton title={dic("User.Team.leaveTeam")} color="yellow-500"/>
 			</div>
 		</div>
 	)

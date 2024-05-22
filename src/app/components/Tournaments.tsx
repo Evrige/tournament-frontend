@@ -15,7 +15,7 @@ const Tournaments = () => {
 		<div className="flex gap-5 flex-wrap mt-5 ml-5">
 			{tournaments?.map(tournament => {
 				return (
-						<Tournament tournament={tournament}/>
+						<Tournament tournament={tournament} key={tournament.id}/>
 				)
 			})}
 		</div>
