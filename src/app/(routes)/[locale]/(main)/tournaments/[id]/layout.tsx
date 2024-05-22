@@ -3,6 +3,7 @@ import { ITournament } from '@/app/types/db.interface'
 import TournamentPageHeader from '@/app/components/TournamentPageHeader'
 import instance from '@/app/api/api.interseptor'
 import React from 'react'
+import { TournamentProvider } from '@/app/components/TournamentProvider'
 
 const fetchTournament = async (id: string): Promise<ITournament> => {
 	const response = await instance({
@@ -11,6 +12,7 @@ const fetchTournament = async (id: string): Promise<ITournament> => {
 	});
 	return response.data;
 };
+
 export const metadata: Metadata = {
 	title: 'Tournament page',
 	description: '',
@@ -25,8 +27,10 @@ export default async function TournamentLayout({
 	const tournament = await fetchTournament(id);
 	return (
 		<div className="bg-bgSecondary min-h-[calc(100vh-85px)]">
-			<TournamentPageHeader tournament={tournament}/>
-			{children}
+			<TournamentProvider tournament={tournament}>
+				<TournamentPageHeader/>
+				{children}
+      </TournamentProvider>
 		</div>
 	)
 }

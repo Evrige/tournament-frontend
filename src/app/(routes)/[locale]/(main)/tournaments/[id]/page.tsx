@@ -28,7 +28,7 @@ const Page = async ({ params }: {params: {id: string}}) => {
 
 	return (
 		<div>
-				<TournamentPage tournament={tournament}/>
+				<TournamentPage/>
 		</div>
 	);
 };

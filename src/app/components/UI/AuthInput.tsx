@@ -13,7 +13,7 @@ const AuthInput = ({ labelText, type, placeholder, name }: IInputProps) => {
 		<>
 			<label htmlFor={name} className="my-2">{labelText}</label>
 			<Field type={type} id={name} name={name} placeholder={placeholder}
-						 className="outline-none bg-bgSecondary rounded-[4px] p-2 border border-gray-500 hover:border-primary transition-colors duration-300" />
+						 className="outline-none bg-bgSecondary rounded-[4px] p-2 border border-transparent hover:border-primary transition-colors duration-300" />
 			<ErrorMessage name={name} component="div" className="text-red-500 my-1" />
 		</>
 	)

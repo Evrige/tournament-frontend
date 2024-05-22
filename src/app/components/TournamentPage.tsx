@@ -17,11 +17,13 @@ import { toPrice } from '@/app/utils/toPrice'
 import { TbTrophy } from 'react-icons/tb'
 import { ImTrophy } from 'react-icons/im'
 import useMapsByGame from '@/app/hooks/useMapsByGame'
+import { useTournament } from '@/app/components/TournamentProvider'
 
-const TournamentPage = ({ tournament }: { tournament: ITournament }) => {
+const TournamentPage = () => {
 	const dic = useTranslations()
 	const path = usePathname()
 	const localeActive = useLocale()
+	const { tournament, updateTournament } = useTournament();
 	const {data: maps} = useMapsByGame(tournament.gameId.toString())
 	const infoData = [
 		{

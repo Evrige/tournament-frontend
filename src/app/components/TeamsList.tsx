@@ -2,12 +2,13 @@
 import React from 'react'
 import { IListTeam, ITournament } from '@/app/types/db.interface'
 import { useTranslations } from 'next-intl'
-import TeamLogo from '@/app/components/UI/TeamLogo'
+import TeamLogo from '@/app/components/UI/TeamUserLogo'
 import { formatDate } from '@/app/utils/formatDate'
+import { useTournament } from '@/app/components/TournamentProvider'
 
-const TeamsList = ({tournament}: {tournament: ITournament}) => {
+const TeamsList = () => {
 	const dic = useTranslations()
-
+	const { tournament, updateTournament } = useTournament();
 	return (
 		<div className="flex justify-between gap-2">
 			<div className="rounded-[4px] w-2/3 overflow-hidden">

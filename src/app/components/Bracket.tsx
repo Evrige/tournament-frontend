@@ -4,6 +4,7 @@ import { createTheme, Match, SingleEliminationBracket, SVGViewer } from '@g-loot
 import { useTranslations } from 'next-intl'
 import useWindowSize from '@g-loot/react-tournament-brackets/dist/cjs/hooks/use-window-size'
 
+// @ts-ignore
 export const SingleElimination = ({matches}) => {
 	const [width, height] = useWindowSize();
 	const finalHeight = Math.max(height - 300, 500);
@@ -53,6 +54,7 @@ const GlootTheme = createTheme({
 	svgBackground: "#0F121C"
 });
 
+// @ts-ignore
 const Bracket = ({matches}) => {
 	const dic = useTranslations()
 	return (

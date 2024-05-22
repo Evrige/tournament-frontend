@@ -15,7 +15,7 @@ const PasswordInput = ({ labelText, placeholder, name }: IInputProps) => {
 			<label htmlFor={name} className="my-3">{labelText}</label>
 			<Field type={isCheckPassword ? 'text' : 'password'} placeholder={placeholder} id={name}
 						 name={name}
-						 className=" w-full outline-none bg-bgSecondary rounded-[4px] p-2 border border-gray-500 hover:border-primary transition-colors duration-300" />
+						 className=" w-full outline-none bg-bgSecondary rounded-[4px] p-2 border border-transparent hover:border-primary transition-colors duration-300" />
 			<span className="absolute top-[60px] right-3 z-10"
 						onClick={() => setIsCheckPassword(!isCheckPassword)}>
 							{isCheckPassword ? <FaRegEyeSlash /> : <FaRegEye />}

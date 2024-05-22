@@ -11,6 +11,7 @@ import PrimaryButton from '@/app/components/UI/PrimaryButton'
 import useUser from '@/app/hooks/useUser'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
+import { useTournament } from '@/app/components/TournamentProvider'
 
 const joinLeaveTournament = async (tournamentId: number, action: string) => {
 	const url = action === 'join' ? `${process.env.NEXT_PUBLIC_JOIN_TOURNAMENT_URL}` :
@@ -23,18 +24,20 @@ const joinLeaveTournament = async (tournamentId: number, action: string) => {
 }
 
 
-const TournamentPageHeader = ({ tournament }: { tournament: ITournament }) => {
+const TournamentPageHeader = () => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
 	const { data: user } = useUser()
+	const { tournament, updateTournament } = useTournament();
 
 	const isRegOpen = !user?.roles.some(role => role.role.name === EnumRole.MANAGER)
 		&& tournament.status !== EnumTournamentStatus.PLANNED
+
 	const isTeamAlreadyReg = tournament.teamList.some(team => team.teamId === user?.teamId)
-	console.log(tournament)
+
 	const handleSubmit = async (action: string) => {
 		const response = await joinLeaveTournament(tournament.id, action)
-		if (response.tournament) tournament = response.tournament
+		if (response.tournament) updateTournament(response.tournament)
 		defaultNotify(response.message)
 	}
 
@@ -50,10 +53,10 @@ const TournamentPageHeader = ({ tournament }: { tournament: ITournament }) => {
 					{isRegOpen ? '' :
 						isTeamAlreadyReg ?
 							<div className="absolute bottom-0 right-0 mr-10 mb-4" onClick={() => handleSubmit('leave')}>
-								<PrimaryButton title={dic('Tournament.leaveToTournament')} color="buttonColor" />
+								<PrimaryButton title={dic('Tournament.leaveToTournament')} color="bg-buttonColor" />
 							</div> :
 							<div className="absolute bottom-0 right-0 mr-10 mb-4" onClick={() => handleSubmit('join')}>
-								<PrimaryButton title={dic('Tournament.joinToTournament')} color="primary" />
+								<PrimaryButton title={dic('Tournament.joinToTournament')} color="bg-primary" />
 							</div>}
 				</div>
 			</div>
