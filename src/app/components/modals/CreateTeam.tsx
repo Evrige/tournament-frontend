@@ -44,7 +44,7 @@ const CreateTeam = ({handleClose}: IProps) => {
 
 
 	return (
-		<div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-30 overflow-hidden"
+		<div className="fixed inset-0 bg-opacity-30 bg-bgSecondary backdrop-blur-sm flex items-center justify-center z-30 overflow-hidden"
 					onClick={()=> handleClose()}>
 			<div className="relative flex flex-col items-center w-1/2 h-1/2 bg-bgPrimary rounded-[8px]"
 					 onClick={(event)=> { event.stopPropagation()}}>

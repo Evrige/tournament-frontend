@@ -65,7 +65,7 @@ const Page = () => {
 			<div className="relative">
 				<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')}/>
 				<Breadcrumbs/>
-				<div className="absolute w-full bottom-0 ml-4 z-20">
+				<div className="absolute w-full bottom-0 pl-4 z-20">
 					<div className="flex items-center gap-2">
 						<Image src={getImageUrl(user?.avatar || '')} alt={dic('User.Profile.avatar')} width={100} height={100} />
 						<p className="text-3xl text-accentText">{user?.nickname}</p>
@@ -74,7 +74,7 @@ const Page = () => {
 					<div className="flex justify-between">
 						<div className="flex flex-col gap-2 ml-3">
 							<h1 className="text-accentText text-2xl uppercase">{dic('User.Main.main')}</h1>
-							<div className="flex gap-10">
+							<div className="flex gap-10 flex-wrap	">
 								<ProfileStats name={'0'}
 															subName={dic('User.Main.matches')}
 															icon={<RiGameLine />} />
@@ -97,7 +97,8 @@ const Page = () => {
 				<div className="flex justify-between items-center rounded-t-[8px] bg-bgTable">
 					<h1 className="text-accentText text-2xl uppercase p-3">
 						{dic('User.Team.team')}</h1>
-					{isTeamManager ? <IoMdPersonAdd className="text-xl text-primary mr-3 cursor-pointer"/> : ""}
+					{isTeamManager ? <IoMdPersonAdd className="text-xl text-primary mr-3 cursor-pointer"
+																					onClick={() => openModal('invitePlayer')}/> : ""}
 				</div>
 				{user?.teamId ?
 					<div>

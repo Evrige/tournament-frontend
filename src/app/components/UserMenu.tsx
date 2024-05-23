@@ -9,6 +9,7 @@ import useLogout from '@/app/hooks/useLogout'
 import { IoLogOutOutline } from 'react-icons/io5'
 import { getImageUrl } from '@/app/utils/getImageUrl'
 import { useRouter } from 'next/navigation'
+import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 
 interface IProps {
 	user: IUser
@@ -25,8 +26,7 @@ const UserMenu = ({ user }: IProps) => {
 			<FaRegMessage size="20px" />
 			<IoMdNotificationsOutline size="24px" />
 			<div className="flex items-center gap-2">
-				<Image src={getImageUrl(user.avatar || "")} alt={dic('Menu.User.avatar')} width={40} height={40}
-							 className="rounded-full h-10 w-10 bg-primary" />
+				<TeamUserLogo url={user?.avatar || ""} alt={dic('Menu.User.avatar')}/>
 				<p className="text-[18px] hover:text-accentText cursor-pointer">{user.nickname}</p>
 				<IoLogOutOutline size="24px" onClick={()=> {logout.mutate(); router.replace("/")}}/>
 			</div>
