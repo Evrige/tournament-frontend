@@ -108,7 +108,7 @@ const Page = () => {
 						</div>
 						<p className="text-xl text-accentText border-b py-3 pl-2 border-b-bgSecondary">{dic('User.Team.players')}</p>
 						{teamUsers?.users?.map((player: IUser) => (
-							<div className="flex justify-between items-center border-b border-b-bgSecondary">
+							<div key={player.id} className="flex justify-between items-center border-b border-b-bgSecondary">
 								<div className="flex gap-3 items-center py-3 pl-2">
 									<TeamUserLogo url={player.avatar || ''} alt={dic('User.Team.userLogo')} />
 									<p className="text-xl text-accentText">{player?.nickname}</p>

@@ -154,12 +154,15 @@
       "createTeam": "Создать команду",
       "leaveTeam": "Покинуть команду",
       "players": "Игроки:",
-      "searchInput": "Введите имя пользователя...",
       "CreateTeamForm": {
         "formTitle": "Создание команды",
         "teamName": "Название команды",
         "teamLogo": "Логотип команды",
         "buttonTitle": "Создать команду"
+      },
+      "FindUsers": {
+        "noUsers": "Пользователь не найден",
+        "searchInput": "Введите имя пользователя..."
       }
     }
   }

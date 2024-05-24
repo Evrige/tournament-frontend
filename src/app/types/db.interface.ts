@@ -21,30 +21,45 @@ export interface IUser {
 	team?: ITeam
 }
 
+export interface IInvites {
+	id: number
+	userId: number
+	teamId: number
+	status: EnumInviteStatus
+}
+
+export enum EnumInviteStatus {
+	PENDING = 'PENDING',
+	ACCEPTED = 'ACCEPTED',
+	DECLINED = 'DECLINED',
+}
+
 export interface IRole {
 	id: number
 	name: EnumRole
 }
+
 export enum EnumRole {
 	ADMIN = 'ADMIN',
-  USER = 'USER',
-  MANAGER = 'MANAGER',
-	ANALYST = "ANALYST"
+	USER = 'USER',
+	MANAGER = 'MANAGER',
+	ANALYST = 'ANALYST'
 }
-export interface IGame{
+
+export interface IGame {
 	id: number,
 	name: string,
 	image: string,
 	logo: string
 }
 
-export interface IMap{
+export interface IMap {
 	id: number,
 	name: string,
 	banner: string
 }
 
-export interface IArena{
+export interface IArena {
 	id: number,
 	name: string,
 	location: string,
@@ -53,8 +68,8 @@ export interface IArena{
 
 export interface ITournament {
 	id: number,
-  name: string,
-  prizePool?: number,
+	name: string,
+	prizePool?: number,
 	type: string,
 	teamCount: number,
 	date: Date,
@@ -70,10 +85,10 @@ export interface ITournament {
 }
 
 export enum EnumTournamentStatus {
-	PLANNED = "PLANNED",
-	ONGOING = "ONGOING",
-	FINISHED = "FINISHED",
-	CANCELLED = "CANCELLED"
+	PLANNED = 'PLANNED',
+	ONGOING = 'ONGOING',
+	FINISHED = 'FINISHED',
+	CANCELLED = 'CANCELLED'
 }
 
 export interface IMatch {
