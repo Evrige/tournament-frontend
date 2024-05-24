@@ -10,15 +10,12 @@ import useUser from '@/app/hooks/useUser'
 
 const Header = () => {
 	useRefresh()
-	const sseData = useSSE()
-	const { data: user, isLoading: userLoading } = useUser()
-
-	const currentUser = sseData || user;
-
+	useSSE()
+	const { data: user} = useUser()
 	return (
 		<header className="bg-bgSecondary flex items-center justify-between h-[85px] px-7 fixed w-full border-b-[1px] border-b-gray-700 z-50">
 			<Logo />
-			{currentUser ? <UserMenu user={currentUser}/> : <Menu/>}
+			{user || user?.user ? <UserMenu/> : <Menu/>}
 		</header>
 	)
 }

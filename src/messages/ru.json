@@ -116,7 +116,10 @@
       "MatchModal": {
         "teamLogo": "Логотип команды",
         "userAvatar": "Аватар пользователя",
-        "players": "Игроки"
+        "players": "Игроки",
+        "updateMatch": "Обновить матч",
+        "winTeam": "Победившая команда",
+        "selectWinner": "Выберите победителя"
       }
     },
     "Teams": {

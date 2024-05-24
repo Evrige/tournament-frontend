@@ -2,7 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import { IUser } from '@/app/types/db.interface'
 import instance from '@/app/api/api.interseptor'
 
-const fetchUser = async (): Promise<IUser> => {
+// @ts-ignore
+const fetchUser = async (): Promise<IUser, Error> => {
 	const response = await instance({
 		url: process.env.NEXT_PUBLIC_USER_USER_DATA_URL,
 		method: 'GET',
