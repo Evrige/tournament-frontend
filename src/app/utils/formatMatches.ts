@@ -9,20 +9,26 @@ export const formatMatches = (matches:IMatch[]) => matches.map(match => {
 			tournamentRoundText: match.tournamentRoundText,
 			startTime: formatDate(match.startTime),
 			state: match.state,
+			map: match.map,
+			tournamentId: match.tournamentId,
 			participants: [
 				{
 					id: match?.team1?.id,
-					resultText: "",
+					resultText: match.team1RoundsWon || "0",
 					isWinner: match?.team1?.id === match.teamWinId,
 					status: null,
-					name: match?.team1?.name
+					name: match?.team1?.name,
+					logo: match?.team1?.logo,
+					user: match?.team1?.user
 				},
 				{
 					id: match?.team2?.id,
-					resultText: "",
+					resultText: match.team2RoundsWon || "0",
 					isWinner: match?.team2?.id === match.teamWinId,
 					status: null,
-					name: match?.team2?.name
+					name: match?.team2?.name,
+					logo: match?.team2?.logo,
+					user: match?.team2?.user
 				}
 			]
 		}

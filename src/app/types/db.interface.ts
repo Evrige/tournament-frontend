@@ -2,6 +2,7 @@ export interface ITeam {
 	id: number
 	name: string
 	logo: string
+	user?: IUser[]
 }
 
 export interface IUser {
@@ -26,6 +27,7 @@ export interface IInvites {
 	userId: number
 	teamId: number
 	status: EnumInviteStatus
+	team: ITeam
 }
 
 export enum EnumInviteStatus {
@@ -105,7 +107,8 @@ export interface IMatch {
 	team1RoundsWon: number
 	team2RoundsWon: number
 	team1: ITeam
-	team2: ITeam
+	team2: ITeam,
+	map: IMap
 }
 
 export interface IListTeam {

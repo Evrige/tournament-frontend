@@ -18,6 +18,10 @@
       "ru": "Русский",
       "ua": "Українська"
     },
+    "Notification": {
+      "inviteInTeam": "Вас пригласили в:",
+      "noNotification": "Новых уведомлений нет"
+    },
     "User": {
       "avatar": "Аватар пользователя"
     },
@@ -108,7 +112,12 @@
     "Bracket": {
       "bracketTitle": "Турнирная сетка",
       "noTeams": "Ждем заполнения слотов и старта турнира...",
-      "slots": "Слоты"
+      "slots": "Слоты",
+      "MatchModal": {
+        "teamLogo": "Логотип команды",
+        "userAvatar": "Аватар пользователя",
+        "players": "Игроки"
+      }
     },
     "Teams": {
       "teamsTitle": "Команды",
@@ -123,7 +132,8 @@
     "prizePool": "Призовой фонд",
     "enter": "Свободный вход",
     "bgImage": "Баннер турнира",
-    "signUpClose": "Начало через"
+    "signUpClose": "Начало через",
+    "handleStart": "Начать турнир"
   },
   "User": {
     "Profile": {

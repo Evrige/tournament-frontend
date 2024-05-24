@@ -1,34 +1,47 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { createTheme, Match, SingleEliminationBracket, SVGViewer } from '@g-loot/react-tournament-brackets/dist/cjs'
 import { useTranslations } from 'next-intl'
 import useWindowSize from '@g-loot/react-tournament-brackets/dist/cjs/hooks/use-window-size'
+import { IMatch } from '@/app/types/db.interface'
+import MatchModal from '@/app/components/modals/MatchModal'
 
 // @ts-ignore
 export const SingleElimination = ({matches}) => {
 	const [width, height] = useWindowSize();
 	const finalHeight = Math.max(height - 300, 500);
-	const finalWidth = Math.max(width - 450, 600);
+	const finalWidth = Math.max(width - 250, 600);
+	const [isOpen, setIsOpen] = useState(false)
+	const [match, setMatch] = useState()
+
 
 	return(
-		<SingleEliminationBracket
-			theme={GlootTheme}
-			matches={matches}
-			matchComponent={Match}
-			svgWrapper={({children, ...props}) => (
-				<SVGViewer
-					width={finalWidth}
-					height={finalHeight}
-					background="rgb(11, 13, 19)"
-					SVGBackground="rgb(11, 13, 19)"
-					{...props}
-				>
-					{children}
-				</SVGViewer>
-			)}
-			onMatchClick={(match) => console.log(match)}
-			onPartyClick={(match) => console.log(match)}
-		/>
+		<div>
+			<SingleEliminationBracket
+				theme={GlootTheme}
+				matches={matches}
+				matchComponent={Match}
+				svgWrapper={({children, ...props}) => (
+					<SVGViewer
+						width={finalWidth}
+						height={finalHeight}
+						background="rgb(11, 13, 19)"
+						SVGBackground="rgb(11, 13, 19)"
+						{...props}
+					>
+						{children}
+					</SVGViewer>
+				)}
+				onMatchClick={(match) => {
+					setIsOpen((prev) => !prev)
+					// @ts-ignore
+					setMatch(match.match)
+				}}
+				// onPartyClick={(match) => console.log(match)}
+			/>
+			{isOpen && <MatchModal matchData={match} handleClose={()=> setIsOpen((prev) => !prev)}/>}
+		</div>
+
 	);
 }
 

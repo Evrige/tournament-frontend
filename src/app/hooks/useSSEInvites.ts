@@ -14,7 +14,7 @@ const useSSEInvites = () => {
 
 		eventSource.onmessage = (event) => {
 			const data = JSON.parse(event.data);
-			setSseData(data.user);
+			setSseData(data.invites);
 		};
 
 		eventSource.onerror = (error) => {

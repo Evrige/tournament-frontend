@@ -15,7 +15,7 @@ interface IProps {
 
 const SendInvites = ({ handleClose }: IProps) => {
 	const dic = useTranslations()
-	const queryClient = useQueryClient()
+
 	const [usersList, setUsersList] = useState<IUser[]>([])
 	const [searchInput, setSearchInput] = useState<string>()
 	const [sentInvites, setSentInvites] = useState<Set<number>>(new Set())

@@ -93,7 +93,7 @@ const Page = () => {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col bg-bgPrimary rounded-[8px] max-w-[300px] m-5">
+			<div className="flex flex-col bg-bgPrimary rounded-[8px] max-w-[300px] ml-5 mt-5">
 				<div className="flex justify-between items-center rounded-t-[8px] bg-bgTable">
 					<h1 className="text-accentText text-2xl uppercase p-3">
 						{dic('User.Team.team')}</h1>

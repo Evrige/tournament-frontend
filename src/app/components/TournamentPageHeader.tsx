@@ -12,6 +12,8 @@ import useUser from '@/app/hooks/useUser'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
 import { useTournament } from '@/app/components/TournamentProvider'
+import AdminButton from '@/app/components/UI/AdminButton'
+import { startTournament } from '@/app/service/startTournament'
 
 const joinLeaveTournament = async (tournamentId: number, action: string) => {
 	const url = action === 'join' ? `${process.env.NEXT_PUBLIC_JOIN_TOURNAMENT_URL}` :
@@ -32,7 +34,7 @@ const TournamentPageHeader = () => {
 
 	const isRegOpen = !user?.roles.some(role => role.role.name === EnumRole.MANAGER)
 		&& tournament.status !== EnumTournamentStatus.PLANNED
-
+	const isAdmin = user?.roles.some(role => role.role.name === EnumRole.ADMIN)
 	const isTeamAlreadyReg = tournament.teamList.some(team => team.teamId === user?.teamId)
 
 	const handleSubmit = async (action: string) => {
@@ -50,14 +52,19 @@ const TournamentPageHeader = () => {
 						<h1 className="text-accentText text-4xl">{tournament.name}</h1>
 						<PageMenu menuList={menuTournamentItems} />
 					</div>
-					{isRegOpen ? '' :
-						isTeamAlreadyReg ?
-							<div className="absolute bottom-0 right-0 mr-10 mb-4" onClick={() => handleSubmit('leave')}>
-								<PrimaryButton title={dic('Tournament.leaveToTournament')} color="bg-buttonColor" />
-							</div> :
-							<div className="absolute bottom-0 right-0 mr-10 mb-4" onClick={() => handleSubmit('join')}>
-								<PrimaryButton title={dic('Tournament.joinToTournament')} color="bg-primary" />
-							</div>}
+					<div className="flex gap-1 absolute bottom-0 right-0 mr-10 mb-4">
+						<div onClick={()=> startTournament(tournament.id)}>
+							{isAdmin ? <AdminButton title={dic('Tournament.handleStart')} borderColor="border-buttonColor"/> : ""}
+						</div>
+						{isRegOpen ? '' :
+							isTeamAlreadyReg ?
+								<div onClick={() => handleSubmit('leave')}>
+									<PrimaryButton title={dic('Tournament.leaveToTournament')} color="bg-buttonColor" />
+								</div> :
+								<div onClick={() => handleSubmit('join')}>
+									<PrimaryButton title={dic('Tournament.joinToTournament')} color="bg-primary" />
+								</div>}
+					</div>
 				</div>
 			</div>
 			<Breadcrumbs name={tournament.name} />
