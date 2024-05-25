@@ -32,9 +32,10 @@ const TournamentPageHeader = () => {
 	const { data: user } = useUser()
 	const { tournament, updateTournament } = useTournament();
 
-	const isRegOpen = !user?.roles.some(role => role.role.name === EnumRole.MANAGER)
-		&& tournament.status !== EnumTournamentStatus.PLANNED
-	const isAdmin = user?.roles.some(role => role.role.name === EnumRole.ADMIN)
+	const isRegOpen = user?.roles?.some(role => role.role.name === EnumRole.MANAGER)
+		&& tournament.status === EnumTournamentStatus.PLANNED
+
+	const isAdmin = user?.roles?.some(role => role.role.name === EnumRole.ADMIN)
 	const isTeamAlreadyReg = tournament.teamList.some(team => team.teamId === user?.teamId)
 
 	const handleSubmit = async (action: string) => {
@@ -56,7 +57,7 @@ const TournamentPageHeader = () => {
 						<div onClick={()=> startTournament(tournament.id)}>
 							{isAdmin ? <AdminButton title={dic('Tournament.handleStart')} borderColor="border-buttonColor"/> : ""}
 						</div>
-						{isRegOpen ? '' :
+						{!isRegOpen ? '' :
 							isTeamAlreadyReg ?
 								<div onClick={() => handleSubmit('leave')}>
 									<PrimaryButton title={dic('Tournament.leaveToTournament')} color="bg-buttonColor" />
