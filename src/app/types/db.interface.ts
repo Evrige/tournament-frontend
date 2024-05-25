@@ -120,3 +120,13 @@ export interface IListTeam {
 	createdAt: Date
 	team: ITeam
 }
+
+
+export interface IRating {
+	id: number,
+	teamId: number,
+	userId: number,
+  points: number,
+	team: ITeam
+	user: IUser
+}
