@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import useWindowSize from '@g-loot/react-tournament-brackets/dist/cjs/hooks/use-window-size'
 import { IMatch } from '@/app/types/db.interface'
 import MatchModal from '@/app/components/modals/MatchModal'
+import { IBracket } from '@/app/types/bracket.intreface'
 
 // @ts-ignore
 export const SingleElimination = ({matches}) => {
@@ -39,7 +40,7 @@ export const SingleElimination = ({matches}) => {
 				}}
 				// onPartyClick={(match) => console.log(match)}
 			/>
-			{isOpen && <MatchModal matchData={match} handleClose={()=> setIsOpen((prev) => !prev)}/>}
+			{isOpen && match && <MatchModal matchData={match} handleClose={()=> setIsOpen((prev) => !prev)}/>}
 		</div>
 
 	);

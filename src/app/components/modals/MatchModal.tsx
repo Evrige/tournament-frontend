@@ -101,7 +101,7 @@ const MatchModal = ({ matchData, handleClose }: IProps) => {
 							name="winTeam"
 							id="winTeam"
 							className="w-[200px] h-8 mb-4 rounded-[4px] bg-bgSecondary outline-none"
-							value={newMatchData.teamWinId}
+							value={newMatchData.teamWinId || ""}
 							onChange={handleWinTeamChange}>
 							<option value="">{dic('Tournament.Bracket.MatchModal.selectWinner')}</option>
 							<option value={matchData.participants[0].id || 0}>{matchData.participants[0].name}</option>

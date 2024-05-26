@@ -8,7 +8,7 @@ const fetchUser = async (): Promise<IUser, Error> => {
 		url: process.env.NEXT_PUBLIC_USER_USER_DATA_URL,
 		method: 'GET',
 	});
-	return response.data;
+	return response.data?.user;
 };
 
 const useUser = () => {

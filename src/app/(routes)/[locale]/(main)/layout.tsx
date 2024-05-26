@@ -1,6 +1,6 @@
 import {Metadata} from "next";
 import Aside from '@/app/components/Aside'
-
+import React from 'react'
 
 export const metadata: Metadata = {
 	title: 'MTG',

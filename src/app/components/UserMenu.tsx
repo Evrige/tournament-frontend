@@ -25,8 +25,7 @@ const UserMenu = () => {
 	const invites = useSSEInvites() || []
 	const [dropDownIsActive, setDropDownIsActive] = useState(false)
 	const dropDownRef = useRef<HTMLDivElement>(null)
-	const { data: userData } = useUser()
-	const user = userData?.user ? userData.user : userData
+	const { data: user } = useUser()
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
