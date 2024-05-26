@@ -1,14 +1,18 @@
+"use client"
 import React from 'react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { ITournament } from '@/app/types/db.interface'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import { formatDate } from '@/app/utils/formatDate'
 import { toPrice } from '@/app/utils/toPrice'
+import { useRouter } from 'next/navigation'
+import { getUrl } from '@/app/utils/getUrl'
 
 const TableResult = ({list}: {list: ITournament[]}) => {
 	const dic = useTranslations()
 	const limitedList = list.slice(0, 10)
-
+	const router = useRouter()
+	const localeActive = useLocale()
 	return (
 		<div className="flex flex-col items-center">
 			<h1
@@ -17,8 +21,8 @@ const TableResult = ({list}: {list: ITournament[]}) => {
 				className="text-xl rounded-[8px] overflow-hidden bg-bgPrimary w-2/3 border border-gray-700 border-collapse mt-5 ml-5">
 				<tbody>
 				{limitedList.map((tournament, index) => (
-					<tr key={tournament.id}
-							className={`even:bg-bgSecondary ${index === limitedList.length - 1 ? '' : 'border-b border-gray-700'}`}>
+					<tr key={tournament.id} onClick={()=> router.push(getUrl(`/tournaments/${tournament.id}`, localeActive))}
+							className={`even:bg-bgSecondary ${index === limitedList.length - 1 ? '' : 'border-b border-gray-700 cursor-pointer'}`}>
 						<td className="p-4"><TeamUserLogo url={tournament?.game?.logo} alt={dic("Result.Table.gameLogo")}/></td>
 						<td className="p-4">
 							<div>

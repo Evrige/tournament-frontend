@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { IRating } from '@/app/types/db.interface'
 import { useTranslations } from 'next-intl'
 import { getRating } from '@/app/service/getRating'
+import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
+import { getImageUrl } from '@/app/utils/getImageUrl'
 
 const TableRating = () => {
 	const dic = useTranslations()
@@ -52,7 +54,9 @@ const TableRating = () => {
 				{limitedList.map((rating, index) => (
 					<tr key={rating.id} className={`even:bg-bgSecondary ${index === limitedList.length - 1 ? '' : 'border-b border-gray-700'}`}>
 						<td className="p-1 text-center">{index + 1}</td>
-						<td className="p-4">{tableType === "team" ? rating?.team?.name : rating?.user?.nickname}</td>
+						<td className="p-4 flex gap-2 items-center">{tableType === "team" ?
+							<><TeamUserLogo url={rating?.team?.logo} alt={dic("Rating.Table.teamLogo")}/>{rating?.team?.name}</> :
+							<><TeamUserLogo url={rating?.user?.avatar} alt={dic("Rating.Table.userAvatar")}/>{rating?.user?.nickname}</>}</td>
 						<td className="p-4 text-center">{rating?.points}</td>
 					</tr>
 				))}

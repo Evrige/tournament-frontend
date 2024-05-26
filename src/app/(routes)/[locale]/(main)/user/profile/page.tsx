@@ -58,7 +58,7 @@ const Page = () => {
 	const closeModal = () => {
 		setModalState({ isOpen: false, type: null })
 	}
-	const isTeamManager = user?.roles.some(role => role.role.name === EnumRole.MANAGER)
+	const isTeamManager = user?.roles?.some(role => role.role.name === EnumRole.MANAGER)
 
 	return (
 		<div className="bg-bgSecondary min-h-[calc(100vh-85px)]">

@@ -23,6 +23,8 @@ export default function Home() {
 	// const queryClient = useQueryClient();
 
 	return (
-		<div></div>
+		<div>
+			<Tournaments />
+		</div>
 	)
 }

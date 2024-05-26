@@ -5,7 +5,7 @@
   "Menu": {
     "home": "Home",
     "more": "More",
-    "about": "About us",
+    "about": "About Us",
     "contacts": "Contacts",
     "signIn": "Sign In",
     "logout": "Logout",
@@ -17,26 +17,185 @@
       "en": "English",
       "ru": "Russian",
       "ua": "Ukrainian"
+    },
+    "Notification": {
+      "inviteInTeam": "You have been invited to:",
+      "noNotification": "No new notifications"
+    },
+    "User": {
+      "avatar": "User avatar"
+    },
+    "Games": {
+      "CS": "Counter Strike",
+      "Valorant": "Valorant",
+      "Dota": "Dota 2"
+    },
+    "More": {
+      "Magazine": "Shop",
+      "About": "About Us",
+      "Contacts": "Contacts",
+      "FAQ": "Frequently Asked Questions",
+      "Terms": "Terms of Use",
+      "Privacy": "Privacy Policy"
     }
   },
   "Auth": {
-    "signIn": "Вход",
-    "signUp": "Создать аккаунт",
+    "signIn": "Sign In",
+    "signUp": "Create Account",
     "emailField": "Email",
-    "email": "Email не соответствует",
-    "required": "Это поле обязательное",
-    "emailError": "Email указан не верно",
-    "password": "Пароль",
-    "passwordErrorMin": "Минимальная длина 6 символов",
-    "passwordErrorMax": "Максимальная длина 16 символов",
-    "passwordError": "Пароль должен иметь цифры и буквы",
-    "confirmPassword": "Подтвердите пароль",
-    "alreadyHaveAccount": "Уже есть аккаунт?",
-    "createAccount": "Создать аккаунт?",
-    "forgotPassword": "Забыли пароль?",
-    "resetPassword": "Сбросить пароль",
-    "resetPasswordSuccess": "Пароль успешно сброшен",
-    "resetPasswordError": "Ошибка при сбросе пароля"
+    "email": "Email does not match",
+    "nickname": "Nickname",
+    "nicknameError": "Username should not contain symbols",
+    "nicknameMin": "Minimum length is 3 characters",
+    "nicknameMax": "Maximum length is 16 characters",
+    "required": "This field is required",
+    "emailError": "Invalid email",
+    "password": "Password",
+    "rePassword": "Repeat Password",
+    "passwordErrorMin": "Minimum length is 6 characters",
+    "passwordErrorMax": "Maximum length is 16 characters",
+    "passwordError": "Password should contain letters and numbers",
+    "confirmPasswordError": "Passwords do not match",
+    "confirmPassword": "Confirm Password",
+    "alreadyHaveAccount": "Already have an account?",
+    "createAccount": "Create an account?",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset Password",
+    "resetPasswordSuccess": "Password successfully reset",
+    "resetPasswordError": "Error resetting password"
+  },
+  "Game": {
+    "name": "Game name",
+    "image": "Game cover",
+    "logo": "Game logo"
+  },
+  "Aside": {
+    "home": "Home",
+    "tournaments": "Tournaments",
+    "teams": "Teams",
+    "rating": "Rating",
+    "results": "Results",
+    "games": "My Games",
+    "help": "Help"
+  },
+  "Tournament": {
+    "Menu": {
+      "overview": "Overview",
+      "bracket": "Bracket",
+      "teams": "Teams"
+    },
+    "Info": {
+      "game": "Game",
+      "format": "Format",
+      "arena": "Arena",
+      "type": "Type",
+      "rating": "Rating",
+      "start": "Starts at"
+    },
+    "Place": {
+      "1st": "1st place",
+      "2nd": "2nd place",
+      "3rd": "3rd place"
+    },
+    "Rules": {
+      "Restrictions": {
+        "tournamentRestrictions": "Tournament Restrictions",
+        "maps": "Allowed maps",
+        "minRating": "Minimum rating to participate",
+        "maxRating": "Maximum rating to participate"
+      },
+      "JoinGame": {
+        "joinGameTitle": "Joining the Game",
+        "rule": "Registration opens 60 minutes before the tournament starts.\n\nPlayers have 45 minutes to confirm their participation.\n\n\nAll players must be logged in to MTG.\n\n\nPlayers have 5 minutes to join the pre-game lobby on the MTG platform. After matching, players have 10 minutes to create or join an in-game lobby.\n\n\nPlayers will be instructed who is selected to create the in-game lobby and who to invite from the opposing team. Work together to ensure everyone gets into the game.\n\n\nThen follows the selection of maps and servers according to the veto system.\n\nAll players are responsible for ensuring that the in-game settings match the information specified in the MTG lobby. Using settings other than those specified will be penalized.\n\nCheck readiness before starting the game."
+      }
+    },
+    "Bracket": {
+      "bracketTitle": "Tournament Bracket",
+      "noTeams": "Waiting for slots to be filled and the tournament to start...",
+      "slots": "Slots",
+      "MatchModal": {
+        "teamLogo": "Team logo",
+        "userAvatar": "User avatar",
+        "players": "Players",
+        "updateMatch": "Update Match",
+        "winTeam": "Winning team",
+        "selectWinner": "Select winner"
+      }
+    },
+    "Teams": {
+      "teamsTitle": "Teams",
+      "joinAt": "Joined at",
+      "teamAlt": "Team logo",
+      "available": "Available spots",
+      "fill": "Filled",
+      "noTeams": "No one has joined yet"
+    },
+    "joinToTournament": "Join",
+    "leaveToTournament": "Leave Tournament",
+    "prizePool": "Prize Pool",
+    "enter": "Free entry",
+    "bgImage": "Tournament banner",
+    "signUpClose": "Starts in",
+    "handleStart": "Start Tournament"
+  },
+  "User": {
+    "Profile": {
+      "BackgroundAlt": "Profile background",
+      "avatar": "User avatar"
+    },
+    "Menu": {
+      "profile": "Overview",
+      "security": "Security",
+      "settings": "Profile Settings",
+      "games": "Games",
+      "achievements": "Achievements"
+    },
+    "Main": {
+      "main": "Main",
+      "matches": "Total matches",
+      "tournamentsCount": "Tournaments played",
+      "winRate": "Win rate",
+      "winRateNo": "No matches played",
+      "achievements": "Achievements",
+      "achievementsNo": "You currently have no achievements."
+    },
+    "Team": {
+      "team": "Your team",
+      "teamLogo": "Team logo",
+      "userLogo": "User avatar",
+      "teamNo": "You are not part of any team",
+      "createTeam": "Create a team",
+      "leaveTeam": "Leave team",
+      "players": "Players:",
+      "CreateTeamForm": {
+        "formTitle": "Team Creation",
+        "teamName": "Team name",
+        "teamLogo": "Team logo",
+        "buttonTitle": "Create team"
+      },
+      "FindUsers": {
+        "noUsers": "User not found",
+        "searchInput": "Enter username..."
+      }
+    }
+  },
+  "Rating": {
+    "teamTitle": "Team Rating Table",
+    "userTitle": "Player Rating Table",
+    "teamButton": "Teams",
+    "userButton": "Players",
+    "Table": {
+      "teamHead": "Team name",
+      "userHead": "Player name",
+      "point": "Rating"
+    }
+  },
+  "Result": {
+    "Table": {
+      "gameLogo": "Game logo",
+      "teams": "Teams",
+      "prizePool": "Prize pool",
+      "title": "Tournament Results"
+    }
   }
-
 }
