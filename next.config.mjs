@@ -26,6 +26,7 @@ const nextConfig = {
 			},
 		],
 	},
+
 	experimental: {
 		optimizePackageImports: [
 			'next/head',
