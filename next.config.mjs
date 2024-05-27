@@ -20,7 +20,7 @@ const nextConfig = {
 			},
 			{
 				protocol: 'https',
-				hostname: 'tournaments-backend-production-5722.up.railway.app/',
+				hostname: 'tournaments-backend-production-5722.up.railway.app',
 				port: '5000',
 				pathname: '/uploads/**',
 			},
