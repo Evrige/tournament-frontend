@@ -19,12 +19,12 @@ const Footer = () => {
 				</div>
 				<div className="flex flex-col gap-2">
 					{menuItems.map(menuItem => (
-						<MenuItemLink title={menuItem.name} link={menuItem.link} />
+						<MenuItemLink key={menuItem.name} title={menuItem.name} link={menuItem.link} />
 					))}
 				</div>
 				<div className="flex flex-col gap-2">
 					{moreItems.map(menuItem => (
-						<MenuItemLink title={menuItem.name} link={menuItem.link} />
+						<MenuItemLink key={menuItem.name} title={menuItem.name} link={menuItem.link} />
 					))}
 				</div>
 				<div>

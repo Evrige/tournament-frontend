@@ -14,9 +14,7 @@ import { successNotify } from '@/app/utils/notification/successNotify'
 import { errorNotify } from '@/app/utils/notification/errorNotify'
 import useUser from '@/app/hooks/useUser'
 
-interface IProps {
-	user: IUser
-}
+
 
 const UserMenu = () => {
 	const dic = useTranslations()
