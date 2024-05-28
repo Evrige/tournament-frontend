@@ -4,7 +4,7 @@ import TableRating from '@/app/components/TableRating'
 
 const Page = () => {
 	return (
-		<div className="">
+		<div className="pb-5">
 			<TableRating />
 		</div>
 	)

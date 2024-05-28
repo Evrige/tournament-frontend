@@ -42,20 +42,20 @@ export const gamesItems = [
 
 export const menuItems = [
 	{
-		title: 'Menu.home',
+		name: 'Menu.home',
 		link: '/',
 	},
 	{
-		title: 'Menu.tournaments',
+		name: 'Menu.tournaments',
 		link: '/tournaments',
 	},
 	{
-		title: 'Menu.games',
+		name: 'Menu.games',
 		link: 'dropDown',
 		list: gamesItems
 	},
 	{
-		title: 'Menu.more',
+		name: 'Menu.more',
 		link: 'dropDown',
 		list: moreItems
 	},

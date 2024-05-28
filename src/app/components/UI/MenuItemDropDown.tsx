@@ -31,7 +31,7 @@ const MenuItemDropDown = ({title, list}:IProps) => {
 				event.stopPropagation()
 				setDropDownIsActive(!dropDownIsActive)
 			}}>
-				<p>{title}</p>
+				<p>{dic(title)}</p>
 				<IoIosArrowDown size="20px"
 												className={`ml-0.5 mt-0.5 transform transition-transform duration-300 
 											 ${dropDownIsActive ? 'max-md:rotate-90 rotate-180' : 'max-md:-rotate-90 rotate-0'}`} />

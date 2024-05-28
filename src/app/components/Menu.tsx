@@ -17,8 +17,8 @@ const Menu = () => {
 				<div className="flex gap-5">
 					{menuItems.map(item => (
 						item.link === 'dropDown' ?
-							<MenuItemDropDown key={item.title} title={dic(item.title)} list={item.list}/> :
-							<MenuItemLink key={item.title} link={item.link} title={dic(item.title)} />
+							<MenuItemDropDown key={item.name} title={item.name} list={item.list}/> :
+							<MenuItemLink key={item.name} link={item.link} title={item.name} />
 					))}
 				</div>
 			</nav>

@@ -4,7 +4,7 @@ import Tournaments from '@/app/components/Tournaments'
 
 const Page = () => {
 	return (
-		<div>
+		<div className="pb-5">
 			<Tournaments/>
 		</div>
 	)

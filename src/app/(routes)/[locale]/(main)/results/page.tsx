@@ -5,7 +5,7 @@ import TableResult from '@/app/components/TableResult'
 const Page = async () => {
 	const list = await getResult()
 	return (
-		<div>
+		<div className="pb-5">
 			<TableResult list={list}/>
 		</div>
 	)

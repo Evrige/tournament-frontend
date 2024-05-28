@@ -1,13 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { getImageUrl } from '@/app/utils/getImageUrl'
 import useUser from '@/app/hooks/useUser'
-import { IoIosArrowDown, IoMdClose, IoMdPersonAdd } from 'react-icons/io'
-import Link from 'next/link'
-import { getUrl } from '@/app/utils/getUrl'
+import { IoMdClose, IoMdPersonAdd } from 'react-icons/io'
 import { menuUserItems } from '@/app/constants/menuItems'
 import { RiGameLine } from 'react-icons/ri'
 import { SlTrophy } from 'react-icons/sl'
@@ -17,15 +14,13 @@ import BackgroundImage from '@/app/components/BackgroundImage'
 import PageMenu from '@/app/components/PageMenu'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
 import PrimaryButton from '@/app/components/UI/PrimaryButton'
-import TeamLogo from '@/app/components/UI/TeamUserLogo'
+import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
 import CreateTeam from '@/app/components/modals/CreateTeam'
 import { useQueryClient } from '@tanstack/react-query'
 import useTeamUsers from '@/app/hooks/useTeamUsers'
 import { EnumRole, IUser } from '@/app/types/db.interface'
-import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
-import { IoPersonAddSharp } from 'react-icons/io5'
 import SendInvites from '@/app/components/modals/SendInvites'
 
 const leaveTeam = async (): Promise<{message: string}> => {
@@ -61,7 +56,7 @@ const Page = () => {
 	const isTeamManager = user?.roles?.some(role => role.role.name === EnumRole.MANAGER)
 
 	return (
-		<div className="bg-bgSecondary min-h-[calc(100vh-85px)]">
+		<div className="bg-bgSecondary min-h-[calc(100vh-85px)] pb-5">
 			<div className="relative">
 				<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')}/>
 				<Breadcrumbs/>

@@ -199,5 +199,16 @@
       "prizePool": "Призовой",
       "title": "Результаты турниров"
     }
+  },
+  "Footer": {
+    "mtg": "Больше чем игра",
+    "Social": {
+      "youtube": "youtube",
+      "instagram": "instagram",
+      "twitter": "twitter",
+      "facebook": "facebook",
+      "discord": "discord",
+      "telegram": "telegram"
+    }
   }
 }
