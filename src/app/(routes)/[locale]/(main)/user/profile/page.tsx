@@ -22,24 +22,19 @@ import { useQueryClient } from '@tanstack/react-query'
 import useTeamUsers from '@/app/hooks/useTeamUsers'
 import { EnumRole, IUser } from '@/app/types/db.interface'
 import SendInvites from '@/app/components/modals/SendInvites'
+import Loader from '@/app/(routes)/loader'
+import { leaveTeam } from '@/app/service/leaveTeam'
 
-const leaveTeam = async (): Promise<{message: string}> => {
-	const response = await instance({
-		url: process.env.NEXT_PUBLIC_LEAVE_FROM_TEAM_URL,
-		method: 'PUT',
-	});
-	return response.data;
-};
 
 const Page = () => {
 	const dic = useTranslations()
-	const localeActive = useLocale()
+
 	const [modalState, setModalState] = useState<{ isOpen: boolean, type: string | null }>({ isOpen: false, type: null })
 	const { data: user, isLoading: userLoading } = useUser()
 	const queryClient  = useQueryClient()
 	const {data: teamUsers, isLoading: teamUsersLoading} = useTeamUsers()
 
-	if (userLoading || teamUsersLoading) return <div>Loading...</div>
+	if (userLoading || teamUsersLoading) return <Loader/>
 
 	const handleLeave = async () => {
 		const data = await leaveTeam()
@@ -56,38 +51,7 @@ const Page = () => {
 	const isTeamManager = user?.roles?.some(role => role.role.name === EnumRole.MANAGER)
 
 	return (
-		<div className="bg-bgSecondary min-h-[calc(100vh-85px)] pb-5">
-			<div className="relative">
-				<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')}/>
-				<Breadcrumbs/>
-				<div className="absolute w-full bottom-0 pl-4 z-20">
-					<div className="flex items-center gap-2">
-						<Image src={getImageUrl(user?.avatar || '')} alt={dic('User.Profile.avatar')} width={100} height={100} />
-						<p className="text-3xl text-accentText">{user?.nickname}</p>
-					</div>
-					<PageMenu menuList={menuUserItems}/>
-					<div className="flex justify-between">
-						<div className="flex flex-col gap-2 ml-3">
-							<h1 className="text-accentText text-2xl uppercase">{dic('User.Main.main')}</h1>
-							<div className="flex gap-10 flex-wrap	">
-								<ProfileStats name={'0'}
-															subName={dic('User.Main.matches')}
-															icon={<RiGameLine />} />
-								<ProfileStats name={'0'}
-															subName={dic('User.Main.tournamentsCount')}
-															icon={<SlTrophy />} />
-								<ProfileStats name={'0'}
-															subName={dic('User.Main.winRate')}
-															icon={<FaChampagneGlasses />} />
-							</div>
-						</div>
-						<div className="pr-10">
-							<h1 className="text-accentText text-2xl uppercase mb-3">{dic('User.Main.achievements')}</h1>
-							<p>{dic('User.Main.achievementsNo')}</p>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div className="">
 			<div className="flex flex-col bg-bgPrimary rounded-[8px] max-w-[300px] ml-5 mt-5">
 				<div className="flex justify-between items-center rounded-t-[8px] bg-bgTable">
 					<h1 className="text-accentText text-2xl uppercase p-3">

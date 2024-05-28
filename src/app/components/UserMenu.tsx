@@ -78,7 +78,7 @@ const UserMenu = () => {
 			<div className="flex items-center gap-2">
 				<TeamUserLogo url={user?.avatar || ''} alt={dic('Menu.User.avatar')} />
 				<p className="text-[18px] hover:text-accentText cursor-pointer">{user?.nickname}</p>
-				<IoLogOutOutline size="24px" onClick={() => {
+				<IoLogOutOutline className="text-2xl cursor-pointer" onClick={() => {
 					logout.mutate()
 					router.replace('/')
 				}} />

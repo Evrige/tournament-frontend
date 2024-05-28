@@ -17,7 +17,7 @@ const useRegistration = () => {
 		},
 		onSuccess: (data) => {
 			successNotify(data.message)
-			queryClient.setQueryData(['user'], data);
+			queryClient.setQueryData(['user'], data.user);
 		},
 		onError: (error: {response: {data: {message: string}}}, variables, context) => {
 			errorNotify(error.response.data.message)

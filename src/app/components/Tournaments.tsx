@@ -1,14 +1,13 @@
 import React from 'react'
 import useTournaments from '@/app/hooks/useTouraments'
 import Tournament from '@/app/components/Tournament'
+import Loader from '@/app/(routes)/loader'
 
 const Tournaments = () => {
 
 	const { data: tournaments, isLoading } = useTournaments()
 	if (isLoading) {
-		return (
-			<div>Loading...</div>
-		)
+		return <Loader/>
 	}
 
 	return (

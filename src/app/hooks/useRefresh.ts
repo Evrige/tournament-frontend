@@ -1,20 +1,13 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { IUser } from '@/app/types/db.interface';
-import instance from '@/app/api/api.interseptor';
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { IUser } from '@/app/types/db.interface'
+import { refreshToken } from '@/app/service/refreshToken'
 
-const fetchUser = async (): Promise<{ user: IUser; message: string }> => {
-	const response = await instance({
-		url: process.env.NEXT_PUBLIC_AUTH_REFRESH_URL,
-		method: 'GET',
-	});
-	return response.data;
-};
 
 const useRefresh = () => {
 	const queryClient = useQueryClient();
 	const { data, error } = useQuery<{ user: IUser; message: string }, Error>({
 		queryKey: ['refresh'],
-		queryFn: fetchUser,
+		queryFn: refreshToken,
 	});
 
 	if (data) {

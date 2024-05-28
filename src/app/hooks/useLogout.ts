@@ -16,7 +16,7 @@ const useLogout = () => {
 		},
 		onSuccess: (data) => {
 			successNotify(data.message)
-			queryClient.setQueryData(['user'], {});
+			queryClient.setQueryData(['user'], null);
 		},
 		onError: (error: {response: {data: {message: string}}}, variables, context) => {
 			errorNotify(error.response.data.message)
