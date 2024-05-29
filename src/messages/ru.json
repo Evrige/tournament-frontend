@@ -143,6 +143,15 @@
       "BackgroundAlt": "Фон профиля",
       "avatar": "Аватар пользователя"
     },
+    "Settings": {
+      "title": "Ваши данные",
+      "avatar": "Аватар пользователя",
+      "name": "Имя",
+      "email": "Email",
+      "nickname": "Nickname",
+      "lastname": "Фамилия",
+      "dateBirth": "Дата рождения"
+    },
     "Menu": {
       "profile": "Обзор",
       "security": "Безопасность",
