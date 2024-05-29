@@ -13,11 +13,13 @@ import { FaChampagneGlasses } from 'react-icons/fa6'
 import { useTranslations } from 'next-intl'
 import useUser from '@/app/hooks/useUser'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
+import { router } from 'next/client'
+import { redirect } from 'next/navigation'
 
 const UserHeader = () => {
 	const dic = useTranslations()
 	const { data: user, isLoading: userLoading } = useUser()
-
+	if(!userLoading && !user) redirect("/")
 	return (
 		<div className="relative">
 			<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')} />
