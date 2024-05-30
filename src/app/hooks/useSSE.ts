@@ -17,8 +17,7 @@ const useSSE = () => {
 		eventSource.onmessage = (event) => {
 			const data = JSON.parse(event.data);
 			setSseData(data.user);
-
-			queryClient.setQueryData(['user'], data.user);
+			if (data.user) queryClient.setQueryData(['user'], data.user);
 		};
 
 		eventSource.onerror = (error) => {
