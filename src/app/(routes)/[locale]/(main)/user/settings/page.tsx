@@ -33,7 +33,7 @@ const Page = () => {
 		formData.append('lastname', values.lastname)
 		formData.append('avatar', values.avatar)
 		// formData.append('dateBirth', values.dateBirth)
-		console.log(formData)
+		console.log(values)
 		try {
 			const user = await updateUser(formData)
 			queryClient.invalidateQueries({ queryKey: ['user'] })
