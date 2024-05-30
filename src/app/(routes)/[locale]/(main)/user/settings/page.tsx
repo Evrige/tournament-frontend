@@ -9,12 +9,12 @@ import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { IRole, ITeam } from '@/app/types/db.interface'
 import Loader from '@/app/(routes)/loader'
 import AuthInput from '@/app/components/UI/AuthInput'
+import { updateUser } from '@/app/service/updateUser'
 
 const Page = () => {
 	const { data: user, isLoading: userLoading } = useUser()
 	const dic = useTranslations()
 	const queryClient = useQueryClient()
-	const createGame = useCreateGame()
 	if (userLoading) return <Loader />
 	const initialValue = {
 		nickname: user?.nickname || '',
@@ -27,16 +27,19 @@ const Page = () => {
 
 	const handleSubmit = async (values, { resetForm }) => {
 		const formData = new FormData()
+		formData.append('nickname', values.nickname)
+		// formData.append('email', values.email)
 		formData.append('name', values.name)
-		formData.append('image', values.image)
-		formData.append('logo', values.logo)
-		console.log(values)
+		formData.append('lastname', values.lastname)
+		formData.append('avatar', values.avatar)
+		// formData.append('dateBirth', values.dateBirth)
+		console.log(formData)
 		try {
-			await createGame.mutateAsync(formData)
+			const user = await updateUser(formData)
 			queryClient.invalidateQueries({ queryKey: ['user'] })
 			resetForm()
 		} catch (error) {
-			console.error('Error creating game:', error)
+			console.error('Error updating user:', error)
 		}
 	}
 
