@@ -1,8 +1,8 @@
 export const moreItems = [
-	{
-		name: "Menu.More.Magazine",
-		link: "/magazine",
-	},
+	// {
+	// 	name: "Menu.More.Magazine",
+	// 	link: "/magazine",
+	// },
 	{
 		name: "Menu.More.About",
 		link: "/about",

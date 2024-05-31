@@ -11,7 +11,7 @@ const Footer = () => {
 	const localeActive = useLocale()
 	const dic = useTranslations()
 	return (
-		<footer className="bg-bgPrimary w-full pl-[220px] pt-5">
+		<footer className="bg-bgPrimary w-full pl-[220px] pt-5 border-t border-t-gray-700">
 			<div className="flex justify-between flex-wrap mb-5">
 				<div>
 					<Logo />
@@ -31,7 +31,10 @@ const Footer = () => {
 					<div className="flex gap-2 flex-wrap mt-5 max-w-[100px] lg:mr-16">
 						{socialItems.map(socialItem => (
 							<Link key={socialItem.name} title={dic(socialItem.name)}
-										href={getUrl(socialItem.link, localeActive)}>{socialItem.icon}</Link>
+										href={getUrl(socialItem.link, localeActive)}
+										className={`text-2xl hover:${socialItem.color}`}>
+								{socialItem.icon}
+							</Link>
 						))}
 					</div>
 				</div>

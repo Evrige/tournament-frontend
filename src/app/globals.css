@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
+
+html, body {
+    height: 100%;
+}
+
+.gradient {
     background: #081325;
-    background: linear-gradient(35deg, #081325 0%, rgba(9,9,121,1) 65%, #009fbf 100%);
+    background: linear-gradient(35deg, #081325 0%, rgba(9, 9, 121, 1) 65%, #009fbf 100%);
     background-size: 150% 150%;
     animation: gradient 10s ease infinite;
     color: #8899b5;
-    min-height: 100vh;
 }
+
 @keyframes gradient {
     0% {
         background-position: 0 50%;
@@ -26,30 +31,67 @@ body {
         background-position: 0 50%;
     }
 }
+
 .tournament:hover {
     box-shadow: 0 0 2rem rgba(129, 226, 252, 0.8)
 }
-.tournament:hover .banner{
+
+.tournament:hover .banner {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
 
+/*.faq{*/
+/*    transition-behavior: allow-discrete;*/
+/*    transition-duration: 500ms;*/
+/*    opacity: 0;*/
+/*    display: none;*/
+/*}*/
+/*.faq.is-open{*/
+/*    opacity: 1;*/
+/*    display: list-item;*/
 
-/* HTML: <div class="loader"></div> */
+/*    @starting-style{*/
+/*        opacity: 0;*/
+/*    }*/
+/*}*/
+.faq{
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 200ms ease;
+}
+.faq.is-open{
+    grid-template-rows: 1fr;
+}
+
+
+
 .loader {
     width: 55px;
     aspect-ratio: 1;
-    --g1:conic-gradient(from  90deg at 3px  3px ,#0000 90deg,#fff 0);
-    --g2:conic-gradient(from -90deg at 22px 22px,#0000 90deg,#fff 0);
-    background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+    --g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #fff 0);
+    --g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #fff 0);
+    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
     background-size: 25px 25px;
     background-repeat: no-repeat;
     animation: l7 1.5s infinite;
 }
+
 @keyframes l7 {
-    0%   {background-position:0    0   ,0 100%,100% 100% }
-    25%  {background-position:100% 0   ,0 100%,100% 100% }
-    50%  {background-position:100% 0   ,0 0   ,100% 100% }
-    75%  {background-position:100% 0   ,0 0   ,0    100% }
-    100% {background-position:100% 100%,0 0   ,0    100% }
+    0% {
+        background-position: 0 0, 0 100%, 100% 100%
+    }
+    25% {
+        background-position: 100% 0, 0 100%, 100% 100%
+    }
+    50% {
+        background-position: 100% 0, 0 0, 100% 100%
+    }
+    75% {
+        background-position: 100% 0, 0 0, 0 100%
+    }
+    100% {
+        background-position: 100% 100%, 0 0, 0 100%
+    }
 }

@@ -47,33 +47,39 @@ export const menuTournamentItems = [
 
 export const socialItems = [
 	{
-		name: 'Footer.Social.instagram',
-		icon: <FaInstagram className="text-2xl hover:text-yellow-500" />,
+		name: 'Social.instagram',
+		icon: <FaInstagram />,
+		color: "text-yellow-500",
 		link: ''
 	},
 	{
-		name: 'Footer.Social.youtube',
-		icon: <FaYoutube className="text-2xl hover:text-red-500"/>,
+		name: 'Social.youtube',
+		icon: <FaYoutube/>,
+		color: "text-red-500",
 		link: ''
 	},
 	{
-		name: 'Footer.Social.twitter',
-		icon: <FaFacebookSquare className="text-2xl hover:text-shadowColor"/>,
+		name: 'Social.twitter',
+		icon: <FaFacebookSquare/>,
+		color: "text-shadowColor",
 		link: ''
 	},
 	{
-		name: 'Footer.Social.facebook',
-		icon: <FaXTwitter className="text-2xl hover:text-shadowColor"/>,
+		name: 'Social.facebook',
+		icon: <FaXTwitter />,
+		color: "text-shadowColor",
 		link: ''
 	},
 	{
-		name: 'Footer.Social.discord',
-		icon: <FaDiscord className="text-2xl hover:text-gray-200" />,
+		name: 'Social.discord',
+		icon: <FaDiscord />,
+		color: "text-gray-200",
 		link: ''
 	},
 	{
-		name: 'Footer.Social.telegram',
-		icon: <FaTelegram  className="text-2xl hover:text-shadowColor"/>,
+		name: 'Social.telegram',
+		icon: <FaTelegram />,
+		color: "text-shadowColor",
 		link: ''
 	}
 ]

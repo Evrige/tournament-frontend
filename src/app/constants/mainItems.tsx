@@ -42,3 +42,28 @@ export const asideItems = [
 		link: "/faq"
 	}
 ]
+
+export const partnersItems = [
+	{
+		name: "Contacts.Partners.hator",
+		image: "/images/Hator.jpg",
+		link: "https://hator.gg/ua/"
+	},
+	{
+		name: "Contacts.Partners.rozetka",
+		image: "/images/rozetka.jpg",
+		link: "https://rozetka.com.ua/"
+	},{
+		name: "Contacts.Partners.steelSeries",
+		image: "/images/steelseries.png",
+		link: "https://ru.steelseries.com/"
+	},{
+		name: "Contacts.Partners.corsair",
+		image: "/images/corsair.jpg",
+		link: "https://www.corsair.com/ru/ru"
+	},{
+		name: "Contacts.Partners.asus",
+		image: "/images/asus.jpg",
+		link: "https://www.asus.com/ua-ua/"
+	},
+]

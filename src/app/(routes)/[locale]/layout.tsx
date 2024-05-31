@@ -34,12 +34,14 @@ export default async function LocaleLayout({
 		<head>
 			<link rel="icon" href="/favicon.ico" sizes="any" />
 		</head>
-		<body className={noto.className}>
+		<body className={`${noto.className} `}>
 		<Provider>
 			<NextIntlClientProvider messages={messages}>
 				<ThemeProvider attribute="class" defaultTheme="system">
-					<Header />
-					{children}
+					<div className="min-h-full flex flex-col gradient">
+						<Header />
+						{children}
+					</div>
 				</ThemeProvider>
 			</NextIntlClientProvider>
 			<ToastContainer />

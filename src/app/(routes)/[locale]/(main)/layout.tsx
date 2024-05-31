@@ -14,7 +14,7 @@ export default function MainLayout({
 }) {
 	return (
 		<>
-			<main className="pt-[85px]">
+			<main className="pt-[85px] flex-grow">
 				<Aside />
 				<div className="pl-[200px]">
 					{children}
