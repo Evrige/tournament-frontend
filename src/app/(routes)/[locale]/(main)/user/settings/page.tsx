@@ -26,7 +26,7 @@ const Page = () => {
 		// dateBirth: user?.dateBirth || '',
 		avatar: user?.avatar || ''
 	}
-
+// @ts-ignore
 	const handleSubmit = async (values, { resetForm }) => {
 		const formData = new FormData()
 		formData.append('nickname', values.nickname)
