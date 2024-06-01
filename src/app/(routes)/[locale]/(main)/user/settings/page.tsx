@@ -34,10 +34,10 @@ const Page = () => {
 		formData.append('lastname', values.lastname)
 		formData.append('avatar', values.avatar)
 		// formData.append('dateBirth', values.dateBirth)
+		console.log(values)
 		try {
 			const user = await updateUser(formData)
 			const userU = await queryClient.invalidateQueries({ queryKey: ['user'] })
-			console.log(userU)
 			resetForm()
 		} catch (error) {
 			console.error('Error updating user:', error)
@@ -52,7 +52,7 @@ const Page = () => {
 			.matches(/^[a-zA-Z0-9]+$/, dic('Auth.nicknameError')),
 		name: Yup.string().required(dic('Auth.required')),
 		lastname: Yup.string().required(dic('Auth.required')),
-		dateBirth: Yup.string().required(dic('Auth.required')),
+		// dateBirth: Yup.string().required(dic('Auth.required')),
 		avatar: Yup.mixed().required(dic('Auth.required'))
 	})
 
@@ -70,9 +70,9 @@ const Page = () => {
 							<div className="flex flex-col">
 								<label>{dic('User.Settings.avatar')}</label>
 								<div className="my-3">
-									<TeamUserLogo url={user?.avatar || "/public/logo.png"} alt={dic('User.avatar')} size="[200px]"/>
+									<TeamUserLogo url={user?.avatar || "/public/logo.png"} alt={"User avatar"} size="[200px]"/>
 								</div>
-								<input type="file" name="avatar" onChange={(e) => setFieldValue('avatar', e.target.files?.[0])} />
+								<input type="file" name="avatar" accept="image/png, image/jpeg" multiple={false} onChange={(e) => setFieldValue('avatar', e.target.files?.[0])} />
 								<ErrorMessage name="avatar" component="div" className="error" />
 							</div>
 							<div className="flex flex-col min-w-[300px]">

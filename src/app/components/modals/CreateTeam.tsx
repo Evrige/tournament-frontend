@@ -59,7 +59,7 @@ const CreateTeam = ({handleClose}: IProps) => {
 							<AuthInput labelText={dic("User.Team.CreateTeamForm.teamName")} type='text' placeholder={dic("User.Team.CreateTeamForm.teamName")} name="name"/>
 							<>
 								<label className="my-2">{dic("User.Team.CreateTeamForm.teamLogo")}</label>
-								<input type="file" name="logo" onChange={(e) => setFieldValue("logo", e.target.files?.[0])} />
+								<input type="file" name="logo" accept="image/png, image/jpeg" multiple={false} onChange={(e) => setFieldValue("logo", e.target.files?.[0])} />
 								<ErrorMessage name="logo" component="div" className="error" />
 							</>
 							<AuthButton title={dic("User.Team.CreateTeamForm.buttonTitle")}/>
