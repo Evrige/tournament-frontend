@@ -42,7 +42,7 @@ const Page = () => {
 			<div className="mx-6 px-4 py-6 border-b border-b-gray-700 flex justify-between gap-3">
 				{socialItems.map(social => (
 					<Link key={social.name} title={dic(social.name)}
-								href={getUrl(social.link, localeActive)} className={`text-3xl flex gap-2 hover:${social.color}`}>
+								href={getUrl(social.link, localeActive)} className={`text-3xl flex gap-2 ${social.color}`}>
 						<p className="text-xl capitalize">{dic(social.name)}</p>
 						{social.icon}
 					</Link>

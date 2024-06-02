@@ -49,37 +49,37 @@ export const socialItems = [
 	{
 		name: 'Social.instagram',
 		icon: <FaInstagram />,
-		color: "text-yellow-500",
+		color: "hover:text-yellow-500",
 		link: ''
 	},
 	{
 		name: 'Social.youtube',
 		icon: <FaYoutube/>,
-		color: "text-red-500",
+		color: "hover:text-red-500",
 		link: ''
 	},
 	{
 		name: 'Social.twitter',
 		icon: <FaFacebookSquare/>,
-		color: "text-shadowColor",
+		color: "hover:text-shadowColor",
 		link: ''
 	},
 	{
 		name: 'Social.facebook',
 		icon: <FaXTwitter />,
-		color: "text-shadowColor",
+		color: "hover:text-shadowColor",
 		link: ''
 	},
 	{
 		name: 'Social.discord',
 		icon: <FaDiscord />,
-		color: "text-gray-200",
+		color: "hover:text-gray-200",
 		link: ''
 	},
 	{
 		name: 'Social.telegram',
 		icon: <FaTelegram />,
-		color: "text-shadowColor",
+		color: "hover:text-shadowColor",
 		link: ''
 	}
 ]

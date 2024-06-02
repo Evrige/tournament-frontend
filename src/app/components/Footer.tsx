@@ -32,7 +32,7 @@ const Footer = () => {
 						{socialItems.map(socialItem => (
 							<Link key={socialItem.name} title={dic(socialItem.name)}
 										href={getUrl(socialItem.link, localeActive)}
-										className={`text-2xl hover:${socialItem.color}`}>
+										className={`text-2xl ${socialItem.color}`}>
 								{socialItem.icon}
 							</Link>
 						))}
