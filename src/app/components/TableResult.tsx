@@ -20,7 +20,7 @@ const TableResult = ({list}: {list: ITournament[]}) => {
 			<table
 				className="text-xl rounded-[8px] overflow-hidden bg-bgPrimary w-2/3 border border-gray-700 border-collapse mt-5 ml-5">
 				<tbody>
-				{limitedList.map((tournament, index) => (
+				{limitedList.reverse().map((tournament, index) => (
 					<tr key={tournament.id} onClick={()=> router.push(getUrl(`/tournaments/${tournament.id}`, localeActive))}
 							className={`even:bg-bgSecondary ${index === limitedList.length - 1 ? '' : 'border-b border-gray-700 cursor-pointer'}`}>
 						<td className="p-4"><TeamUserLogo url={tournament?.game?.logo} alt={dic("Result.Table.gameLogo")}/></td>
