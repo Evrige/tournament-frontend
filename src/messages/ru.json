@@ -249,7 +249,7 @@
     "Company": {
       "title": "Наши данные",
       "data": {
-        "1":{"title": "Адресс:", "data": "123 Main Street, City, Country"},
+        "1":{"title": "Адрес:", "data": "123 Main Street, City, Country"},
         "2":{"title": "Email:", "data": "mtg@gmail.com"},
         "3":{"title": "Телефон:", "data": "+380987654321"}
       }

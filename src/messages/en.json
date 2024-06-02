@@ -5,21 +5,21 @@
   "Menu": {
     "home": "Home",
     "more": "More",
-    "about": "About Us",
+    "about": "About",
     "contacts": "Contacts",
     "signIn": "Sign In",
-    "logout": "Logout",
+    "logout": "Log Out",
     "signUp": "Sign Up",
     "profile": "Profile",
     "games": "Games",
     "tournaments": "Tournaments",
     "Locale": {
       "en": "English",
-      "ru": "Russian",
-      "ua": "Ukrainian"
+      "ru": "Русский",
+      "ua": "Українська"
     },
     "Notification": {
-      "inviteInTeam": "You have been invited to:",
+      "inviteInTeam": "You were invited to:",
       "noNotification": "No new notifications"
     },
     "User": {
@@ -32,9 +32,9 @@
     },
     "More": {
       "Magazine": "Shop",
-      "About": "About Us",
+      "About": "About",
       "Contacts": "Contacts",
-      "FAQ": "Frequently Asked Questions",
+      "FAQ": "FAQ",
       "Terms": "Terms of Use",
       "Privacy": "Privacy Policy"
     }
@@ -43,31 +43,31 @@
     "signIn": "Sign In",
     "signUp": "Create Account",
     "emailField": "Email",
-    "email": "Email does not match",
+    "email": "Invalid Email",
     "nickname": "Nickname",
     "nicknameError": "Username should not contain symbols",
     "nicknameMin": "Minimum length is 3 characters",
     "nicknameMax": "Maximum length is 16 characters",
     "required": "This field is required",
-    "emailError": "Invalid email",
+    "emailError": "Invalid Email address",
     "password": "Password",
     "rePassword": "Repeat Password",
     "passwordErrorMin": "Minimum length is 6 characters",
     "passwordErrorMax": "Maximum length is 16 characters",
-    "passwordError": "Password should contain letters and numbers",
+    "passwordError": "Password must contain letters and numbers",
     "confirmPasswordError": "Passwords do not match",
     "confirmPassword": "Confirm Password",
     "alreadyHaveAccount": "Already have an account?",
-    "createAccount": "Create an account?",
-    "forgotPassword": "Forgot password?",
+    "createAccount": "Create Account?",
+    "forgotPassword": "Forgot Password?",
     "resetPassword": "Reset Password",
     "resetPasswordSuccess": "Password successfully reset",
     "resetPasswordError": "Error resetting password"
   },
   "Game": {
-    "name": "Game name",
-    "image": "Game cover",
-    "logo": "Game logo"
+    "name": "Game Name",
+    "image": "Game Cover",
+    "logo": "Game Logo"
   },
   "Aside": {
     "home": "Home",
@@ -86,11 +86,11 @@
     },
     "Info": {
       "game": "Game",
-      "format": "Format",
+      "format": "Mode",
       "arena": "Arena",
-      "type": "Type",
+      "type": "Format",
       "rating": "Rating",
-      "start": "Starts at"
+      "start": "Start at"
     },
     "Place": {
       "1st": "1st place",
@@ -100,48 +100,58 @@
     "Rules": {
       "Restrictions": {
         "tournamentRestrictions": "Tournament Restrictions",
-        "maps": "Allowed maps",
-        "minRating": "Minimum rating to participate",
-        "maxRating": "Maximum rating to participate"
+        "maps": "Allowed Maps",
+        "minRating": "Minimum Rating for Participation",
+        "maxRating": "Maximum Rating for Participation"
       },
       "JoinGame": {
         "joinGameTitle": "Joining the Game",
-        "rule": "Registration opens 60 minutes before the tournament starts.\n\nPlayers have 45 minutes to confirm their participation.\n\n\nAll players must be logged in to MTG.\n\n\nPlayers have 5 minutes to join the pre-game lobby on the MTG platform. After matching, players have 10 minutes to create or join an in-game lobby.\n\n\nPlayers will be instructed who is selected to create the in-game lobby and who to invite from the opposing team. Work together to ensure everyone gets into the game.\n\n\nThen follows the selection of maps and servers according to the veto system.\n\nAll players are responsible for ensuring that the in-game settings match the information specified in the MTG lobby. Using settings other than those specified will be penalized.\n\nCheck readiness before starting the game."
+        "rule": "Registration opens 60 minutes before the tournament starts.\n\nAfter that, players have 45 minutes to confirm their participation.\n\nAll players must be logged into MTG.\n\nPlayers have 5 minutes to join the pre-game lobby on the MTG platform. After pairing opponents, players have 10 minutes to create or join an in-game lobby.\n\nPlayers will be instructed on who is selected to create the in-game lobby and who to invite from the opposing team. Work together and help everyone get into the game.\n\nThen follows the selection of maps and servers according to the veto system.\n\nAll players are responsible for ensuring that in-game settings match the information specified in the MTG lobby. Using settings other than those specified will be penalized.\n\nCheck readiness before starting the game."
       }
     },
     "Bracket": {
       "bracketTitle": "Tournament Bracket",
-      "noTeams": "Waiting for slots to be filled and the tournament to start...",
+      "noTeams": "Waiting for slots to fill and the tournament to start...",
       "slots": "Slots",
       "MatchModal": {
-        "teamLogo": "Team logo",
-        "userAvatar": "User avatar",
+        "teamLogo": "Team Logo",
+        "userAvatar": "User Avatar",
         "players": "Players",
         "updateMatch": "Update Match",
-        "winTeam": "Winning team",
-        "selectWinner": "Select winner"
+        "winTeam": "Winning Team",
+        "selectWinner": "Select Winner"
       }
     },
     "Teams": {
       "teamsTitle": "Teams",
       "joinAt": "Joined at",
-      "teamAlt": "Team logo",
-      "available": "Available spots",
+      "teamAlt": "Team Logo",
+      "available": "Slots Available",
       "fill": "Filled",
       "noTeams": "No one has joined yet"
     },
     "joinToTournament": "Join",
     "leaveToTournament": "Leave Tournament",
     "prizePool": "Prize Pool",
-    "enter": "Free entry",
-    "bgImage": "Tournament banner",
+    "enter": "Free Entry",
+    "bgImage": "Tournament Banner",
     "signUpClose": "Starts in",
     "handleStart": "Start Tournament"
   },
   "User": {
     "Profile": {
-      "BackgroundAlt": "Profile background",
-      "avatar": "User avatar"
+      "BackgroundAlt": "Profile Background",
+      "avatar": "User Avatar"
+    },
+    "Settings": {
+      "title": "Your Data",
+      "button": "Edit",
+      "avatar": "User Avatar",
+      "name": "Name",
+      "email": "Email",
+      "nickname": "Nickname",
+      "lastname": "Last Name",
+      "dateBirth": "Date of Birth"
     },
     "Menu": {
       "profile": "Overview",
@@ -152,26 +162,26 @@
     },
     "Main": {
       "main": "Main",
-      "matches": "Total matches",
-      "tournamentsCount": "Tournaments played",
-      "winRate": "Win rate",
+      "matches": "Total Matches",
+      "tournamentsCount": "Tournaments Played",
+      "winRate": "Win Rate",
       "winRateNo": "No matches played",
       "achievements": "Achievements",
       "achievementsNo": "You currently have no achievements."
     },
     "Team": {
-      "team": "Your team",
-      "teamLogo": "Team logo",
-      "userLogo": "User avatar",
-      "teamNo": "You are not part of any team",
-      "createTeam": "Create a team",
-      "leaveTeam": "Leave team",
+      "team": "Your Team",
+      "teamLogo": "Team Logo",
+      "userLogo": "User Avatar",
+      "teamNo": "You are not in a team",
+      "createTeam": "Create Team",
+      "leaveTeam": "Leave Team",
       "players": "Players:",
       "CreateTeamForm": {
-        "formTitle": "Team Creation",
-        "teamName": "Team name",
-        "teamLogo": "Team logo",
-        "buttonTitle": "Create team"
+        "formTitle": "Create Team",
+        "teamName": "Team Name",
+        "teamLogo": "Team Logo",
+        "buttonTitle": "Create Team"
       },
       "FindUsers": {
         "noUsers": "User not found",
@@ -185,17 +195,239 @@
     "teamButton": "Teams",
     "userButton": "Players",
     "Table": {
-      "teamHead": "Team name",
-      "userHead": "Player name",
+      "teamHead": "Team Name",
+      "teamLogo": "Team Logo",
+      "userHead": "Player Name",
+      "userAvatar": "User Avatar",
       "point": "Rating"
     }
   },
   "Result": {
     "Table": {
-      "gameLogo": "Game logo",
+      "gameLogo": "Game Logo",
       "teams": "Teams",
-      "prizePool": "Prize pool",
+      "prizePool": "Prize Pool",
       "title": "Tournament Results"
     }
+  },
+  "Footer": {
+    "mtg": "More than game"
+  },
+  "AboutUs": {
+    "title": "About Us",
+    "paragraphs": "Welcome to MTG (More Than Game) — the premier online platform for hosting esports tournaments. \n\n We provide a platform for players of all levels to compete, showcase their skills, and connect with a community of passionate gamers. Our mission is to create an inclusive and competitive environment where players can experience the thrill of esports. Whether you're a casual player or a professional, MTG offers tournaments for various games to suit your interests and skill levels.\n\n At MTG, we believe in the power of gaming to bring people together and foster a sense of community. Join us and be part of the growing esports movement!",
+    "OurValues": {
+      "title": "Our Values",
+      "intro": "At MTG, our values are at the core of everything we do. We believe in:",
+      "values": {
+        "1": "Inclusivity: We welcome players of all backgrounds and skill levels.",
+        "2": "Integrity: We uphold high standards of fairness and sportsmanship.",
+        "3": "Community: We foster a supportive and engaged community of gamers.",
+        "4": "Innovation: We constantly strive to improve our platform and offer the best experience."
+      }
+    },
+    "OurHistory": {
+      "title": "Our History",
+      "paragraph": "MTG was founded in 2024 with a vision to create a top-tier online platform for esports. In a short span of time, we have grown significantly, hosting tournaments and bringing together thousands of players from around the world. Our journey is a testament to our commitment to excellence and our passion for esports."
+    }
+  },
+  "Contacts": {
+    "OurTeam": {
+      "title": "Our Team",
+      "intro": "Meet the team behind MTG:",
+      "members": {
+        "1": {
+          "name": "John Doe",
+          "role": "Founder and CEO"
+        },
+        "2": {
+          "name": "Jane Smith",
+          "role": "COO"
+        },
+        "3": {
+          "name": "Mike Johnson",
+          "role": "Head of Community Engagement"
+        },
+        "4": {
+          "name": "Emily Brown",
+          "role": "Lead Developer"
+        },
+        "5": {
+          "name": "David Wilson",
+          "role": "Marketing Director"
+        }
+      }
+    },
+    "Company": {
+      "title": "Our Details",
+      "data": {
+        "1": {
+          "title": "Address:",
+          "data": "123 Main Street, City, Country"
+        },
+        "2": {
+          "title": "Email:",
+          "data": "mtg@gmail.com"
+        },
+        "3": {
+          "title": "Phone:",
+          "data": "+380987654321"
+        }
+      }
+    },
+    "Partners": {
+      "title": "Our Partners",
+      "steelSeries": "SteelSeries",
+      "corsair": "Corsair",
+      "hator": "Hator",
+      "rozetka": "Rozetka",
+      "asus": "ASUS ROG"
+    }
+  },
+  "Terms": {
+    "title": "Terms of Use",
+    "intro": "Welcome to our esports tournament website. By using our site, you agree to the terms of use outlined in this document. Please read it carefully.",
+    "data": {
+      "1": "By using our site, you agree to these terms of use. If you do not agree with this policy, please do not use our site.",
+      "2": "We respect your privacy. To learn more about how we collect, store, and use your personal data, please refer to our privacy policy.",
+      "3": "All content on our site, including texts, images, videos, and other materials, is protected by copyright. Unauthorized copying, distribution, or use of materials from our site is prohibited.",
+      "4": "We strive to ensure the accuracy and timeliness of the information on our site, but we are not responsible for any losses or damages resulting from the use of our site.",
+      "5": "If you have any questions or comments about our terms of use, please contact us at: mtg@gmail.com",
+      "6": "These terms of use may be revised and changed without prior notice. Please check this document regularly for updates.",
+      "7": "Using our site implies your agreement with any changes made to these terms of use."
+    }
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "intro": "We respect your privacy. For more information on how we collect, store, and use your personal data, please review our privacy policy.",
+    "data": {
+      "1": {
+        "name": "Information Collection and Use",
+        "paragraph": "We may collect various types of information when you use our site. This may include personal data such as your name, email address, phone number, and other contact details that you voluntarily provide to us during registration or by filling out forms.\n\nWe use the information you provide to ensure the operation of our site, provide you with access to the services and information you request, and to contact you regarding important notifications and updates."
+      },
+      "2": {
+        "name": "Data Storage",
+        "paragraph": "We store your data only for the period necessary to achieve the purposes for which it was collected and in accordance with applicable laws and regulations."
+      },
+      "3": {
+        "name": "Disclosure to Third Parties",
+        "paragraph": "We do not sell, trade, or transfer your personal information to third parties without your consent, except where it is necessary to fulfill our obligations to you or where it is required or permitted by law."
+      },
+      "4": {
+        "name": "Data Security",
+        "paragraph": "We take reasonable measures to protect your personal information from loss, misuse, unauthorized access, disclosure, alteration, and destruction."
+      },
+      "5": {
+        "name": "Changes to the Privacy Policy",
+        "paragraph": "We may update our privacy policy from time to time. We recommend that you regularly review this document for changes. Changes take effect upon their publication on our site."
+      },
+      "6": {
+        "name": "Questions and Contacts",
+        "paragraph": "If you have any questions or comments about our privacy policy, please contact us at: mtg@gmail.com."
+      },
+      "7": {
+        "name": "Cookie Use",
+        "paragraph": "We may use cookies and similar technologies to collect information about your use of our site and to improve your experience. Cookies may contain information about your preferences and settings and help us analyze the use of our site and the effectiveness of our marketing campaigns."
+      },
+      "8": {
+        "name": "Analytics",
+        "paragraph": "We may use third-party analytics services, such as Google Analytics, to track and analyze the use of our site. These services may collect information about your activity on the site, such as the pages you visit, the time spent on the site, and other analytics data."
+      },
+      "9": {
+        "name": "Links to Third-Party Sites",
+        "paragraph": "Our site may contain links to third-party sites that are not operated by us. We are not responsible for the privacy policies or practices of these third-party sites. We encourage you to review the privacy policy of each site you visit."
+      },
+      "10": {
+        "name": "Agreement",
+        "paragraph": "By using our site, you agree to our privacy policy. If you do not agree with this policy, please do not use our site."
+      }
+    }
+  },
+  "Faq": {
+    "title": "Frequently Asked Questions (FAQ)",
+    "data": {
+      "1": {
+        "name": "How do I create an account on the site?",
+        "answers": {
+          "1": "To register on the site, simply go to the \"Registration\" page and fill in the required information in the form.",
+          "2": "To log in, click on \"Login\" and enter the required information in the form."
+        }
+      },
+      "2": {
+        "name": "How can I find tournaments that I can participate in?",
+        "answers": {
+          "1": "You can find up-to-date information about available tournaments on the \"Tournaments\" page. There, you will find a list of all upcoming tournaments as well as information about rules, prizes, and registration."
+        }
+      },
+      "3": {
+        "name": "How do I contact the tournament organizers?",
+        "answers": {
+          "1": "If you have any questions or comments about a tournament, you can contact the organizers using the contact information provided on the page for each tournament.",
+          "2": "Go to the \"Contacts\" tab."
+        }
+      },
+      "4": {
+        "name": "How do I change my personal information in my profile?",
+        "answers": {
+          "1": "To change your personal information in your profile, simply go to the \"Profile Settings\" page and edit the necessary information. Don't forget to save your changes after making them."
+        }
+      },
+      "5": {
+        "name": "How can I find the results of past tournaments?",
+        "answers": {
+          "1": "The results of past tournaments are available on the \"Results\" page. There, you will find information about the winners, prizes, and other details."
+        }
+      },
+      "6": {
+        "name": "What should I do if I have problems accessing the site or registering?",
+        "answers": {
+          "1": "If you are having problems accessing the site or registering, please contact our support team at support@mtg.com. We will do our best to assist you as soon as possible."
+        }
+      },
+      "7": {
+        "name": "What games are supported on the site?",
+        "answers": {
+          "1": "Our site supports a wide range of esports games. Popular games include CS, Dota 2, Valorant, and many others. Please check the tournament schedule for a full list of games."
+        }
+      },
+      "8": {
+        "name": "Can I create my own tournament on your site?",
+        "answers": {
+          "1": "Yes, we provide the opportunity to create your own tournaments. To do so, please contact us at support@mtg.com, and our specialists will help you organize a tournament according to your requirements."
+        }
+      },
+      "9": {
+        "name": "How can I become a sponsor of your site or tournaments?",
+        "answers": {
+          "1": "If you are interested in sponsoring our site or tournaments, please contact our partner relations department at support@mtg.com. We will be happy to discuss cooperation opportunities with you."
+        }
+      },
+      "10": {
+        "name": "What should I do if I notice a rule violation during a tournament?",
+        "answers": {
+          "1": "If you notice a rule violation during a tournament, please immediately report it to the tournament organizers or contact our support team at support@mtg.com. We will review your report and take the necessary actions."
+        }
+      },
+      "11": {
+        "name": "How can I get information about upcoming tournaments and promotions?",
+        "answers": {
+          "1": "To stay updated on all news about our tournaments and promotions, subscribe to our newsletter or follow us on social media. We also recommend regularly visiting our site, where we publish current information about upcoming events."
+        }
+      },
+      "12": {
+        "name": "How do I create a team?",
+        "answers": {
+          "1": "To create a team, go to \"Teams\" and click create team."
+        }
+      }
+    }
+  },
+  "Social": {
+    "youtube": "youtube",
+    "instagram": "instagram",
+    "twitter": "twitter",
+    "facebook": "facebook",
+    "discord": "discord",
+    "telegram": "telegram"
   }
 }
