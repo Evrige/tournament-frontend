@@ -10,7 +10,8 @@ import PasswordInput from '@/app/components/UI/PasswordInput'
 import AuthButton from '@/app/components/UI/AuthButton'
 import useLogin from '@/app/hooks/useLogin'
 import { ILoginForm } from '@/app/types/form.interface'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
+import * as bcrypt from 'bcryptjs'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
@@ -31,11 +32,16 @@ const Page: NextPage = () => {
 
 	const handleSubmit =  async (values: ILoginForm,
 															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
+
+		const hashedPassword = await bcrypt.hash(values.password, 5)
 		// @ts-ignore
-		const result = await login.mutateAsync(values, {
+		const result = await login.mutateAsync({
+			...values,
+			password: hashedPassword
+		}, {
 			onSuccess: () => {
-				router.replace("/")
-        setSubmitting(false);
+				setSubmitting(false);
+				redirect("/")
       }
 		})
 	};

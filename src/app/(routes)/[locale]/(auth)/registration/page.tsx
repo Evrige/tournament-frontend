@@ -10,7 +10,8 @@ import AuthButton from '@/app/components/UI/AuthButton'
 import Link from 'next/link'
 import { IRegisterForm } from '@/app/types/form.interface'
 import useRegistration from '@/app/hooks/useRegistration'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
+import * as bcrypt from 'bcryptjs'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
@@ -41,15 +42,20 @@ const Page: NextPage = () => {
 
 	const handleSubmit =  async (values: IRegisterForm,
 															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
-
 		const { confirmPassword, ...formData } = values;
+
+		const hashedPassword = await bcrypt.hash(values.password, 5)
 		// @ts-ignore
-		const result = await registration.mutateAsync(formData, {
+		const result = await registration.mutateAsync({
+			...formData,
+			password: hashedPassword,
+		}, {
 			onSuccess: () => {
-				router.replace("/")
 				setSubmitting(false);
+				redirect("/")
 			}
 		})
+
 	};
 	return (
 		<div className="flex justify-center items-center h-screen">
