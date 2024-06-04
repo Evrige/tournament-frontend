@@ -32,8 +32,9 @@ const Page: NextPage = () => {
 
 	const handleSubmit =  async (values: ILoginForm,
 															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
-
-		const hashedPassword = await bcrypt.hash(values.password, 5)
+		const salt = await bcrypt.genSalt(5);
+		const hashedPassword = await bcrypt.hash(values.password, salt)
+		console.log(hashedPassword)
 		// @ts-ignore
 		const result = await login.mutateAsync({
 			...values,
