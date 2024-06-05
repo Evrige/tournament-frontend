@@ -76,7 +76,7 @@ const UserMenu = () => {
 				</ul>
 			</div>
 			<div className="flex items-center gap-2">
-				<TeamUserLogo url={user?.avatar || ''} alt={dic('Menu.User.avatar')} />
+				<TeamUserLogo url={user?.avatar || ''} size="[60px]" alt={dic('Menu.User.avatar')} />
 				<p className="text-[18px] hover:text-accentText cursor-pointer">{user?.nickname}</p>
 				<IoLogOutOutline className="text-2xl cursor-pointer" onClick={() => {
 					logout.mutate()

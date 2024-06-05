@@ -12,6 +12,7 @@ import useLogin from '@/app/hooks/useLogin'
 import { ILoginForm } from '@/app/types/form.interface'
 import { redirect, useRouter } from 'next/navigation'
 import * as bcrypt from 'bcryptjs'
+import GoogleButton from '@/app/components/UI/GoogleButton'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
@@ -33,13 +34,9 @@ const Page: NextPage = () => {
 	const handleSubmit =  async (values: ILoginForm,
 															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
 		const salt = await bcrypt.genSalt(5);
-		const hashedPassword = await bcrypt.hash(values.password, salt)
-		console.log(hashedPassword)
+
 		// @ts-ignore
-		const result = await login.mutateAsync({
-			...values,
-			password: hashedPassword
-		}, {
+		const result = await login.mutateAsync(values, {
 			onSuccess: () => {
 				setSubmitting(false);
 				redirect("/")
@@ -61,6 +58,9 @@ const Page: NextPage = () => {
 					<PasswordInput labelText={dic('Auth.password')} placeholder={dic('Auth.password')} name="password" />
 					<AuthButton title={dic('Auth.signIn')} />
 					<p className="text-center mt-3 underline">{dic('Auth.forgotPassword')}</p>
+					<div className="my-5">
+						<GoogleButton />
+					</div>
 				</Form>
 			</Formik>
 		</div>
