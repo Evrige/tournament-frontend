@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { NextPage } from 'next'
@@ -12,12 +12,17 @@ import { IRegisterForm } from '@/app/types/form.interface'
 import useRegistration from '@/app/hooks/useRegistration'
 import { redirect, useRouter } from 'next/navigation'
 import * as bcrypt from 'bcryptjs'
+import Confirm from '@/app/components/modals/Confirm'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
 	const registration = useRegistration()
+	const [isOpen, setIsOpen] = useState(false)
+	const [isConfirm, setIsConfirm] = useState(false)
+	const [email, setEmail] = useState<string>("")
 	const router = useRouter()
+
 	const initialValues: IRegisterForm = {
 		email: '',
 		nickname: '',
@@ -50,13 +55,16 @@ const Page: NextPage = () => {
 			...formData,
 			password: hashedPassword,
 		}, {
-			onSuccess: () => {
+			onSuccess: (data) => {
+				setEmail(values.email)
+				if (data) setIsOpen(true)
 				setSubmitting(false);
-				redirect("/")
 			}
 		})
-
 	};
+	if (isConfirm) {
+		router.replace("/")
+	}
 	return (
 		<div className="flex justify-center items-center h-screen">
 			<Formik
@@ -81,6 +89,7 @@ const Page: NextPage = () => {
 					<AuthButton title={dic('Auth.signUp')} />
 				</Form>
 			</Formik>
+			{isOpen ? <Confirm email={email} handleClose={()=> setIsOpen((prev)=> !prev)} setIsConfirm={()=> setIsConfirm((prev)=> !prev)}/> : ""}
 		</div>
 	)
 }

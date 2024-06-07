@@ -408,5 +408,9 @@
     "facebook": "facebook",
     "discord": "discord",
     "telegram": "telegram"
+  },
+  "ConfirmModal": {
+    "email": "На вашу почту {email} отправлено письмо с подтверждением!",
+    "confirm": "Подтвердить"
   }
 }

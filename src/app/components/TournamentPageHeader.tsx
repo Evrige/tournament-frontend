@@ -12,7 +12,7 @@ import useUser from '@/app/hooks/useUser'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
 import { useTournament } from '@/app/components/TournamentProvider'
-import AdminButton from '@/app/components/UI/AdminButton'
+import Button from '@/app/components/UI/Button'
 import { startTournament } from '@/app/service/startTournament'
 
 const joinLeaveTournament = async (tournamentId: number, action: string) => {
@@ -55,7 +55,7 @@ const TournamentPageHeader = () => {
 					</div>
 					<div className="flex gap-1 absolute bottom-0 right-0 mr-10 mb-4">
 						<div onClick={()=> startTournament(tournament.id)}>
-							{isAdmin ? <AdminButton title={dic('Tournament.handleStart')} borderColor="border-buttonColor"/> : ""}
+							{isAdmin ? <Button title={dic('Tournament.handleStart')} borderColor="border-buttonColor"/> : ""}
 						</div>
 						{!isRegOpen ? '' :
 							isTeamAlreadyReg ?

@@ -2,21 +2,25 @@ import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function middleware(request: NextRequest) {
-	const defaultLocale = request.headers.get('x-your-custom-locale') || 'en';
+	const defaultLocale = request.cookies.get("NEXT_LOCALE")?.value || 'en';
+	const { pathname, search } = request.nextUrl;
 
-	// if (request.url.includes("/user")) {
-	// 	let cookie = request.cookies.get('refreshToken')?.value;
-	// 	console.log(cookie);
-	// 	if (!cookie) {
-	//
-	// 		return  NextResponse.redirect(new URL('/', request.url));
-	// 	}
-	// }
+	const locales = ['en', 'ru', 'ua'];
 
 	const handleI18nRouting = createIntlMiddleware({
-		locales: ['en', 'ru', 'ua'],
+		locales: locales,
 		defaultLocale
 	});
+
+	const isLocaleMissing = !locales.some((locale) =>
+		pathname.startsWith(`/${locale}`)
+	);
+	
+	if (isLocaleMissing) {
+		return NextResponse.redirect(
+			new URL(`/${defaultLocale}${pathname}${search}`, request.url)
+		);
+	}
 	const response = handleI18nRouting(request);
 	response.headers.set('x-your-custom-locale', defaultLocale);
 	return response;
@@ -24,7 +28,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
 	matcher: [
-		'/',
-		'/(ru|en|ua)/:path*'
-	]
+		'/((?!api|_next|static|favicon.ico).*)'
+	],
 };

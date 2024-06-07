@@ -4,8 +4,6 @@ import { errorNotify } from '@/app/utils/notification/errorNotify'
 import instance from '@/app/api/api.interseptor'
 
 const useRegistration = () => {
-	const queryClient = useQueryClient();
-
 	return useMutation({
 		mutationFn: async (data) => {
 			const res = await instance({
@@ -17,7 +15,6 @@ const useRegistration = () => {
 		},
 		onSuccess: (data) => {
 			successNotify(data.message)
-			queryClient.setQueryData(['user'], data.user);
 		},
 		onError: (error: {response: {data: {message: string}}}, variables, context) => {
 			errorNotify(error.response.data.message)
