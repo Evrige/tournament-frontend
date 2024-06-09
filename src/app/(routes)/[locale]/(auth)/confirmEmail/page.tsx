@@ -1,16 +1,15 @@
 import React from 'react'
 import { activateEmail } from '@/app/service/activateEmail'
-import { redirect } from 'next/navigation'
+import ConfirmEmailComplete from '@/app/components/ConfirmEmailComplete'
 
 const Page =  async ({ searchParams }: {searchParams: {token: string}}) => {
+	let data;
 	if (searchParams?.token){
-		const data = await activateEmail(searchParams.token)
-		if (data) {
-			redirect("/login")
-		}
+		data = await activateEmail(searchParams.token)
 	}
 	return (
 		<div>
+			{data ? <ConfirmEmailComplete email={data.email}/> : null }
 		</div>
 	)
 }

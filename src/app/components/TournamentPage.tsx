@@ -17,7 +17,7 @@ import { toPrice } from '@/app/utils/toPrice'
 import { TbTrophy } from 'react-icons/tb'
 import { ImTrophy } from 'react-icons/im'
 import useMapsByGame from '@/app/hooks/useMapsByGame'
-import { useTournament } from '@/app/components/TournamentProvider'
+import { useTournament } from '@/app/components/Providers/TournamentProvider'
 
 const TournamentPage = () => {
 	const dic = useTranslations()

@@ -6,7 +6,7 @@ import { findUsersByNickname } from '@/app/service/findUsersByNickname'
 import { IUser } from '@/app/types/db.interface'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import { MdAddBox } from 'react-icons/md'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
 import { invitesService } from '@/app/service/invites'
 
 interface IProps {
@@ -19,7 +19,7 @@ const SendInvites = ({ handleClose }: IProps) => {
 	const [usersList, setUsersList] = useState<IUser[]>([])
 	const [searchInput, setSearchInput] = useState<string>()
 	const [sentInvites, setSentInvites] = useState<Set<number>>(new Set())
-	const { data: userData } = useUser()
+	const { data: userData } = useUserData()
 	useEffect(() => {
 		document.body.style.overflow = 'hidden'
 

@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BackgroundImage from '@/app/components/BackgroundImage'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
 import Image from 'next/image'
@@ -11,15 +11,17 @@ import { RiGameLine } from 'react-icons/ri'
 import { SlTrophy } from 'react-icons/sl'
 import { FaChampagneGlasses } from 'react-icons/fa6'
 import { useTranslations } from 'next-intl'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import { router } from 'next/client'
 import { redirect } from 'next/navigation'
-
+import { useUser } from '@/app/components/Providers/UserProvider'
+import { cookies } from 'next/headers'
+import Cookies from 'js-cookie';
 const UserHeader = () => {
 	const dic = useTranslations()
-	const { data: user, isLoading: userLoading } = useUser()
-	if(!userLoading && !user) redirect("/")
+	const {user} = useUser()
+
 	return (
 		<div className="relative">
 			<BackgroundImage src="/images/profile-back.jpg" alt={dic('User.Profile.BackgroundAlt')} />

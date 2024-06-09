@@ -1,8 +1,10 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache'
 
 export async function middleware(request: NextRequest) {
 	const defaultLocale = request.cookies.get("NEXT_LOCALE")?.value || 'en';
+	const token = request.cookies.has("refreshToken") || null;
 	const { pathname, search } = request.nextUrl;
 
 	const locales = ['en', 'ru', 'ua'];
@@ -21,6 +23,17 @@ export async function middleware(request: NextRequest) {
 			new URL(`/${defaultLocale}${pathname}${search}`, request.url)
 		);
 	}
+
+	// if(pathname.includes("/login") || pathname.includes("/registration") && token) {
+	// 	return NextResponse.redirect(
+	// 		new URL(`/`, request.url)
+	// 	);
+	// }
+	// if(pathname.includes("/user") && !token) {
+	// 	return NextResponse.redirect(
+	// 		new URL(`/login`, request.url)
+	// 	);
+	// }
 	const response = handleI18nRouting(request);
 	response.headers.set('x-your-custom-locale', defaultLocale);
 	return response;

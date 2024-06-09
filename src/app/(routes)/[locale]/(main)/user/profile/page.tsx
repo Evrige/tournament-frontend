@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { getImageUrl } from '@/app/utils/getImageUrl'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
 import { IoMdClose, IoMdPersonAdd } from 'react-icons/io'
 import { menuUserItems } from '@/app/constants/menuItems'
 import { RiGameLine } from 'react-icons/ri'
@@ -24,22 +24,28 @@ import { EnumRole, IUser } from '@/app/types/db.interface'
 import SendInvites from '@/app/components/modals/SendInvites'
 import Loader from '@/app/(routes)/loader'
 import { leaveTeam } from '@/app/service/leaveTeam'
+import { useUser } from '@/app/components/Providers/UserProvider'
+import { errorNotify } from '@/app/utils/notification/errorNotify'
+import { successNotify } from '@/app/utils/notification/successNotify'
+import { getUser } from '@/app/service/getUser'
 
 
 const Page = () => {
 	const dic = useTranslations()
 
 	const [modalState, setModalState] = useState<{ isOpen: boolean, type: string | null }>({ isOpen: false, type: null })
-	const { data: user, isLoading: userLoading } = useUser()
-	const queryClient  = useQueryClient()
+	const {user, updateUser} = useUser()
 	const {data: teamUsers, isLoading: teamUsersLoading} = useTeamUsers()
 
-	if (userLoading || teamUsersLoading) return <Loader/>
+	if (teamUsersLoading) return <Loader/>
 
 	const handleLeave = async () => {
 		const data = await leaveTeam()
-		queryClient.invalidateQueries({queryKey: ['user']});
-		defaultNotify(data.message)
+		if (data.statusCode === 200){
+			successNotify(data.message)
+			updateUser(await getUser())
+		}
+		else errorNotify(data.message)
 	}
 	const openModal = (type: string) => {
 		setModalState({ isOpen: true, type })

@@ -2,6 +2,7 @@ import React from 'react'
 import { ITournament } from '@/app/types/db.interface'
 import instance from '@/app/api/api.interseptor'
 import TournamentPage from '@/app/components/TournamentPage'
+
 export const dynamic = 'force-dynamic'
 export async function generateStaticParams() {
 	const response = await instance({

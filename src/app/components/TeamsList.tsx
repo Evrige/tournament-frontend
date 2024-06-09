@@ -4,7 +4,7 @@ import { IListTeam, ITournament } from '@/app/types/db.interface'
 import { useTranslations } from 'next-intl'
 import TeamLogo from '@/app/components/UI/TeamUserLogo'
 import { formatDate } from '@/app/utils/formatDate'
-import { useTournament } from '@/app/components/TournamentProvider'
+import { useTournament } from '@/app/components/Providers/TournamentProvider'
 
 const TeamsList = () => {
 	const dic = useTranslations()

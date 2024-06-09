@@ -12,7 +12,8 @@ import useSSEInvites from '@/app/hooks/useSSEInvites'
 import { invitesService } from '@/app/service/invites'
 import { successNotify } from '@/app/utils/notification/successNotify'
 import { errorNotify } from '@/app/utils/notification/errorNotify'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
+import { useUser } from '@/app/components/Providers/UserProvider'
 
 
 
@@ -23,7 +24,7 @@ const UserMenu = () => {
 	const invites = useSSEInvites() || []
 	const [dropDownIsActive, setDropDownIsActive] = useState(false)
 	const dropDownRef = useRef<HTMLDivElement>(null)
-	const { data: user } = useUser()
+	const {user} = useUser()
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {

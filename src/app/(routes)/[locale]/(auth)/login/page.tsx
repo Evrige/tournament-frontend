@@ -33,13 +33,11 @@ const Page: NextPage = () => {
 
 	const handleSubmit =  async (values: ILoginForm,
 															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
-		const salt = await bcrypt.genSalt(5);
-
 		// @ts-ignore
 		const result = await login.mutateAsync(values, {
 			onSuccess: () => {
 				setSubmitting(false);
-				redirect("/")
+				router.replace("/")
       }
 		})
 	};

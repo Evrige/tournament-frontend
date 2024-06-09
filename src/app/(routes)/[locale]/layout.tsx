@@ -9,6 +9,8 @@ import Header from '@/app/components/Header'
 import Provider from '@/app/utils/Provider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { UserProvider } from '@/app/components/Providers/UserProvider'
+import { IUser } from '@/app/types/db.interface'
 
 const noto = Noto_Sans({ subsets: ['latin'] })
 
@@ -29,6 +31,7 @@ export default async function LocaleLayout({
 	params: { locale: string }
 }>) {
 	const messages = await getMessages()
+
 	return (
 		<html lang={locale} suppressHydrationWarning>
 		<head>
@@ -38,10 +41,12 @@ export default async function LocaleLayout({
 		<Provider>
 			<NextIntlClientProvider messages={messages}>
 				<ThemeProvider attribute="class" defaultTheme="system">
-					<div className="min-h-full flex flex-col gradient">
-						<Header />
-						{children}
-					</div>
+					<UserProvider user={{} as IUser}>
+						<div className="min-h-full flex flex-col gradient">
+							<Header />
+							{children}
+						</div>
+					</UserProvider>
 				</ThemeProvider>
 			</NextIntlClientProvider>
 			<ToastContainer />

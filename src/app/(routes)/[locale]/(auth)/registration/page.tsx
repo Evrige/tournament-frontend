@@ -19,7 +19,6 @@ const Page: NextPage = () => {
 	const localeActive = useLocale()
 	const registration = useRegistration()
 	const [isOpen, setIsOpen] = useState(false)
-	const [isConfirm, setIsConfirm] = useState(false)
 	const [email, setEmail] = useState<string>("")
 	const router = useRouter()
 
@@ -62,9 +61,6 @@ const Page: NextPage = () => {
 			}
 		})
 	};
-	if (isConfirm) {
-		router.replace("/")
-	}
 	return (
 		<div className="flex justify-center items-center h-screen">
 			<Formik
@@ -89,7 +85,8 @@ const Page: NextPage = () => {
 					<AuthButton title={dic('Auth.signUp')} />
 				</Form>
 			</Formik>
-			{isOpen ? <Confirm email={email} handleClose={()=> setIsOpen((prev)=> !prev)} setIsConfirm={()=> setIsConfirm((prev)=> !prev)}/> : ""}
+			{isOpen ? <Confirm text={dic.markup('ConfirmModal.email', {
+				email })} handleClose={()=> setIsOpen((prev)=> !prev)} route="/"/> : ""}
 		</div>
 	)
 }

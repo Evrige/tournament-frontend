@@ -8,10 +8,10 @@ import { useLocale, useTranslations } from 'next-intl'
 import { EnumRole, EnumTournamentStatus, ITournament } from '@/app/types/db.interface'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
 import PrimaryButton from '@/app/components/UI/PrimaryButton'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
-import { useTournament } from '@/app/components/TournamentProvider'
+import { useTournament } from '@/app/components/Providers/TournamentProvider'
 import Button from '@/app/components/UI/Button'
 import { startTournament } from '@/app/service/startTournament'
 
@@ -29,7 +29,7 @@ const joinLeaveTournament = async (tournamentId: number, action: string) => {
 const TournamentPageHeader = () => {
 	const dic = useTranslations()
 	const localeActive = useLocale()
-	const { data: user } = useUser()
+	const { data: user } = useUserData()
 	const { tournament, updateTournament } = useTournament();
 
 	const isRegOpen = user?.roles?.some(role => role.role.name === EnumRole.MANAGER)

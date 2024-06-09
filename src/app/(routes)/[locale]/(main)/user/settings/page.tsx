@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
 import { useTranslations } from 'next-intl'
 import { useQueryClient } from '@tanstack/react-query'
 import useCreateGame from '@/app/hooks/useCreateGame'
@@ -9,16 +9,16 @@ import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { IRole, ITeam } from '@/app/types/db.interface'
 import Loader from '@/app/(routes)/loader'
 import AuthInput from '@/app/components/UI/AuthInput'
-import { updateUser } from '@/app/service/updateUser'
+import { updateUserData } from '@/app/service/updateUserData'
 import AuthButton from '@/app/components/UI/AuthButton'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
+import { useUser } from '@/app/components/Providers/UserProvider'
 
 const Page = () => {
-	const { data: user, isLoading: userLoading } = useUser()
+	const {user, updateUser, isLoading} = useUser()
 	const dic = useTranslations()
-	const queryClient = useQueryClient()
-	if (userLoading) return <Loader />
-
+	if (isLoading) return <Loader/>
+	console.log(user)
 	const initialValue = {
 		nickname: user?.nickname || '',
 		name: user?.name || '',
@@ -34,10 +34,10 @@ const Page = () => {
 		formData.append('lastname', values.lastname)
 		formData.append('avatar', values.avatar)
 		// formData.append('dateBirth', values.dateBirth)
-		console.log(values)
+
 		try {
-			const user = await updateUser(formData)
-			const userU = await queryClient.invalidateQueries({ queryKey: ['user'] })
+			const user = await updateUserData(formData)
+			console.log(user)
 			resetForm()
 		} catch (error) {
 			console.error('Error updating user:', error)
@@ -70,7 +70,7 @@ const Page = () => {
 							<div className="flex flex-col">
 								<label>{dic('User.Settings.avatar')}</label>
 								<div className="my-3">
-									<TeamUserLogo url={user?.avatar || "/public/logo.png"} alt={"User avatar"} size="[200px]"/>
+									<TeamUserLogo url={user?.avatar || ""} alt={"User avatar"} size="[200px]"/>
 								</div>
 								<input type="file" name="avatar" accept="image/png, image/jpeg" multiple={false} onChange={(e) => setFieldValue('avatar', e.target.files?.[0])} />
 								<ErrorMessage name="avatar" component="div" className="error" />

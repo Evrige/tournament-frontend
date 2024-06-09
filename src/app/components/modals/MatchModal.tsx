@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { useTranslations } from 'next-intl'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
-import useUser from '@/app/hooks/useUser'
+import useUserData from '@/app/hooks/useUserData'
 import { EnumRole, IMatch } from '@/app/types/db.interface'
 import { IBracket } from '@/app/types/bracket.intreface'
 import Button from '@/app/components/UI/Button'
@@ -16,7 +16,7 @@ interface IProps {
 
 const MatchModal = ({ matchData, handleClose }: IProps) => {
 	const dic = useTranslations()
-	const { data: user } = useUser()
+	const { data: user } = useUserData()
 	const isAdmin = user?.roles.some(role => role.role.name === EnumRole.ADMIN)
 
 	const [newMatchData, setNewUpdateMatch] = useState({

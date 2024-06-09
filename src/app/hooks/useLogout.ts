@@ -1,10 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { successNotify } from '@/app/utils/notification/successNotify'
 import { errorNotify } from '@/app/utils/notification/errorNotify'
 import instance from '@/app/api/api.interseptor'
+import { useUser } from '@/app/components/Providers/UserProvider'
 
 const useLogout = () => {
-	const queryClient = useQueryClient();
+	const {updateUser} = useUser()
 
 	return useMutation({
 		mutationFn: async () => {
@@ -16,7 +17,7 @@ const useLogout = () => {
 		},
 		onSuccess: (data) => {
 			successNotify(data.message)
-			queryClient.setQueryData(['user'], null);
+			updateUser(null)
 		},
 		onError: (error: {response: {data: {message: string}}}, variables, context) => {
 			errorNotify(error.response.data.message)

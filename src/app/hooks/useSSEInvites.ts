@@ -10,8 +10,7 @@ const useSSEInvites = () => {
 			return new EventSource(url, eventSourceInitDict);
 		};
 
-		const eventSource = createEventSource('http://localhost:5000/api/user/invites');
-
+		const eventSource = createEventSource(`${process.env.NEXT_PUBLIC_SERVER_URL}${process.env.NEXT_PUBLIC_USER_SSE_INVITES_URL}`);
 		eventSource.onmessage = (event) => {
 			const data = JSON.parse(event.data);
 			setSseData(data.invites);
