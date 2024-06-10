@@ -41,7 +41,7 @@ export default async function LocaleLayout({
 		<Provider>
 			<NextIntlClientProvider messages={messages}>
 				<ThemeProvider attribute="class" defaultTheme="system">
-					<UserProvider user={{} as IUser}>
+					<UserProvider>
 						<div className="min-h-full flex flex-col gradient">
 							<Header />
 							{children}

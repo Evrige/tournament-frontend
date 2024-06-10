@@ -7,6 +7,8 @@ import { ErrorMessage, Form, Formik } from 'formik'
 import useCreateTeam from '@/app/hooks/useCreateTeam'
 import AuthInput from '@/app/components/UI/AuthInput'
 import AuthButton from '@/app/components/UI/AuthButton'
+import { useUser } from '@/app/components/Providers/UserProvider'
+import { getUser } from '@/app/service/getUser'
 
 interface IProps {
 	handleClose: () => void
@@ -15,13 +17,13 @@ interface IProps {
 const CreateTeam = ({handleClose}: IProps) => {
 	const dic = useTranslations()
 	const queryClient = useQueryClient()
+	const {updateUser} = useUser()
 	const initialValue = {
 		name: '',
 		logo: ''
 	}
 
 	const createTeam = useCreateTeam()
-
 	// @ts-ignore
 	const handleSubmit = async (values, { resetForm }) => {
 		const formData = new FormData();
@@ -29,8 +31,9 @@ const CreateTeam = ({handleClose}: IProps) => {
 		formData.append('logo', values.logo);
 			// @ts-ignore
 			const response = await createTeam.mutateAsync(formData);
-			if(response.message === 'ok') {
-				queryClient.invalidateQueries({queryKey: ['user']});
+			if(response.status === 200) {
+				updateUser(await getUser())
+				await queryClient.invalidateQueries({ queryKey: ['teamUsers'] })
 				resetForm();
 				handleClose()
 			}

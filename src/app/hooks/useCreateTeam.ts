@@ -19,7 +19,7 @@ const useCreateTeam = () => {
 			return res.data
 		},
 		onSuccess: (data) => {
-			defaultNotify(data.message === "ok" ? "Team created successfully": data.message)
+			successNotify(data.message)
 		},
 		onError: (error: {response: {data: {message: string}}}, variables, context) => {
 			errorNotify(error.response.data.message)

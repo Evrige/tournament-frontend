@@ -153,6 +153,11 @@
       "lastname": "Фамилия",
       "dateBirth": "Дата рождения"
     },
+    "Security": {
+      "currentPassword": "Текущий пароль",
+      "newPassword": "Новый пароль",
+      "confirmNewPassword": "Подтвердите пароль"
+    },
     "Menu": {
       "profile": "Обзор",
       "security": "Безопасность",
