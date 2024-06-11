@@ -20,7 +20,6 @@ const Page: NextPage = () => {
 	const registration = useRegistration()
 	const [isOpen, setIsOpen] = useState(false)
 	const [email, setEmail] = useState<string>("")
-	const router = useRouter()
 
 	const initialValues: IRegisterForm = {
 		email: '',

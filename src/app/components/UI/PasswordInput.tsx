@@ -9,7 +9,7 @@ interface IInputProps {
 	color?: string
 }
 
-const PasswordInput = ({ labelText, placeholder, name, color }: IInputProps) => {
+const PasswordInput = ({ labelText, placeholder, name, color  }: IInputProps) => {
 	const [isCheckPassword, setIsCheckPassword] = useState(false)
 	return (
 		<div className="relative flex flex-col">

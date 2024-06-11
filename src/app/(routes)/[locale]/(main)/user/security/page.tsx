@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { ErrorMessage, Form, Formik } from 'formik'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import Loader from '@/app/(routes)/loader'
 import AuthInput from '@/app/components/UI/AuthInput'
@@ -10,6 +10,7 @@ import AuthButton from '@/app/components/UI/AuthButton'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import { useUser } from '@/app/components/Providers/UserProvider'
 import PasswordInput from '@/app/components/UI/PasswordInput'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 const Page = () => {
 	const { user, updateUser, isLoading } = useUser()
@@ -20,6 +21,11 @@ const Page = () => {
 		newPassword: '',
 		confirmNewPassword: ''
 	}
+
+	const handleChangeCurrentPassword = (value: string) => {
+		console.log(value)
+	}
+
 	// @ts-ignore
 	const handleSubmit = async (values, { resetForm }) => {
 
@@ -35,39 +41,34 @@ const Page = () => {
 			.max(16, dic('Auth.passwordErrorMax'))
 			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/, dic('Auth.passwordError')),
 		confirmNewPassword: Yup.string()
-			.oneOf([Yup.ref('password')], dic('Auth.confirmPasswordError'))
+			.oneOf([Yup.ref('newPassword')], dic('Auth.confirmPasswordError'))
 	})
 
 	return (
 		<div className="ml-10 mt-3">
 			<h1 className="text-2xl text-center text-accentText my-5">{dic('User.Settings.title')}</h1>
-			{user && (
 				<Formik
-					enableReinitialize
 					initialValues={initialValues}
 					validationSchema={validationSchema}
 					onSubmit={handleSubmit}
 				>
 						<Form className="flex flex-col items-center w-full">
-							<div className="flex gap-2">
-								<div className="flex flex-col min-w-[300px]">
-									<PasswordInput labelText={dic('User.Security.currentPassword')}
-																 placeholder={dic('User.Security.currentPassword')}
-																 color="bg-bgPrimary" name="currentPassword" />
-									<PasswordInput labelText={dic('User.Security.newPassword')}
-																 placeholder={dic('User.Security.newPassword')}
-																 color="bg-bgPrimary" name="newPassword" />
-									<PasswordInput labelText={dic('User.Security.confirmNewPassword')}
-																 placeholder={dic('User.Security.confirmNewPassword')}
-																 color="bg-bgPrimary" name="confirmNewPassword" />
-								</div>
+							<div className="flex flex-col min-w-[300px]">
+								<PasswordInput labelText={dic('User.Security.currentPassword')}
+															 placeholder={dic('User.Security.currentPassword')}
+															 color="bg-bgPrimary" name="currentPassword" />
+								<PasswordInput labelText={dic('User.Security.newPassword')}
+															 placeholder={dic('User.Security.newPassword')}
+															 color="bg-bgPrimary" name="newPassword" />
+								<PasswordInput labelText={dic('User.Security.confirmNewPassword')}
+															 placeholder={dic('User.Security.confirmNewPassword')}
+															 color="bg-bgPrimary" name="confirmNewPassword" />
 							</div>
 							<div className="flex flex-col w-1/3">
 								<AuthButton title={dic('User.Settings.button')} />
 							</div>
 						</Form>
 				</Formik>
-			)}
 		</div>
 	)
 }
