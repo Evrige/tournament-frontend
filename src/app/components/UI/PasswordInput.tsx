@@ -6,7 +6,7 @@ interface IInputProps {
 	labelText: string,
 	placeholder: string,
 	name: string,
-	color?: string
+	color?: string,
 }
 
 const PasswordInput = ({ labelText, placeholder, name, color  }: IInputProps) => {
