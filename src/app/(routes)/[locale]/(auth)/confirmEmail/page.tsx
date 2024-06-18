@@ -6,10 +6,11 @@ const Page =  async ({ searchParams }: {searchParams: {token: string}}) => {
 	let data;
 	if (searchParams?.token){
 		data = await activateEmail(searchParams.token)
+		console.log(data)
 	}
 	return (
 		<div>
-			{data ? <ConfirmEmailComplete email={data.email}/> : null }
+			{data.status === 200 ? <ConfirmEmailComplete email={data.email}/> : null }
 		</div>
 	)
 }
