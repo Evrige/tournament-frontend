@@ -1,11 +1,7 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { successNotify } from '@/app/utils/notification/successNotify'
-import { errorNotify } from '@/app/utils/notification/errorNotify'
+import { useMutation } from '@tanstack/react-query'
 import instance from '@/app/api/api.interseptor'
 
 const useLogin = () => {
-	const queryClient = useQueryClient();
-
 	return useMutation({
 		mutationFn: async (data) => {
 			const res = await instance({
@@ -14,13 +10,6 @@ const useLogin = () => {
         data
 			})
 			return res.data
-		},
-		onSuccess: (data) => {
-			successNotify(data.message)
-			queryClient.setQueryData(['user'], data.user);
-		},
-		onError: (error: {response: {data: {message: string}}}, variables, context) => {
-			errorNotify(error.response.data.message)
 		}
 	})
 }

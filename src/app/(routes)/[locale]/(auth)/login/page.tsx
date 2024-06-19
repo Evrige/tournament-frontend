@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { NextPage } from 'next'
@@ -13,11 +13,18 @@ import { ILoginForm } from '@/app/types/form.interface'
 import { redirect, useRouter } from 'next/navigation'
 import * as bcrypt from 'bcryptjs'
 import GoogleButton from '@/app/components/UI/GoogleButton'
+import { successNotify } from '@/app/utils/notification/successNotify'
+import Confirm from '@/app/components/modals/Confirm'
+import { Simulate } from 'react-dom/test-utils'
+import reset = Simulate.reset
+import ReSendConfirmEmail from '@/app/components/ReSendConfirmEmail'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
 	const router = useRouter()
 	const login = useLogin()
+	const [isModelOpen, setIsModelOpen] = useState(false)
+	const [modalText, setModalText] = useState("")
 	const initialValues: ILoginForm = {
 		email: '',
 		password: ''
@@ -33,13 +40,19 @@ const Page: NextPage = () => {
 
 	const handleSubmit =  async (values: ILoginForm,
 															 { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
-		// @ts-ignore
-		const result = await login.mutateAsync(values, {
-			onSuccess: () => {
-				setSubmitting(false);
-				router.replace("/")
-      }
-		})
+
+		try {
+			// @ts-ignore
+			const result = await login.mutateAsync(values)
+					if(result.status === 200) {
+						successNotify(result.data.message)
+						setSubmitting(false);
+						router.replace("/")
+					}
+		} catch (err) {
+			setModalText(err.response.data.message)
+			setIsModelOpen(true);
+		}
 	};
 
 	return (
@@ -61,6 +74,8 @@ const Page: NextPage = () => {
 					</div>
 				</Form>
 			</Formik>
+			{isModelOpen ? <Confirm handleClose={()=> setIsModelOpen((prev)=> !prev)} route=""
+															text={<ReSendConfirmEmail modalText={modalText} />}/> : ""}
 		</div>
 	)
 }

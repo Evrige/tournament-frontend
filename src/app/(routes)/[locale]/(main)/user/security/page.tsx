@@ -34,7 +34,6 @@ const Page = () => {
 				currentPassword: values.currentPassword,
 				newPassword: hashPassword
 			})
-			console.log(updatePassword)
 			if (updatePassword.status === 200) {
 				successNotify(updatePassword.message)
 				resetForm()
