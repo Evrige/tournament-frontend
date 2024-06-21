@@ -12,7 +12,7 @@ import { IRegisterForm } from '@/app/types/form.interface'
 import useRegistration from '@/app/hooks/useRegistration'
 import { redirect, useRouter } from 'next/navigation'
 import * as bcrypt from 'bcryptjs'
-import Confirm from '@/app/components/modals/Confirm'
+import NotifyModal from '@/app/components/modals/NotifyModal'
 
 const Page: NextPage = () => {
 	const dic = useTranslations()
@@ -84,7 +84,7 @@ const Page: NextPage = () => {
 					<AuthButton title={dic('Auth.signUp')} />
 				</Form>
 			</Formik>
-			{isOpen ? <Confirm text={dic.markup('ConfirmModal.email', {
+			{isOpen ? <NotifyModal text={dic.markup('ConfirmModal.email', {
 				email })} handleClose={()=> setIsOpen((prev)=> !prev)} route="/"/> : ""}
 		</div>
 	)

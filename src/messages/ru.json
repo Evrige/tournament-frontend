@@ -419,6 +419,7 @@
     "emailActivated": "Ваша почта {email} успешно активирована!",
     "confirm": "Подтвердить",
     "reSendConfirmEmail": "Отправить письмо с подтверждением еще раз? ",
-    "reSendConfirmEmailYes": "Отправить."
+    "reSendConfirmEmailYes": "Отправить.",
+    "confirmDeleteTeam": "Вы являеться капитам команды. Вы действительно хотите удалить команду?"
   }
 }

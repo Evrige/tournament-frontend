@@ -13,7 +13,7 @@ import { ILoginForm } from '@/app/types/form.interface'
 import { useRouter } from 'next/navigation'
 import GoogleButton from '@/app/components/UI/GoogleButton'
 import { successNotify } from '@/app/utils/notification/successNotify'
-import Confirm from '@/app/components/modals/Confirm'
+import NotifyModal from '@/app/components/modals/NotifyModal'
 import ReSendConfirmEmail from '@/app/components/ReSendConfirmEmail'
 
 const Page: NextPage = () => {
@@ -67,8 +67,8 @@ const Page: NextPage = () => {
 						<div className="my-5">
 							<GoogleButton />
 						</div>
-						{isModelOpen && <Confirm handleClose={() => setIsModelOpen((prev) => !prev)} route=""
-																		 text={<ReSendConfirmEmail modalText={modalText} email={values.email} />} />}
+						{isModelOpen && <NotifyModal handleClose={() => setIsModelOpen((prev) => !prev)} route=""
+																				 text={<ReSendConfirmEmail modalText={modalText} email={values.email} />} />}
 					</Form>
 				)}
 			</Formik>

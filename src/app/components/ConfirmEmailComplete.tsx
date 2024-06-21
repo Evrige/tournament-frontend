@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import Confirm from '@/app/components/modals/Confirm'
+import NotifyModal from '@/app/components/modals/NotifyModal'
 
 interface IProps {
 	email: string
@@ -12,7 +12,7 @@ const ConfirmEmailComplete = ({email}: IProps) => {
 	const [isOpen, setIsOpen] = useState(true)
 	return (
 		<>
-			{isOpen ?  <Confirm handleClose={()=> setIsOpen((prev)=> !prev)} route="/login" text={dic.markup('ConfirmModal.emailActivated', {
+			{isOpen ?  <NotifyModal handleClose={()=> setIsOpen((prev)=> !prev)} route="/login" text={dic.markup('ConfirmModal.emailActivated', {
 				email })}/> : ""}
 		</>
 	)

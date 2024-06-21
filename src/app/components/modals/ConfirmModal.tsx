@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation'
 
 interface IProps {
 	handleClose: () => void,
-	route: string
+	route?: string
 	text: string | ReactNode
 }
 
-const Confirm = ({handleClose, text, route}: IProps) => {
+const ConfirmModal = ({handleClose, text, route}: IProps) => {
 	const dic = useTranslations()
 	const router = useRouter()
 	const handleOut = () => {
@@ -33,4 +33,4 @@ const Confirm = ({handleClose, text, route}: IProps) => {
 	)
 }
 
-export default Confirm
+export default ConfirmModal
