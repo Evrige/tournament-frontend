@@ -1,27 +1,15 @@
 'use client'
 import React from 'react'
-import BackgroundImage from '@/app/components/BackgroundImage'
 import { useLocale, useTranslations } from 'next-intl'
-import { ITournament } from '@/app/types/db.interface'
-import { getImageUrl } from '@/app/utils/getImageUrl'
-import PageMenu from '@/app/components/PageMenu'
-import { menuTournamentItems } from '@/app/constants/menuItems'
-import Link from 'next/link'
-import { getUrl } from '@/app/utils/getUrl'
-import { IoIosArrowDown } from 'react-icons/io'
-import { usePathname } from 'next/navigation'
-import TournamentPageHeader from '@/app/components/TournamentPageHeader'
 import { format, formatDistanceToNow } from 'date-fns'
 import { enGB, ru } from 'date-fns/locale'
 import { toPrice } from '@/app/utils/toPrice'
-import { TbTrophy } from 'react-icons/tb'
 import { ImTrophy } from 'react-icons/im'
 import useMapsByGame from '@/app/hooks/useMapsByGame'
 import { useTournament } from '@/app/components/Providers/TournamentProvider'
 
 const TournamentPage = () => {
 	const dic = useTranslations()
-	const path = usePathname()
 	const localeActive = useLocale()
 	const { tournament, updateTournament } = useTournament();
 	const {data: maps} = useMapsByGame(tournament.gameId.toString())

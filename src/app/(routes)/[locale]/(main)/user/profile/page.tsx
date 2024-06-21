@@ -13,7 +13,7 @@ import ProfileStats from '@/app/components/ProfileStats'
 import BackgroundImage from '@/app/components/BackgroundImage'
 import PageMenu from '@/app/components/PageMenu'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
-import PrimaryButton from '@/app/components/UI/PrimaryButton'
+import FillButton from '@/app/components/UI/FillButton'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
@@ -28,7 +28,7 @@ import { useUser } from '@/app/components/Providers/UserProvider'
 import { errorNotify } from '@/app/utils/notification/errorNotify'
 import { successNotify } from '@/app/utils/notification/successNotify'
 import { getUser } from '@/app/service/getUser'
-import CreateTeamSection from '@/app/components/CreateTeamSection'
+import UserTeamSection from '@/app/components/UserTeamSection'
 
 
 const Page = () => {
@@ -37,7 +37,7 @@ const Page = () => {
 	return (
 		<div className="">
 
-			<CreateTeamSection/>
+			<UserTeamSection/>
 		</div>
 	)
 }

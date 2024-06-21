@@ -37,9 +37,9 @@ const MenuItemDropDown = ({title, list}:IProps) => {
 											 ${dropDownIsActive ? 'max-md:rotate-90 rotate-180' : 'max-md:-rotate-90 rotate-0'}`} />
 			</div>
 			<ul className={`${dropDownIsActive ? 'absolute' : 'hidden'} top-16 right-4 bg-bgPrimary rounded-[8px] p-5 w-[200px]`}>
-				{list?.map((item: { name: string; link: string }) => (
+				{list?.map((item: { name: string; link?: string }) => (
           <li key={item.name} className="mb-3 mr-12 cursor-pointer hover:text-accentText" >
-            <Link href={`/${localeActive}/${item.link}`}>{dic(item.name)}</Link>
+            <Link href={`/${localeActive}/${item.link || `games/${item.name}`}`}>{item.name}</Link>
           </li>
         ))}
 			</ul>

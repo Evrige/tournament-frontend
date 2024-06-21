@@ -5,7 +5,7 @@ import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import useUserData from '@/app/hooks/useUserData'
 import { EnumRole, IMatch } from '@/app/types/db.interface'
 import { IBracket } from '@/app/types/bracket.intreface'
-import Button from '@/app/components/UI/Button'
+import BorderButton from '@/app/components/UI/BorderButton'
 import { updateMatch } from '@/app/service/updateMatch'
 import { closeTournament } from '@/app/service/closeTournament'
 
@@ -109,7 +109,7 @@ const MatchModal = ({ matchData, handleClose }: IProps) => {
 						</select>
 					</label>
 					<div onClick={()=> handleSendData()}>
-						<Button title={dic('Tournament.Bracket.MatchModal.updateMatch')} borderColor="border-primary" />
+						<BorderButton title={dic('Tournament.Bracket.MatchModal.updateMatch')} borderColor="border-primary" />
 					</div>
 				</div> : ''}
 				<IoMdClose className="text-2xl absolute top-1 right-1 cursor-pointer" onClick={() => handleClose()} />

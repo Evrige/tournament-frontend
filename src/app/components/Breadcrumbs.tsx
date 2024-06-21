@@ -1,12 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import { getUrl } from '@/app/utils/getUrl'
 import { IoIosArrowDown } from 'react-icons/io'
-import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 
 const Breadcrumbs = ({name} : {name ?: string}) => {
-	const localeActive = useLocale()
 	const path = usePathname()
 	const currentPath = path.split('/').splice(2)
 	return (
@@ -18,7 +15,7 @@ const Breadcrumbs = ({name} : {name ?: string}) => {
 					const newPathName = isNaN(Number(pathName)) ? pathName : name
 					return (
 						<li key={pathName} className="flex items-center z-10">
-							<Link href={getUrl(href, localeActive)}
+							<Link href={href}
 										className={`uppercase text-lg ${isLast ? 'text-accentText' : ''}`}>{newPathName}</Link>
 							{!isLast ? <IoIosArrowDown className="text-primary text-xl mx-1 -rotate-90" /> : ''}
 						</li>

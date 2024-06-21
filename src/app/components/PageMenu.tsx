@@ -1,7 +1,6 @@
 import React from 'react'
-import { getUrl } from '@/app/utils/getUrl'
 import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { updateLastPathSegment } from '@/app/utils/updateLastPathSegment'
 

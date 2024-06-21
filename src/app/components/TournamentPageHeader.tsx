@@ -7,12 +7,12 @@ import { menuTournamentItems } from '@/app/constants/menuItems'
 import { useLocale, useTranslations } from 'next-intl'
 import { EnumRole, EnumTournamentStatus, ITournament } from '@/app/types/db.interface'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
-import PrimaryButton from '@/app/components/UI/PrimaryButton'
+import FillButton from '@/app/components/UI/FillButton'
 import useUserData from '@/app/hooks/useUserData'
 import instance from '@/app/api/api.interseptor'
 import { defaultNotify } from '@/app/utils/notification/defaultNotify'
 import { useTournament } from '@/app/components/Providers/TournamentProvider'
-import Button from '@/app/components/UI/Button'
+import BorderButton from '@/app/components/UI/BorderButton'
 import { startTournament } from '@/app/service/startTournament'
 
 const joinLeaveTournament = async (tournamentId: number, action: string) => {
@@ -55,15 +55,15 @@ const TournamentPageHeader = () => {
 					</div>
 					<div className="flex gap-1 absolute bottom-0 right-0 mr-10 mb-4">
 						<div onClick={()=> startTournament(tournament.id)}>
-							{isAdmin ? <Button title={dic('Tournament.handleStart')} borderColor="border-buttonColor"/> : ""}
+							{isAdmin ? <BorderButton title={dic('Tournament.handleStart')} borderColor="border-buttonColor"/> : ""}
 						</div>
 						{!isRegOpen ? '' :
 							isTeamAlreadyReg ?
 								<div onClick={() => handleSubmit('leave')}>
-									<PrimaryButton title={dic('Tournament.leaveToTournament')} color="bg-buttonColor" />
+									<FillButton title={dic('Tournament.leaveToTournament')} color="bg-buttonColor" />
 								</div> :
 								<div onClick={() => handleSubmit('join')}>
-									<PrimaryButton title={dic('Tournament.joinToTournament')} color="bg-primary" />
+									<FillButton title={dic('Tournament.joinToTournament')} color="bg-primary" />
 								</div>}
 					</div>
 				</div>

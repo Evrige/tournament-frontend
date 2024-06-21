@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoMdClose, IoMdPersonAdd } from 'react-icons/io'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
 import { EnumRole, IUser } from '@/app/types/db.interface'
-import PrimaryButton from '@/app/components/UI/PrimaryButton'
+import FillButton from '@/app/components/UI/FillButton'
 import { useTranslations } from 'next-intl'
 import { useUser } from '@/app/components/Providers/UserProvider'
 import useTeamUsers from '@/app/hooks/useTeamUsers'
@@ -13,13 +13,14 @@ import { getUser } from '@/app/service/getUser'
 import { errorNotify } from '@/app/utils/notification/errorNotify'
 import CreateTeam from '@/app/components/modals/CreateTeam'
 import SendInvites from '@/app/components/modals/SendInvites'
-import NotifyModal from '@/app/components/modals/NotifyModal'
+import ConfirmModal from '@/app/components/modals/ConfirmModal'
+
 enum EnumModalTitle {
 	CREATE_TEAM = 'CREATE_TEAM',
   SEND_INVITES = 'SEND_INVITES',
   CONFIRM_LEAVE = 'CONFIRM_LEAVE'
 }
-const CreateTeamSection = () => {
+const UserTeamSection = () => {
 	const dic = useTranslations()
 	const {user, updateUser} = useUser()
 	const isTeamManager = user?.roles?.some(role => role.role.name === EnumRole.MANAGER)
@@ -29,21 +30,37 @@ const CreateTeamSection = () => {
 	const {data: teamUsers, isLoading: teamUsersLoading} = useTeamUsers()
 	if (teamUsersLoading) return <Loader/>
 
-	const handleLeave = async () => {
-		if (isTeamManager) openModal(EnumModalTitle.CONFIRM_LEAVE)
-		const data = await leaveTeam()
-		if (data.status === 200){
-			successNotify(data.message)
-			updateUser(await getUser())
-		}
-		else errorNotify(data.message)
-	}
 	const openModal = (type: EnumModalTitle) => {
 		setModalState({ isOpen: true, type })
 	}
 
 	const closeModal = () => {
 		setModalState({ isOpen: false, type: null })
+	}
+
+	const confirmLeave = () => {
+		return new Promise((resolve) => {
+			const handleAnswer = (answer) => {
+				resolve(answer)
+				closeModal()
+			}
+
+			setModalState({ isOpen: true, type: EnumModalTitle.CONFIRM_LEAVE, handleAnswer })
+		})
+	}
+
+	const handleLeave = async () => {
+		if (isTeamManager) {
+			const answer = await confirmLeave()
+			if (!answer) return
+		}
+
+		const result = await leaveTeam()
+		if (result.status === 200){
+			successNotify(result.message)
+			updateUser(await getUser())
+		}
+		else errorNotify(result.message)
 	}
 
 	return (
@@ -67,29 +84,30 @@ const CreateTeamSection = () => {
 								<TeamUserLogo url={player.avatar || ''} alt={dic('User.Team.userLogo')} />
 								<p className="text-xl text-accentText">{player?.nickname}</p>
 							</div>
-							{user.id !== player.id && isTeamManager ?
-								<IoMdClose className="text-xl text-red-500 mr-3" />
-								: ""}
+							{user.id !== player.id && isTeamManager &&
+								<IoMdClose className="text-xl text-red-500 mr-3" />}
 						</div>
 					))}
-					<div className="flex justify-center" onClick={handleLeave}>
-						<PrimaryButton title={dic('User.Team.leaveTeam')} color="bg-buttonColor" />
+					<div className="flex justify-center my-3" onClick={handleLeave}>
+						<FillButton title={dic('User.Team.leaveTeam')} color="bg-buttonColor" />
 					</div>
 				</div>
 				: <div>
 					<div className="flex gap-3 items-center border-b py-3 pl-2 border-b-bgSecondary">
 						<p>{dic('User.Team.teamNo')}</p>
 					</div>
-					<div className="flex justify-center" onClick={() => openModal(EnumModalTitle.CREATE_TEAM)}>
-						<PrimaryButton title={dic('User.Team.createTeam')} color="bg-primary" />
+					<div className="flex justify-center my-3" onClick={() => openModal(EnumModalTitle.CREATE_TEAM)}>
+						<FillButton title={dic('User.Team.createTeam')} color="bg-primary" />
 					</div>
 				</div>}
 			{modalState.isOpen && modalState.type === EnumModalTitle.CREATE_TEAM && <CreateTeam handleClose={closeModal} />}
 			{modalState.isOpen && modalState.type === EnumModalTitle.SEND_INVITES && <SendInvites handleClose={closeModal} />}
 			{modalState.isOpen && modalState.type === EnumModalTitle.CONFIRM_LEAVE &&
-				<NotifyModal handleClose={closeModal} text={dic("ConfirmModal.confirmDeleteTeam")}/>}
+				<ConfirmModal handleClose={closeModal}
+											text={dic("ConfirmModal.confirmDeleteTeam")}
+											handleAnswer={modalState.handleAnswer}/>}
 		</div>
 	)
 }
 
-export default CreateTeamSection
+export default UserTeamSection

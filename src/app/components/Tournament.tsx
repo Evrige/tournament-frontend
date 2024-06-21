@@ -1,5 +1,4 @@
 import React from 'react'
-import { getUrl } from '@/app/utils/getUrl'
 import Image from 'next/image'
 import { getImageUrl } from '@/app/utils/getImageUrl'
 import { LiaMedalSolid } from 'react-icons/lia'
@@ -10,7 +9,7 @@ import { MdDateRange, MdLocationOn } from 'react-icons/md'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import { ITournament } from '@/app/types/db.interface'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 
 interface IProps {
@@ -18,10 +17,9 @@ interface IProps {
 }
 const Tournament = ({tournament}: IProps) => {
 	const dic = useTranslations()
-	const localeActive = useLocale()
 	
 	return (
-		<Link href={getUrl(`/tournaments/${tournament.id}`, localeActive)} key={tournament.id}>
+		<Link href={`/tournaments/${tournament.id}`} key={tournament.id}>
 			<div className="tournament rounded-lg overflow-hidden border border-transparent hover:border-shadowColor">
 				<div className="relative">
 					<Image src={getImageUrl(tournament?.game?.image || '')}

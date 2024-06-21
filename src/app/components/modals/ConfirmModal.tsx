@@ -1,22 +1,29 @@
 import React, { ReactNode } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { useTranslations } from 'next-intl'
-import Button from '@/app/components/UI/Button'
+import BorderButton from '@/app/components/UI/BorderButton'
 import { useRouter } from 'next/navigation'
+import FillButton from '@/app/components/UI/FillButton'
 
 interface IProps {
-	handleClose: () => void,
-	route?: string
+	handleClose: () => void
+	handleAnswer: () => boolean
 	text: string | ReactNode
 }
 
-const ConfirmModal = ({handleClose, text, route}: IProps) => {
+const ConfirmModal = ({handleClose, text, handleAnswer}: IProps) => {
 	const dic = useTranslations()
-	const router = useRouter()
+
+	const handleConfirm = () => {
+		handleClose()
+		handleAnswer(true)
+	}
+
 	const handleOut = () => {
 		handleClose()
-		route && router.replace(route)
+		handleAnswer(false)
 	}
+
 	return (
 		<div className="fixed inset-0 bg-opacity-30 bg-bgSecondary backdrop-blur-sm flex items-center justify-center z-30 overflow-hidden"
 				 onClick={handleOut}>
@@ -24,10 +31,15 @@ const ConfirmModal = ({handleClose, text, route}: IProps) => {
 					 onClick={(event)=> { event.stopPropagation()}}>
 				<p>{text}
 				</p>
-				<div className="mt-4"  onClick={handleOut}>
-					<Button title={dic("ConfirmModal.confirm")} borderColor="border-primary"/>
+				<div className="mt-4 flex gap-5">
+					<div onClick={handleConfirm}>
+						<FillButton title={dic("ConfirmModal.confirmYes")} color="bg-primary"/>
+					</div>
+					<div onClick={handleOut}>
+						<FillButton title={dic("ConfirmModal.confirmNo")} color="bg-red-500"/>
+					</div>
 				</div>
-				<IoMdClose className="text-2xl absolute top-1 right-1 cursor-pointer"  onClick={handleOut}/>
+				<IoMdClose className="text-2xl absolute top-1 right-1 cursor-pointer" onClick={handleOut}/>
 			</div>
 		</div>
 	)

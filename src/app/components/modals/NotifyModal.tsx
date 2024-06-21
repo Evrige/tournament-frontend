@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { useTranslations } from 'next-intl'
-import Button from '@/app/components/UI/Button'
+import BorderButton from '@/app/components/UI/BorderButton'
 import { useRouter } from 'next/navigation'
 
 interface IProps {
@@ -25,7 +25,7 @@ const NotifyModal = ({handleClose, text, route}: IProps) => {
 				<p>{text}
 				</p>
 				<div className="mt-4"  onClick={handleOut}>
-					<Button title={dic("ConfirmModal.confirm")} borderColor="border-primary"/>
+					<BorderButton title={dic("ConfirmModal.confirm")} borderColor="border-primary"/>
 				</div>
 				<IoMdClose className="text-2xl absolute top-1 right-1 cursor-pointer"  onClick={handleOut}/>
 			</div>

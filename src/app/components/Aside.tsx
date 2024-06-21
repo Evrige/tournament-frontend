@@ -27,7 +27,7 @@ const Aside = () => {
 									<span className="text-2xl">
 												{item.icon}
 										</span>
-									<Link href={getUrl(item.link, localeActive)} prefetch={false}>{dic(item.name)}</Link>
+									<Link href={item.link}>{dic(item.name)}</Link>
 								</> : <div key={item.name}><Games /></div>}
 						</li>
 					)

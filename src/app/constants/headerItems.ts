@@ -25,21 +25,6 @@ export const moreItems = [
 	},
 ]
 
-export const gamesItems = [
-	{
-		name: "Menu.Games.CS",
-		link: "/tournament",
-	},
-	{
-		name: "Menu.Games.Valorant",
-		link: "/tournament",
-	},
-	{
-		name: "Menu.Games.Dota",
-		link: "/tournament",
-	}
-]
-
 export const menuItems = [
 	{
 		name: 'Menu.home',
@@ -52,7 +37,7 @@ export const menuItems = [
 	{
 		name: 'Menu.games',
 		link: 'dropDown',
-		list: gamesItems
+		list: []
 	},
 	{
 		name: 'Menu.more',
@@ -60,6 +45,7 @@ export const menuItems = [
 		list: moreItems
 	},
 ]
+
 export const localeLang = [
 	{
 		label: "Menu.Locale.en",
