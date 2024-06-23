@@ -2,6 +2,7 @@ import React from 'react'
 import { ITournament } from '@/app/types/db.interface'
 import instance from '@/app/api/api.interseptor'
 import TournamentPage from '@/app/components/TournamentPage'
+import { fetchTournament } from '@/app/service/getTournament'
 
 export const dynamic = 'force-dynamic'
 export async function generateStaticParams() {
@@ -17,13 +18,6 @@ export async function generateStaticParams() {
 	}))
 }
 
-const fetchTournament = async (id: string): Promise<ITournament> => {
-	const response = await instance({
-		url: `${process.env.NEXT_PUBLIC_GET_TOURNAMENT_BY_ID_URL}/${id}`,
-		method: 'GET',
-	});
-	return response.data;
-};
 
 const Page = async ({ params }: {params: {id: string}}) => {
 	 const tournament = await fetchTournament(params.id);
