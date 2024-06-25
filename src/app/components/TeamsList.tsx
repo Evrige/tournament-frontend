@@ -3,7 +3,7 @@ import React from 'react'
 import { IListTeam, ITournament } from '@/app/types/db.interface'
 import { useTranslations } from 'next-intl'
 import TeamLogo from '@/app/components/UI/TeamUserLogo'
-import { formatDate } from '@/app/utils/formatDate'
+import { formatDateTime } from '@/app/utils/formatDateTime'
 import { useTournament } from '@/app/components/Providers/TournamentProvider'
 
 const TeamsList = () => {
@@ -24,7 +24,7 @@ const TeamsList = () => {
 							<TeamLogo url={teamData.team.logo} alt={dic("Tournament.Teams.teamAlt")} />
 							<p className="text-lg text-accentText">{teamData.team.name}</p>
 						</div>
-						<div>{formatDate(teamData.createdAt)}</div>
+						<div>{formatDateTime(teamData.createdAt)}</div>
 					</div>
 				))}
 			</div>

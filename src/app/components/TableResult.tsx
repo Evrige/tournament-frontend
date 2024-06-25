@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { ITournament } from '@/app/types/db.interface'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
-import { formatDate } from '@/app/utils/formatDate'
+import { formatDateTime } from '@/app/utils/formatDateTime'
 import { toPrice } from '@/app/utils/toPrice'
 import { useRouter } from 'next/navigation'
 
@@ -26,7 +26,7 @@ const TableResult = ({list}: {list: ITournament[]}) => {
 						<td className="p-4">
 							<div>
 								<p className="text-accentText">{tournament?.name}</p>
-								<p className="text-sm">{formatDate(tournament?.date)}</p>
+								<p className="text-sm">{formatDateTime(tournament?.date)}</p>
 							</div>
 						</td>
 						<td className="p-4">

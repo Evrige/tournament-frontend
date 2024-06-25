@@ -1,13 +1,13 @@
 import { IMatch } from '@/app/types/db.interface'
 import { format } from 'date-fns'
-import { formatDate } from '@/app/utils/formatDate'
+import { formatDateTime } from '@/app/utils/formatDateTime'
 
 export const formatMatches = (matches:IMatch[]) => matches.map(match => {
 		return {
 			id: match.id,
 			nextMatchId: match.nextMatchId,
 			tournamentRoundText: match.tournamentRoundText,
-			startTime: formatDate(match.startTime),
+			startTime: formatDateTime(match.startTime),
 			state: match.state,
 			map: match.map,
 			tournamentId: match.tournamentId,
