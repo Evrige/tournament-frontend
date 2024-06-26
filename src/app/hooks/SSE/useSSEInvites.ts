@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { IInvites } from '@/app/types/db.interface'
 
 const useSSEInvites = () => {
-	const [sseData, setSseData] = useState<IInvites[]>();
+	const [sseData, setSseData] = useState<IInvites>();
 
 	useEffect(() => {
 		const createEventSource = (url: string) => {
@@ -13,7 +13,7 @@ const useSSEInvites = () => {
 		const eventSource = createEventSource(`${process.env.NEXT_PUBLIC_SERVER_URL}${process.env.NEXT_PUBLIC_USER_SSE_INVITES_URL}`);
 		eventSource.onmessage = (event) => {
 			const data = JSON.parse(event.data);
-			setSseData(data.invites);
+			setSseData(data);
 		};
 
 		eventSource.onerror = (error) => {

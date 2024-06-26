@@ -23,11 +23,24 @@ export interface IUser {
 }
 
 export interface IInvites {
-	id: number
-	userId: number
-	teamId: number
-	status: EnumInviteStatus
-	team: ITeam
+	teamInvites: [{
+		id: number
+		userId: number
+		teamId: number
+		status: EnumInviteStatus
+		team: ITeam
+		createdAt: Date
+		updatedAt: Date
+	}]
+	friendInvites: [{
+		id: number
+    user1Id: number
+    user2Id: number
+    status: EnumInviteStatus
+    user1: IUser
+		createdAt: Date
+		updatedAt: Date
+	}]
 }
 
 export enum EnumInviteStatus {

@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect } from 'react'
 import Logo from '@/app/components/Logo'
-import useSSE from '@/app/hooks/useSSE'
+import useSSE from '@/app/hooks/SSE/useSSE'
 import UserMenu from '@/app/components/UserMenu'
 import Menu from '@/app/components/Menu'
 import useRefresh from '@/app/hooks/useRefresh'

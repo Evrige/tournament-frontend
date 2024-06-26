@@ -24,6 +24,7 @@
     },
     "Notification": {
       "inviteInTeam": "Вас пригласили в:",
+      "inviteInFriend": "Запрос дружби от:",
       "noNotification": "Новых уведомлений нет"
     },
     "User": {

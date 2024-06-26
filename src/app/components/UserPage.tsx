@@ -3,16 +3,18 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import { IUser } from '@/app/types/db.interface'
 import TeamUserLogo from '@/app/components/UI/TeamUserLogo'
-import { calculateAge } from '@/app/utils/getAge'
 import FillButton from '@/app/components/UI/FillButton'
 import { MdPersonAddAlt1 } from 'react-icons/md'
 import { useUser } from '@/app/components/Providers/UserProvider'
 import Loader from '@/app/(routes)/loader'
+import { useUserAge } from '@/app/hooks/features/useUserAge'
 
 const UserPage = ({ user }: { user: IUser }) => {
 	const dic = useTranslations()
 	const {user: currentUser, isLoading} = useUser()
-	
+
+	const userAge = useUserAge(user.dateBirth || new Date())
+
 	if (isLoading) return <Loader/>
 
 	return (
@@ -37,7 +39,7 @@ const UserPage = ({ user }: { user: IUser }) => {
 				</div>
 				<div className="flex justify-between mt-1 pb-1 border-b border-b-gray-500">
 					<span>{`${dic('UserPage.age')}: `}</span>
-					{user.dateBirth ? <span>{calculateAge(user.dateBirth)}</span> : "-"}
+					{user.dateBirth ? <span>{userAge}</span> : "-"}
 				</div>
 				<div className="flex gap-2 justify-between items-center mt-2 pb-2 border-b border-b-gray-500">
 					<span>{`${dic('UserPage.team')}: `}</span>
